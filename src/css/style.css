@@ -1,0 +1,321 @@
+/* Variables de colores generales */
+:root {
+    --primary: #8FC74A;
+    --primary-light: #E8F5E9;
+    --primary-dark: #5e8132;
+    --secondary: #7B7B7B;
+    --secondary-light: #b6b6b6;
+    --background: #F5F5F5;
+    --background-dark: #222222;
+    --background-light: #fff;
+    --text-light: #fff;
+    --danger: #cf3342;
+    --danger-dark: rgb(173, 56, 68);
+    /* Colores para estados de las tablas */
+    --table-green-light: #3cb17c;
+    --table-green-dark: #0b5231;
+    --table-yellow-light: #fcebb9;
+    --table-yellow-dark: #7e6009;
+    --table-red-light: #dd989f;
+    --table-red-dark: #79111c;
+}
+
+/* Estados de las tablas de planeación */
+.yellow {
+    background-color: var(--table-yellow-light) !important;
+    color: var(--table-yellow-dark) !important;
+}
+
+.green {
+    background-color: var(--table-green-light) !important;
+    color: var(--table-green-dark) !important;
+}
+
+.red {
+    background-color: var(--table-red-light) !important;
+    color: var(--table-red-dark) !important;
+}
+
+/* Estilos generales de la página y estructura */
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    min-width: 320px;
+    min-height: 100vh;
+    line-height: 1.6;
+    font-family: "Inter", sans-serif;
+}
+
+main {
+    flex: 1;
+    background-color: var(--background);
+}
+
+section {
+    margin: 20px 0px 20px 0px;
+}
+
+p, h6, h5, h4 {
+    margin-bottom: 0px;
+}
+
+table {
+    font-size: 15px;
+}
+
+@media (max-width: 770px) {
+    table {
+        font-size: 13px !important;
+    }
+}
+
+@media (max-width: 430px) {
+    p {
+        font-size: 14px;
+    }
+}
+
+/* Contenedores de figuras para los iconos */
+.icon-circle {
+    color: var(--primary);    
+    background: var(--primary-light);
+    border-radius: 100%;        
+    width: 64px;                      
+    height: 64px;                      
+    padding: 16px;                    
+}
+
+.icon-square {
+    color: var(--primary);    
+    background: var(--primary-light);
+    border-radius: 15px;        
+    width: 60px;                      
+    height: 60px;                      
+    padding: 14px;                    
+}
+
+/* Estilos para formularios */
+.form-control, .form-select{
+    border-radius: 10px;
+    border: 1px solid var(--secondary-light);
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 5px var(--primary-dark);
+}
+
+.form-control:disabled, .form-select:disabled {
+    border-color: var(--secondary) !important;
+    background-color: transparent !important;
+    color: var(--secondary);
+    font-weight: 500;
+}
+
+input::placeholder, textarea::placeholder, #default-option {
+    color: var(--primary-dark) !important;
+    font-style: italic;
+    opacity: 1;
+    font-size: 14px;
+}
+
+.label-over-border {
+    position: relative;
+}
+
+.label-over-border label {
+    position: absolute;
+    top: -1.35rem;
+    background-color: var(--background-light);
+    color: var(--secondary);
+    padding: 0 0.2rem;
+    font-size: 0.875rem;
+    z-index: 1;
+}
+
+/* Estilos para filtros */
+@media (min-width: 500px) and (max-width: 768px) {
+    .filter {
+        margin-top: 1.5rem;
+    }
+
+    .label-over-border label {
+        top: -1.2rem;
+        font-size: 12px;
+    }
+}
+
+/* Estilos para filtros */
+@media (max-width: 430px) {
+    .label-over-border {
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Eliminar flechas de inputs numericos */
+.no-arrows::-webkit-outer-spin-button,
+.no-arrows::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Estilos para botones */
+.btn-primary, .btn:disabled {
+    border: 1px solid var(--primary);
+    background-color: var(--primary);
+    border-radius: 11px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    border-color: var(--primary-dark);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--primary-dark);
+}
+
+.btn-secondary {
+    border: 1px solid var(--secondary-light);
+    background-color: transparent;
+    color: var(--secondary);
+    border-radius: 11px;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary);
+    border-color: var(--primary-dark);
+    color: var(--text-light);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--primary-dark);
+}
+
+.btn-danger {
+    border: 1px solid var(--danger);
+    background-color: var(--danger);
+    border-radius: 11px;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: var(--danger-dark);
+    border-color: var(--danger-dark);
+    color: var(--text-light);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-danger:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--danger-dark);
+}
+
+/* Estilos para botones de las tabs */
+.tab-btn {
+    background-color: var(--background);
+    border: 1px solid var(--secondary-light);
+    color: var(--background-dark);
+    font-weight: bold;
+    font-size: 0.9rem;
+    border-radius: 11px !important;
+    margin-right: 8px;
+    transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+    background-color: var(--primary) !important;
+    color: var(--text-light);
+}
+
+.tab-btn:hover {
+    background-color: var(--primary-light);
+    color: var(--secondary);
+}
+
+/* Estilos para botones de edición de entradas */
+.action-buttons {
+    padding: 0px;
+    gap: 8px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-edit, .btn-delete, .btn-add{
+    border-radius: 12px;
+    border: 1px solid var(--secondary-light);
+}
+
+.btn-edit {
+    color: var(--primary-dark);
+    box-shadow: 0 2px 4px rgba(108, 150, 57, 0.3);
+}
+
+.btn-edit:hover {
+    background-color: var(--primary-dark);
+    color: var(--text-light);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-add {
+    color: var(--secondary);
+    box-shadow: 0 2px 4px rgba(117, 107, 108, 0.3);
+}
+
+.btn-add:hover {
+    background-color: var(--secondary-light);
+    color: var(--text-light);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-delete {
+    color: var(--danger-dark);
+    box-shadow: 0 2px 4px rgba(121, 17, 28, 0.3);
+}
+
+.btn-delete:hover {
+    background-color: var(--danger-dark);
+    color: var(--text-light);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-delete-confirm {
+    width: 85px;
+}
+
+.btn-extra {
+    padding: 1px 8px 3px 8px !important;
+}
+
+/* Estilos para paginación y su navegación */
+.pagination .page-link {
+    border: 1px solid var(--secondary-light);
+    background-color: var(--background);
+    color: var(--secondary);
+    transition: all 0.3s ease;
+}
+
+.pagination .page-link:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-dark);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pagination .page-link:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--primary-dark);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: var(--text-light);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
