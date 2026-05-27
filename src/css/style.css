@@ -5,35 +5,56 @@
     --primary-dark: #5e8132;
     --secondary: #7B7B7B;
     --secondary-light: #b6b6b6;
-    --background: #F5F5F5;
-    --background-dark: #222222;
-    --background-light: #fff;
+    --background: #eeeef0;
+    --background-dark: #e8e8ea;
+    --background-light: #ffffff;
     --text-light: #fff;
-    --danger: #cf3342;
-    --danger-dark: rgb(173, 56, 68);
-    /* Colores para estados de las tablas */
-    --table-green-light: #3cb17c;
-    --table-green-dark: #0b5231;
-    --table-yellow-light: #fcebb9;
-    --table-yellow-dark: #7e6009;
-    --table-red-light: #dd989f;
-    --table-red-dark: #79111c;
+    /* Colores diversos */
+    --blue-light: #95a9d6;
+    --blue-dark: #0a2a6e;
+    --greenL-light: #bce0c8;
+    --greenL-dark: #0c6e40;
+    --greenD-light: #3cb17c;
+    --greenD-dark: #0b5231;
+    --yellow-light: #fcebb9;
+    --yellow-dark: #7e6009;
+    --redL-light: #dd989f;
+    --redL-dark: #79111c;
+    --redD-light: #cf3342;
+    --redD-dark: #ad3844;
+    --grey-light: #afafaf;
+    --grey-dark: #505050;
 }
 
-/* Estados de las tablas de planeación */
+/* Colores para estados varios */
+.blue {
+    background-color: var(--blue-light) !important;
+    color: var(--blue-dark) !important;
+}
+
+.greenL {
+    background-color: var(--greenL-light) !important;
+    color: var(--greenL-dark) !important;
+}
+
+.greenD {
+    background-color: var(--greenD-light) !important;
+    color: var(--greenD-dark) !important;
+}
+
 .yellow {
-    background-color: var(--table-yellow-light) !important;
-    color: var(--table-yellow-dark) !important;
+    background-color: var(--yellow-light) !important;
+    color: var(--yellow-dark) !important;
 }
 
-.green {
-    background-color: var(--table-green-light) !important;
-    color: var(--table-green-dark) !important;
-}
+.redL {
+    background-color: var(--redL-light) !important;
+    color: var(--redL-dark) !important;
+}   
 
-.red {
-    background-color: var(--table-red-light) !important;
-    color: var(--table-red-dark) !important;
+.redD {
+    background-color: var(--redD-light) !important;
+    color: var(--redD-dark) !important;
 }
 
 /* Estilos generales de la página y estructura */
@@ -80,19 +101,19 @@ table {
 .icon-circle {
     color: var(--primary);    
     background: var(--primary-light);
-    border-radius: 100%;        
-    width: 64px;                      
-    height: 64px;                      
-    padding: 16px;                    
+    border-radius: 100%;
+    width: 64px;
+    height: 64px;
+    padding: 16px;
 }
 
 .icon-square {
     color: var(--primary);    
     background: var(--primary-light);
-    border-radius: 15px;        
-    width: 60px;                      
-    height: 60px;                      
-    padding: 14px;                    
+    border-radius: 15px;
+    width: 60px;
+    height: 60px;
+    padding: 14px;
 }
 
 /* Estilos para formularios */
