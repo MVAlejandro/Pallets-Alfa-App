@@ -1,0 +1,70 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ocultar navbar */
+#nav-list {
+    display: none !important;
+}
+
+#header-container {
+    background-color: var(--background-light) !important;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    animation: fadeInUp 1s ease-in-out;
+}
+
+#header-user {
+    color: var(--primary);
+}
+
+#header-date, .advice-date {
+    font-size: 14px;
+    color: var(--secondary) !important;
+}
+
+#menu-container {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.access-icon {
+    color: var(--secondary);
+    background: var(--background-dark);
+    border-radius: 15px;
+    width: 60px;
+    height: 60px;
+    padding: 14px;
+}
+
+/* Estilos para cards de acceso directo */
+.card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease;
+    border-radius: 1rem !important;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.access-card{
+    width: 100%;
+    box-shadow: 3px 3px var(--primary);
+    border: 1px solid var(--secondary-light);
+}
+
+#advices-container {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.advice-card .card-header {
+    color: var(--primary-dark) !important;
+    font-weight: bold;
+}

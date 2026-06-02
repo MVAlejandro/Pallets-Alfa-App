@@ -1,0 +1,29 @@
+
+/* Variables de colores generales */
+:root {
+    --primary: #8FC74A;
+    --primary-light: #E8F5E9;
+    --primary-dark: #5e8132;
+    --secondary: #7B7B7B;
+    --secondary-light: #C2C9B4;
+    --background: #F9F9FC;
+    --background-dark: #EEEEF0;
+    --background-light: #ffffff;
+    --text-light: #fff;
+    
+    /* Colores diversos */
+    --blue-light: #95a9d6;
+    --blue-dark: #0a2a6e;
+    --greenL-light: #bce0c8;
+    --greenL-dark: #0c6e40;
+    --greenD-light: #3cb17c;
+    --greenD-dark: #0b5231;
+    --yellow-light: #fcebb9;
+    --yellow-dark: #7e6009;
+    --redL-light: #dd989f;
+    --redL-dark: #79111c;
+    --redD-light: #cf3342;
+    --redD-dark: #ad3844;
+    --grey-light: #afafaf;
+    --grey-dark: #505050;
+}

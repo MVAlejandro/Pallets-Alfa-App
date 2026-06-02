@@ -1,6 +1,22 @@
-// Estilos generales
-import './css/style.css';
-import './css/pages/index.css';
+// Estilos y variables globales
+import './shared/css/style.css';
+import './shared/css/variables.css';
 
-// Estilos de componentes
-import './css/components/navbar.css';
+// Estilos del módulo
+import './shared/css/pages/index.css';
+
+// Estilos de layout
+import './shared/css/layouts/navbar.css';
+import './shared/css/layouts/footer.css';
+
+// Layout base
+import { createBar, createNavbar } from './core/layouts/navbar'
+import { createUserBar } from './core/layouts/sidebar';
+import { createFooter } from './core/layouts/footer'
+
+document.addEventListener('DOMContentLoaded', () => {
+    createBar();
+    createNavbar();
+    createUserBar();
+    createFooter();
+});

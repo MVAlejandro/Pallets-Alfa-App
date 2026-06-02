@@ -1,30 +1,3 @@
-/* Variables de colores generales */
-:root {
-    --primary: #8FC74A;
-    --primary-light: #E8F5E9;
-    --primary-dark: #5e8132;
-    --secondary: #7B7B7B;
-    --secondary-light: #b6b6b6;
-    --background: #eeeef0;
-    --background-dark: #e8e8ea;
-    --background-light: #ffffff;
-    --text-light: #fff;
-    /* Colores diversos */
-    --blue-light: #95a9d6;
-    --blue-dark: #0a2a6e;
-    --greenL-light: #bce0c8;
-    --greenL-dark: #0c6e40;
-    --greenD-light: #3cb17c;
-    --greenD-dark: #0b5231;
-    --yellow-light: #fcebb9;
-    --yellow-dark: #7e6009;
-    --redL-light: #dd989f;
-    --redL-dark: #79111c;
-    --redD-light: #cf3342;
-    --redD-dark: #ad3844;
-    --grey-light: #afafaf;
-    --grey-dark: #505050;
-}
 
 /* Colores para estados varios */
 .blue {
@@ -59,8 +32,6 @@
 
 /* Estilos generales de la página y estructura */
 body {
-    display: flex;
-    flex-direction: column;
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
@@ -69,20 +40,28 @@ body {
 }
 
 main {
-    flex: 1;
     background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 section {
     margin: 20px 0px 20px 0px;
 }
 
-p, h6, h5, h4 {
+p, h1, h2, h3, h4, h5, h6 {
     margin-bottom: 0px;
 }
 
 table {
     font-size: 15px;
+}
+
+@media (min-width: 2000px) {
+    .container {
+        max-width: 1920px !important;
+    }
 }
 
 @media (max-width: 770px) {
@@ -108,7 +87,7 @@ table {
 }
 
 .icon-square {
-    color: var(--primary);    
+    color: var(--primary);
     background: var(--primary-light);
     border-radius: 15px;
     width: 60px;
