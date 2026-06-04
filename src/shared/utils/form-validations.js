@@ -176,6 +176,25 @@ export function passValidate(data, error) {
     }
 }
 
+// Función que valida la confirmación de la contraseña
+export function confirmPassValidate(data1, data2, error) {
+    error.textContent = '';
+    data1.classList.remove('is-invalid', 'is-valid');
+
+    if (data1.value.length < 3) {
+        error.textContent = `El campo debe de tener al menos 3 caracteres`;
+        data1.classList.add('is-invalid');
+    } else if (data1.value !== data2.value) {
+        error.textContent=`Las contraseñas deben coincidir`;
+        data1.classList.add('is-invalid');
+        data1.classList.remove('is-valid');
+    } else {
+        error.textContent = '';
+        data1.classList.remove('is-invalid');
+        data1.classList.add('is-valid');
+    }
+}
+
 // Función que valida que los inputs no sean inválidos
 export function inputValidate(campos) {
     for (let campo of campos) {

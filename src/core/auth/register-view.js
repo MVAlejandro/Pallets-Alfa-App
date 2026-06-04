@@ -52,7 +52,7 @@ export function generateRegister() {
                         <p id="login-change" class="small fw-semibold">Iniciar Sesión</p>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button type="button" id="btn-register" class="btn btn-primary fw-semibold">Registrarse</button>
+                        <button type="submit" id="btn-register" class="btn btn-primary fw-semibold">Registrarse</button>
                     </div>
                 </form>
             </div>

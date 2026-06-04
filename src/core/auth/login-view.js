@@ -31,7 +31,7 @@ export function generateLogin() {
                         <p id="login-change" class="small fw-semibold">Regístrate</p>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button type="button" id="btn-login" class="btn btn-primary fw-semibold">Iniciar Sesión</button>
+                        <button type="submit" id="btn-login" class="btn btn-primary fw-semibold">Iniciar Sesión</button>
                     </div>
                 </form>
             </div>

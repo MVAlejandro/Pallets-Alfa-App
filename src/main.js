@@ -1,6 +1,6 @@
 // Estilos y variables globales
-import './shared/css/style.css';
 import './shared/css/variables.css';
+import './shared/css/style.css';
 
 // Estilos del módulo
 import './shared/css/pages/index.css';
