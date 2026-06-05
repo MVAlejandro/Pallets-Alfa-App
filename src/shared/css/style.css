@@ -1,3 +1,5 @@
+/* Fuentes importadas */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
 
 /* Colores para estados varios */
 .blue {
@@ -76,6 +78,15 @@ table {
     }
 }
 
+/* Estilos para los íconos */
+.icon-sm {
+    font-size: 16px;
+}
+
+.icon-lg {
+    font-size: 32px;
+}
+
 /* Contenedores de figuras para los iconos */
 .icon-circle {
     color: var(--primary);    
@@ -84,6 +95,9 @@ table {
     width: 64px;
     height: 64px;
     padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .icon-square {
@@ -93,6 +107,9 @@ table {
     width: 60px;
     height: 60px;
     padding: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Estilos para formularios */

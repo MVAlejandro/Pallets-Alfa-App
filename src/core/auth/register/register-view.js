@@ -14,7 +14,7 @@ export function generateRegister() {
                     <h2 class="card-title fw-bold">Pallets Alfa App</h2>
                     <p class="text-muted small">Registre sus datos</p>
                 </div>
-                <form id="register-form" class=" justify-content-center">
+                <form id="register-form" class="justify-content-center" autocomplete="off">
                     <div class="row">
                         <div class="col register mb-3">
                             <label for="fname-register" class="form-label fw-bold mb-1 ps-1">Nombre(s)</label>

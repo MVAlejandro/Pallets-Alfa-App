@@ -25,6 +25,14 @@
     #nav-list, .btn-toggle {
         font-size: 0.9rem !important;
     }
+
+    #dropdown-user {
+        font-size: 0.9rem !important;
+    }
+
+    #dropdown-user i {
+        font-size: 26px !important;
+    }
 }
 
 /*--- Barra de navegación principal ---*/
@@ -81,6 +89,8 @@ ul {
     text-decoration: none;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
 }
+
+
 
 /* Botones tipo acordeón */
 .btn-toggle {

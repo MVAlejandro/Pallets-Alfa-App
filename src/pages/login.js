@@ -1,16 +1,19 @@
+// Implementación de Bootstrap y Bootstrap Icons
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 // Estilos y variables globales
-import '../../shared/css/variables.css'
-import '../../shared/css/style.css'
+import '../shared/css/variables.css'
+import '../shared/css/style.css'
 
 // Estilos del módulo
-import '../../shared/css/pages/login.css'
+import '../shared/css/pages/login.css'
 
 // Componentes JS
-import { generateLogin } from './login/login-view'; 
-import { generateRegister } from './register/register-view';
+import { generateLogin } from '../core/auth/login/login-view.js'; 
+import { generateRegister } from '../core/auth/register/register-view.js';
 
 // Funciones del backend
-import { validateAuth } from './auth-validate'; 
+import { validateAuth } from '../core/auth/auth-validate.js'; 
 
 let login = true;
 
