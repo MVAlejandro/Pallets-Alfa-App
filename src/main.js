@@ -14,9 +14,20 @@ import { createBar, createNavbar } from './core/layouts/navbar'
 import { createUserBar } from './core/layouts/sidebar';
 import { createFooter } from './core/layouts/footer'
 
-document.addEventListener('DOMContentLoaded', () => {
+// Funciones del backend
+import { validateAuth } from './core/auth/auth-validate';
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const user = await validateAuth();
+
+    if (!user) {
+        return;
+    }
+
     createBar();
     createNavbar();
-    createUserBar();
+    createUserBar(user);
     createFooter();
+
+    console.log(user);
 });

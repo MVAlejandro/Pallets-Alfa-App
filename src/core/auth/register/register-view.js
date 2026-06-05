@@ -1,3 +1,5 @@
+// Funciones backend
+import { handleRegister } from "./register-controller";
 
 export function generateRegister() {
     const container = document.getElementById('login-container');
@@ -61,4 +63,7 @@ export function generateRegister() {
                 <p>Todos los derechos reservados.</p>
             </div>
         </div>`;
+
+    // Función para intentar el registro del usuario nuevo
+    document.querySelector('#register-form').addEventListener('submit', handleRegister);
 };

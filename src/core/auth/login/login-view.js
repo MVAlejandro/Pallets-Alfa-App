@@ -1,3 +1,5 @@
+// Funciones backend
+import { handleLogin } from "./login-controller";
 
 export function generateLogin() {
     const container = document.getElementById('login-container');
@@ -40,4 +42,7 @@ export function generateLogin() {
                 <p>Todos los derechos reservados.</p>
             </div>
         </div>`;
+
+    // Función para intentar el inicio de sesión
+    document.querySelector('#login-form').addEventListener('submit', handleLogin);
 };

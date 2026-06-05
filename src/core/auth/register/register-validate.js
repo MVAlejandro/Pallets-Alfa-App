@@ -1,5 +1,5 @@
 // Utilidades
-import { nameValidate, emailValidate, passValidate, confirmPassValidate, inputValidate } from "../../shared/utils/form-validations";
+import { nameValidate, emailValidate, passValidate, confirmPassValidate, inputValidate } from "../../../shared/utils/form-validations";
 
 export function validateRegister(form) {
     // Referencias para validación

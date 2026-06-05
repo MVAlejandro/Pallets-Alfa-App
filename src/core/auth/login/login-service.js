@@ -12,5 +12,11 @@ export async function login(email, password) {
         })
     });
 
-    return response.json();
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.message || 'Error al iniciar sesión');
+    }
+
+    return data;
 }

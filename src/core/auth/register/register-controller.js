@@ -1,9 +1,11 @@
+// Funciones del backend
 import { validateRegister } from './register-validate.js';
 import { register } from './register-service.js'; 
 
 // Función que maneja el registro con su validación
 export async function handleRegister(e) {
     e.preventDefault();
+
     const form = e.currentTarget;
 
     // Capturar el botón que disparó el evento
@@ -35,7 +37,7 @@ export async function handleRegister(e) {
         const email = form.querySelector('#email-register').value.trim();
         const password = form.querySelector('#password-register').value;
 
-        // enviar datos
+        // Enviar datos
         const result = await register(fName, sName, email, password);
 
         // Mostrar verificación y limpiar el formulario
