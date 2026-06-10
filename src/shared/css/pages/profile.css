@@ -1,0 +1,49 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Ocultar navbar */
+#profile-btn {
+    display: none !important;
+}
+
+/* Estilos generales de contenedores */
+#profile-header, #user-info, #user-activity, #user-details {
+    background-color: var(--background-light) !important;
+    border-radius: 0.5rem;
+    border: 1px solid var(--secondary-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Contenedor del encabezado */
+@media (min-width: 500px) and (max-width: 768px) {
+    #save-btn {
+        font-size: 13px;
+    }
+}
+
+.user-color {
+    padding: 1px 8px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* Estilos de cards de seguridad */
+.activity-card {
+    background-color: var(--background-dark) !important;
+    border-radius: 0.25rem;
+    border: 1px solid var(--secondary-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+}
+
+.activity-card small {
+    color: var(--secondary);
+}

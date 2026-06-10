@@ -13,7 +13,12 @@ import { initLayout } from './core/layouts/init.js'
 
 // Funciones del backend
 import { validateAuth } from './core/auth/auth-validate';
-import { AccessCard, AdviceCard } from './shared/components/index-cards.js';
+
+// Funciones del módulo
+import { AccessCard, AdviceCard } from './modules/index/index-cards.js';
+
+// Utilidades
+import { getDateParts } from './shared/utils/time-functions.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     // Validar que haya sesión y obtener al usuario
@@ -27,14 +32,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     initLayout(user)
 
     // Obtener los contenedores de la información del index
-    const today = new Date().toLocaleDateString('en-CA') || "-"
-
+    const today = new Date() || "-"
     const headerName = document.getElementById('header-user');
     const headerDate = document.getElementById('header-date');
+    const headerWeek = document.getElementById('header-week');
     
     // Limpiar contenido y generar texto
     headerName.innerHTML = `${user.nombre}`;
-    headerDate.innerHTML = `${today}`;
+    headerDate.innerHTML = `El día de hoy: ${today.toLocaleDateString('en-CA')}`;
+    headerWeek.innerHTML = `Semana ${getDateParts(today).semana}`;
 
     const access_container = document.getElementById("direct-access-container");
     const advice_container = document.getElementById("advices-cards-container");

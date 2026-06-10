@@ -25,13 +25,19 @@
 
             <!-- CONTENIDO PRINCIPAL -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 px-lg-5">
+
                 <!-- SECCIÓN DE ENCABEZADO -->
                 <section id="site-header" class="pt-3 pb-4">
                     <div id="header-container" class="container px-4 py-3">
                         <h2 class="fw-bold">Hola, <span id="header-user">-</span></h2>
-                        <div id="header-body" class="d-flex align-items-center">
-                            <i class="bi bi-calendar2-date"></i>
-                            <p id="header-date" class="pt-1 ps-2">El día de hoy: --/--/----</p>
+                        <div id="header-body" class="row">
+                            <div class="col-lg-10 d-flex align-items-center">
+                                <i class="bi bi-calendar2-date"></i>
+                                <p id="header-date" class="ps-2">El día de hoy: --/--/----</p>
+                            </div>
+                            <div class="col-lg-2 d-flex">
+                                <h5 id="header-week" class="fw-bold ms-auto">Semana -</h5>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -47,7 +53,7 @@
                 </section>
 
                 <!-- SECCIÓN DE AVISOS -->
-                <section id="advices" class="mt-auto">
+                <section id="advices">
                     <div id="advices-container" class="container">
                         <h5 class="ps-lg-2 pb-3">Avisos recientes</h5>
                         <div id="advices-cards-container" class="row g-4">
@@ -57,10 +63,12 @@
                 </section>
 
                 <!-- FOOTER -->
-                <footer id="site-footer" class="container-fluid">
+                <footer id="site-footer" class="container-fluid mt-auto">
                     
                 </footer>
+
             </main>
+            
         </div>
     </div>
 

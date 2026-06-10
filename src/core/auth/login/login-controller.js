@@ -36,7 +36,7 @@ export async function handleLogin(e) {
         const password = form.querySelector('#password-login').value;
 
         // Enviar datos
-        const result = await login(email, password);
+        await login(email, password);
 
         // Mostrar verificación, limpiar el formulario y redirigir
         await Swal.fire({

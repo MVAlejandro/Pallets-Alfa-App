@@ -7,13 +7,13 @@ export function createUserBar(user) {
 
     bar.innerHTML =
         `<hr>
-        <a href="#" class="d-flex align-items-center justify-content-center dropdown-toggle" id="dropdown-user" data-bs-toggle="dropdown" aria-expanded="false">
+        <a href='#' class="d-flex align-items-center justify-content-center dropdown-toggle" id="dropdown-user" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="bi bi-person-circle icon-lg"></i>
             <p class="ps-3 fw-bold">${user.nombre} ${user.apellido[0]}</p>
         </a>
         <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="#" user-data='${JSON.stringify(user)}'>Perfil</a></li>
-            <li><a id="logout-btn" class="dropdown-item" href="#">Cerrar Sesión</a></li>
+            <li><a id="profile-btn" class="border-bottom dropdown-item" href='./profile.html' user-data='${JSON.stringify(user)}'>Perfil</a></li>
+            <li><a id="logout-btn" class="dropdown-item" href='#'>Cerrar Sesión</a></li>
         </ul>`;
 
     // Función para cerrar la sesión
