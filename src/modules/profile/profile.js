@@ -2,21 +2,21 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 // Estilos y variables globales
-import '../shared/css/variables.css';
-import '../shared/css/style.css';
+import '../../shared/css/variables.css';
+import '../../shared/css/style.css';
 
 // Estilos del módulo
-import '../shared/css/pages/profile.css';
+import './styles/profile.css';
 
 // Layout base
-import { initLayout } from '../core/layouts/init.js'
+import { initLayout } from '../../core/layouts/init.js'
 
 // Funciones del backend
-import { validateAuth } from '../core/auth/auth-validate';
-import { handleUpdateUser } from '../modules/profile/user-controller.js';
+import { validateAuth } from '../../core/auth/auth-validate.js';
+import { handleUpdateUser } from './controllers/user-controller.js';
 
 // Componentes del módulo
-import { ProfileActivity, ProfileHeader, ProfileUserInfo } from '../modules/profile/profile-info.js';
+import { ProfileActivity, ProfileHeader, ProfileUserInfo } from './components/profile/profile-info.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     // Validar que haya sesión y obtener al usuario

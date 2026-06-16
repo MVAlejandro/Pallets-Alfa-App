@@ -1,5 +1,5 @@
 // Funciones backend
-import { logout } from "../auth/logout/logout-service";
+import { logout } from "../../modules/login/services/logout-service.js";
 
 // Crear sección del usuario
 export function createUserBar(user) {
@@ -12,7 +12,7 @@ export function createUserBar(user) {
             <p class="ps-3 fw-bold">${user.nombre} ${user.apellido[0]}</p>
         </a>
         <ul class="dropdown-menu dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
-            <li><a id="profile-btn" class="border-bottom dropdown-item" href='./profile.html' user-data='${JSON.stringify(user)}'>Perfil</a></li>
+            <li><a id="profile-btn" class="border-bottom dropdown-item" href='/app/profile.html'>Perfil</a></li>
             <li><a id="logout-btn" class="dropdown-item" href='#'>Cerrar Sesión</a></li>
         </ul>`;
 

@@ -1,6 +1,6 @@
 // Funciones del backend
-import { validateLogin } from './login-validate.js'; 
-import { login } from './login-service.js'; 
+import { validateLogin } from '../components/login-validate.js'; 
+import { login } from '../services/login-service.js'; 
 
 // Función que maneja el inicio de sesión con su validación
 export async function handleLogin(e) {

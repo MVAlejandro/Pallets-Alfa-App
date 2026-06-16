@@ -2,23 +2,23 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 // Estilos y variables globales
-import './shared/css/variables.css';
-import './shared/css/style.css';
+import '../../shared/css/variables.css';
+import '../../shared/css/style.css';
 
 // Estilos del módulo
-import './shared/css/pages/index.css';
+import './styles/index.css';
 
 // Layout base
-import { initLayout } from './core/layouts/init.js'
+import { initLayout } from '../../core/layouts/init.js'
 
 // Funciones del backend
-import { validateAuth } from './core/auth/auth-validate';
+import { validateAuth } from '../../core/auth/auth-validate.js';
 
 // Funciones del módulo
-import { AccessCard, AdviceCard } from './modules/index/index-cards.js';
+import { AccessCard, AdviceCard } from './components/index-cards.js';
 
 // Utilidades
-import { getDateParts } from './shared/utils/time-functions.js';
+import { getDateParts } from '../../shared/utils/time-functions.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
     // Validar que haya sesión y obtener al usuario
@@ -46,12 +46,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     const advice_container = document.getElementById("advices-cards-container");
 
     const access = [
-        {ref:'clients.html', id: 'client', icon: 'bi-journal-bookmark', text: 'Clientes'},
+        {ref:'./catalog/dashboard.html', id: 'catalog', icon: 'bi-journal-bookmark', text: 'Catálogos'},
         {ref:'clients.html', id: 'shipments', icon: 'bi-truck', text: 'Embarques'},
-        {ref:'clients.html', id: 'inventory', icon: 'bi-clipboard-check', text: 'Inventario'},
+        {ref:'./inventory/dashboard.html', id: 'inventory', icon: 'bi-clipboard-check', text: 'Inventario'},
         {ref:'clients.html', id: 'maintenance', icon: 'bi-wrench', text: 'Mantenimiento'},
         {ref:'clients.html', id: 'rh', icon: 'bi-people', text: 'RRHH'},
         {ref:'clients.html', id: 'support', icon: 'bi-question-circle', text: 'Soporte'},
+        {ref:'clients.html', id: 'sales', icon: 'bi-graph-up', text: 'Ventas'}
     ]
 
     access.forEach(access => {

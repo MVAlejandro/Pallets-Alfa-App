@@ -2,18 +2,18 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
 // Estilos y variables globales
-import '../shared/css/variables.css'
-import '../shared/css/style.css'
+import '../../shared/css/variables.css'
+import '../../shared/css/style.css'
 
 // Estilos del módulo
-import '../shared/css/pages/login.css'
+import './styles/login.css'
 
 // Componentes JS
-import { generateLogin } from '../core/auth/login/login-view.js'; 
-import { generateRegister } from '../core/auth/register/register-view.js';
+import { generateLogin } from './views/login-view.js'; 
+import { generateRegister } from './views/register-view.js';
 
 // Funciones del backend
-import { validateAuth } from '../core/auth/auth-validate.js'; 
+import { validateAuth } from '../../core/auth/auth-validate.js'; 
 
 let login = true;
 

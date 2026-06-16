@@ -1,6 +1,6 @@
 // Funciones del backend
-import { validateRegister } from './register-validate.js';
-import { register } from './register-service.js'; 
+import { validateRegister } from '../components/register-validate.js';
+import { register } from '../services/register-service.js'; 
 
 // Función que maneja el registro con su validación
 export async function handleRegister(e) {

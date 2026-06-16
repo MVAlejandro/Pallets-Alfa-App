@@ -1,5 +1,5 @@
 // Funciones backend
-import { handleLogin } from "./login-controller";
+import { handleLogin } from "../controllers/login-controller";
 
 export function generateLogin() {
     const container = document.getElementById('login-container');

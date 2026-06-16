@@ -4,7 +4,7 @@ export function createBar() {
     const bar = document.getElementById("top-navbar");
 
     bar.innerHTML =
-        `<a id="nav-title" class="col-md-3 col-lg-2 fw-bold me-0 px-3 py-1" href='./index.html'>Pallets Alfa Texcoco</a>
+        `<a id="nav-title" class="col-md-3 col-lg-2 fw-bold me-0 px-3 py-1" href='/index.html'>Pallets Alfa Texcoco</a>
         <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#side-navbar" aria-controls="side-navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>`;
@@ -18,15 +18,18 @@ export function createNavbar() {
         `<div class="p-3 d-flex flex-column h-100">
             <ul id="nav-list" class="ps-0 mb-auto">
                 <li class="mb-1">
-                    <button class="btn btn-toggle d-flex align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#clients-collapse" aria-expanded="false">
+                    <button class="btn btn-toggle d-flex align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#catalog-collapse" aria-expanded="false">
                         <i class="bi bi-journal-bookmark"></i>
-                        <p class="ps-3">Clientes</p>
+                        <p class="ps-3">Catálogos</p>
                     </button>
-                    <div class="collapse" id="clients-collapse">
+                    <div class="collapse" id="catalog-collapse">
                         <ul class="btn-toggle-nav pb-1 small">
-                            <li><a href="#" class="link-dark rounded">Prospectos</a></li>
-                            <li><a href="#" class="link-dark rounded">Actividades</a></li>
-                            <li><a href="#" class="link-dark rounded">Planeación</a></li>
+                            <li><a href="#" class="link-dark rounded">Activos</a></li>
+                            <li><a href="#" class="link-dark rounded">Clientes</a></li>
+                            <li><a href="#" class="link-dark rounded">Empleados</a></li>
+                            <li><a href="#" class="link-dark rounded">Refacciones</a></li>
+                            <li><a href="#" class="link-dark rounded">Productos</a></li>
+                            <li><a href="#" class="link-dark rounded">Proveedores</a></li>
                         </ul>
                     </div>
                 </li>
@@ -37,6 +40,7 @@ export function createNavbar() {
                     </button>
                     <div class="collapse" id="shipments-collapse">
                         <ul class="btn-toggle-nav pb-1 small">
+                            <li><a href="#" class="link-dark rounded">Contratos</a></li>
                             <li><a href="#" class="link-dark rounded">Partidas</a></li>
                             <li><a href="#" class="link-dark rounded">Recolecciones</a></li>
                             <li><a href="#" class="link-dark rounded">Transportes</a></li>
@@ -53,7 +57,6 @@ export function createNavbar() {
                     </button>
                     <div class="collapse" id="inventory-collapse">
                         <ul class="btn-toggle-nav pb-1 small">
-                            <li><a href="#" class="link-dark rounded">Productos</a></li>
                             <li><a href="#" class="link-dark rounded">Movimientos</a></li>
                             <li><a href="#" class="link-dark rounded">Conteos</a></li>
                             <li><a href="#" class="link-dark rounded">Reportes</a></li>
@@ -67,9 +70,6 @@ export function createNavbar() {
                     </button>
                     <div class="collapse" id="maintenance-collapse">
                         <ul class="btn-toggle-nav pb-1 small">
-                            <li><a href="#" class="link-dark rounded">Activos</a></li>
-                            <li><a href="#" class="link-dark rounded">Refacciones</a></li>
-                            <li><a href="#" class="link-dark rounded">Proveedores</a></li>
                             <li><a href="#" class="link-dark rounded">Tareas</a></li>
                             <li><a href="#" class="link-dark rounded">Planeación</a></li>
                         </ul>
@@ -82,7 +82,6 @@ export function createNavbar() {
                     </button>
                     <div class="collapse" id="rh-collapse">
                         <ul class="btn-toggle-nav pb-1 small">
-                            <li><a href="#" class="link-dark rounded">Personal</a></li>
                             <li><a href="#" class="link-dark rounded">Horarios</a></li>
                             <li><a href="#" class="link-dark rounded">Asistencia</a></li>
                             <li><a href="#" class="link-dark rounded">Uniformes</a></li>
@@ -99,6 +98,19 @@ export function createNavbar() {
                         <ul class="btn-toggle-nav pb-1 small">
                             <li><a href="#" class="link-dark rounded">Tickets</a></li>
                             <li><a href="#" class="link-dark rounded">Reportes</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="mb-1">
+                    <button class="btn btn-toggle d-flex align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#sales-collapse" aria-expanded="false">
+                        <i class="bi bi-graph-up"></i>
+                        <p class="ps-3">Ventas</p>
+                    </button>
+                    <div class="collapse" id="sales-collapse">
+                        <ul class="btn-toggle-nav pb-1 small">
+                            <li><a href="#" class="link-dark rounded">Prospectos</a></li>
+                            <li><a href="#" class="link-dark rounded">Actividades</a></li>
+                            <li><a href="#" class="link-dark rounded">Planeación</a></li>
                         </ul>
                     </div>
                 </li>

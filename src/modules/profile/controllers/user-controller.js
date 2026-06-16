@@ -1,10 +1,10 @@
 // Funciones del backend
-import { validateUser } from './user-validate.js';
-import { updateUser } from './user-service.js';
-import { getSession } from '../../core/auth/auth-service.js';
+import { validateUser } from '../components/profile/user-validate.js';
+import { updateUser } from '../services/user-service.js';
+import { getSession } from '../../../core/auth/auth-service.js';
 
 // Componentes del módulo
-import { ProfileActivity, ProfileHeader, ProfileUserInfo } from './profile-info.js';
+import { ProfileActivity, ProfileHeader, ProfileUserInfo } from '../components/profile/profile-info.js';
 
 // Función que maneja la actualización del usuario con su validación
 export async function handleUpdateUser(e) {

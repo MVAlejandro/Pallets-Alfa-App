@@ -1,5 +1,5 @@
 // Funciones backend
-import { handleRegister } from "./register-controller";
+import { handleRegister } from "../controllers/register-controller";
 
 export function generateRegister() {
     const container = document.getElementById('login-container');
