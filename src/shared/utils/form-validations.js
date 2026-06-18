@@ -32,6 +32,11 @@ export function validateFunction(input, error, regex, text) {
     }
 }
 
+// Función que valida que los códigos sean válidos
+export function codeValidate(input, error) {
+    validateFunction(input, error, textRegex, 'Código inválido');
+}
+
 // Función que valida que los campos sean solo letras y algunos caracteres especiales
 export function textValidate(input, error) {
     validateFunction(input, error, textRegex, 'El campo no acepta caracteres especiales');
