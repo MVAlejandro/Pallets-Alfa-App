@@ -15,7 +15,7 @@ import { initLayout } from '../../../core/layouts/init.js'
 import { validateAuth } from '../../../core/auth/auth-validate.js';
 
 // Funciones del módulo
-import '../views/product-form.js'
+import '../components/products/generate-form.js'
 import { renderProductsTable } from '../components/products/products-table.js';
 
 // Utilidades

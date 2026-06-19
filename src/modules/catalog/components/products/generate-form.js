@@ -1,5 +1,5 @@
 // Funciones backend
-import { handleCreateProduct } from "../controllers/products/create-controller.js";
+import { createNewProduct } from "./products-form";
 // Utilidades
 //import { loadOptions } from "../../../shared/utils/load-select"; 
 
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // loadOptions('almacen', 'inv_almacenes', 'id_almacen', 'nombre')
 
     // Función para intentar el registro de un nuevo producto
-    document.querySelector('#new-product-form').addEventListener('submit', handleCreateProduct);
+    document.querySelector('#new-product-form').addEventListener('submit', createNewProduct);
 
     // Crear instancia única de Collapse
     const productsContainer = document.getElementById('products-form-container');

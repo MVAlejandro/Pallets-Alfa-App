@@ -1,13 +1,12 @@
 // Funciones del backend
-import { validateCreateProduct } from '../../components/products/product-validate.js'; 
+import { validateCreateProduct } from '../../validators/product-validator.js';
 import { createProduct } from '../../services/products-service.js'; 
 
 // Función que maneja la creación de un producto con su validación
-export async function handleCreateProduct(e) {
+export async function createNewProduct(e) {
     e.preventDefault();
-
     const form = e.currentTarget;
-
+    
     // Capturar el botón que disparó el evento
     const btn = form.querySelector('button[type="submit"]');
     if (btn) {
@@ -35,14 +34,16 @@ export async function handleCreateProduct(e) {
         }
         return
     }
-
+    
+    // Guardar valores
+    const productData = {
+        codigo: form.querySelector('#code').value.trim(),
+        nombre: form.querySelector('#name').value.trim(),
+        descripcion: form.querySelector('#description').value.trim()
+    };
+    
     try {
-        const code = form.querySelector('#code').value.trim();
-        const name = form.querySelector('#name').value.trim();
-        const description = form.querySelector('#description').value.trim();
-
-        // Enviar datos
-        const result = await createProduct(code, name, description);
+        await productService.create(productData);
 
         // Mostrar verificación y limpiar el formulario
         Swal.fire({
@@ -56,6 +57,8 @@ export async function handleCreateProduct(e) {
             e.classList.remove('is-valid', 'is-invalid');
         });
 
+        // Recarga la tabla con los datos actualizados
+        await renderProductsTable();
     } catch (error) {
         Swal.fire({
             title: 'Error',
@@ -77,4 +80,4 @@ export async function handleCreateProduct(e) {
                 <p class="ps-2">Agregar</p>`;
         }
     }
-}
+};

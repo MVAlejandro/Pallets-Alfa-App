@@ -1,5 +1,5 @@
 // Utilidades
-import { textValidate, codeValidate, inputValidate } from "../../../../shared/utils/form-validations";
+import { textValidate, codeValidate, inputValidate } from "../../../shared/utils/form-validations"
 
 export function validateCreateProduct(form) {
     // Referencias para validación

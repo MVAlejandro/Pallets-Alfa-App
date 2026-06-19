@@ -41,7 +41,7 @@ export async function renderProductsTable(productsParam = null) {
                 <p class="product-name">${producto.nombre}</p>
                 <p class="product-description">${producto.descripcion}</p>
             </td>
-            <td class="product-store p-3">${producto.almacen || "Sin Asignar"}</td>
+            <td class="product-store p-3">${producto.almacenes || "Sin Asignar"}</td>
             <td class="product-controls text-pageEnd p-3 pe-4">
                 <div class="action-buttons">
                     <button class="btn btn-edit" 

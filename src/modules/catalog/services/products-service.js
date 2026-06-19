@@ -1,38 +1,68 @@
+// Ruta de la api
+const API_BASE = '/api/modules/catalog/products';
 
 // Función de creación de un producto conectando a la base de datos
-export async function createProduct(codigo, nombre, descripcion) {
-    const response = await fetch('/api/modules/catalog/products/create.php', {
+export async function createProduct(data) {
+    const response = await fetch(`${API_BASE}/create.php`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            codigo,
-            nombre,
-            descripcion
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
     });
 
-    const data = await response.json();
+    const result = await response.json();
 
     if (!response.ok) {
-        throw new Error(data.message || 'Error al crear producto');
+        throw new Error(result.message || 'Error al crear producto');
     }
 
-    return data;
+    return result;
 }
 
 // Función para obtener todos los productos conectando a la base de datos
 export async function getProducts() {
-    const response = await fetch('/api/modules/catalog/products/get.php', {
-        method: 'GET'
+    const response = await fetch(`${API_BASE}/get.php`);
+    const result = await response.json();
+    
+    if (!response.ok) {
+        throw new Error(result.message || 'Error al obtener productos');
+    }
+    
+    return result.productos;
+}
+
+// Función para actualizar un producto conectando a la base de datos
+export async function updateProduct(id_producto, updatedData) {
+    const response = await fetch(`${API_BASE}/update.php`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            id_producto,
+            ...updatedData
+        })
     });
 
-    const data = await response.json();
+    const result = await response.json();
 
     if (!response.ok) {
-        throw new Error(data.message || 'Error al obtener productos');
+        throw new Error(result.message || 'Error al actualizar producto');
     }
 
-    return data.productos;
+    return result;
+}
+
+// Función para eliminar un producto de la base de datos
+export async function deleteProduct(id_producto) {
+    const response = await fetch(`${API_BASE}/delete.php`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id_producto })
+    });
+
+    const result = await response.json();
+
+    if (!response.ok) {
+        throw new Error(result.message || 'Error al eliminar producto');
+    }
+
+    return result;
 }
