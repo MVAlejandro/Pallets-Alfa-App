@@ -30,3 +30,8 @@ th {
     display: flex;
     justify-content: flex-end;
 }
+
+/* Estilos para el offcanvas */
+#asign-stores {
+    --bs-offcanvas-width: 50vh;
+}

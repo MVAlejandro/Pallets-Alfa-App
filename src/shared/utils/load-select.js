@@ -1,8 +1,6 @@
-import { getActiveStaff } from "../services/staff-service";
-import supabase from "../supabase/supabase-client";
 
 // Función para cargar datos completos en los select del formulario
-export async function loadOptions(selectId, table, valueKey, textKey, selectedValue = '0') {
+export async function loadOptions(selectId, getFunction, valueKey, textKey, selectedValue = '0') {
     const select = document.getElementById(selectId)
     if (!select) return
 
@@ -10,13 +8,13 @@ export async function loadOptions(selectId, table, valueKey, textKey, selectedVa
         select.innerHTML = '';
     }
     
-    const { data, error } = await supabase.from(table)
-        .select(`${valueKey}, ${textKey}`)
-        .order(`${textKey}`, { ascending: true }) 
-
-    if (error) {
-        console.error(`Error cargando ${table}:`, error)
-        return
+    // Obtener datos externos
+    let data;
+    try {
+        data = await getFunction();
+    } catch (error) {
+        console.error('Error cargando opciones:', error);
+        return;
     }
 
     data.forEach(item => {
@@ -95,19 +93,3 @@ export function loadDaysFilter() {
     });
 }
 
-// Función para cargar los empleados activos en el select
-export async function loadStaff(selectId) {
-    const today = new Date().toISOString().split("T")[0];
-    const select = document.getElementById(selectId)
-    if (!select) return
-    
-    const data = await getActiveStaff(today)
-
-    data.forEach(item => {
-        const option = document.createElement('option')
-        option.value = item.id_empleado;
-        option.textContent = item.nombre;
-
-        select.appendChild(option)
-    })
-}

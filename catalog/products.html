@@ -51,26 +51,26 @@
                 <!-- SECCIÓN DE FILTROS -->
                 <section id="products-filter">
                     <div id="products-filter-container" class="container pt-4 pb-3">
-                        <div class="row">
-                            <div class="col-lg-3 col-md-4 d-flex align-items-center label-over-border filter-sm">
-                                <label for="store-filter" class="form-label m-2">Filtrar por Almacén</label>
-                                <select class="form-select" id="store-filter">
-                                    <option value="0">Todos</option>
-                                </select>
+                        <form id="filter-form" autocomplete="off">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-4 d-flex align-items-center label-over-border filter-sm">
+                                    <label for="store-filter" class="form-label m-2">Filtrar por Almacén</label>
+                                    <select class="form-select" id="store-filter">
+                                        <option value="0">Todos</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-3 col-md-4 d-flex align-items-center label-over-border filter-sm">
+                                    <label for="search-filter" class="form-label m-2">Buscar por producto</label>    
+                                    <input id="search-filter" class="form-control" type="search" placeholder="Buscar..." aria-label="Search"/>
+                                </div>
+                                <div class="col-md d-flex align-items-center justify-content-end">
+                                    <button id="filter-btn" type="submit" class="btn btn-primary d-flex align-items-center ps-3 pe-3">
+                                        <i class="bi bi-search"></i>
+                                        <p class="ps-2">Filtrar</p>
+                                    </button>
+                                </div>
                             </div>
-                            <div class="col-lg-3 col-md-4 d-flex align-items-center label-over-border filter-sm">
-                                <label for="search-filter" class="form-label m-2">Buscar por producto</label>    
-                                <input id="search-filter" class="form-control" type="search" placeholder="Buscar..." aria-label="Search"/>
-                            </div>
-                            <div class="col-md d-flex align-items-center justify-content-end">
-                                <button id="filter-btn" class="btn btn-primary d-flex align-items-center ps-3 pe-3">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-                                    </svg>
-                                    <p class="ps-2">Filtrar</p>
-                                </button>
-                            </div>
-                        </div>
+                        </form>
                     </div>
                 </section>
 
@@ -132,23 +132,20 @@
                     <div class="row">
                         <div class="col d-flex align-items-center">
                             <div class="ms-4 me-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" style="color:var(--primary)">
-                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-                                </svg>
+                                <i class="bi bi-pencil-square icon-md" style="color:var(--primary)"></i>
                             </div>
-                            <h5 class="modal-title" id="edit-modalLabel">Editar Producto</h5>
+                            <h5 class="modal-title fw-bold" id="edit-modalLabel">Editar Producto</h5>
                         </div>
                     </div>
                     <button type="button" class="btn-close me-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container">
-                        <form id="product-edit-form">
+                        <form id="product-edit-form" autocomplete="off">
                             <input type="hidden" id="edit-id-product">
                             <!-- Campos editables -->
                             <div class="row ms-2 me-2 pt-3 pb-3">
-                                <div class="col-md-8 label-over-border">
+                                <div class="col-md-8 label-over-border mb-4 mb-md-0">
                                     <label for="edit-name" class="form-label m-2">Nombre</label>
                                     <input type="text" class="form-control" id="edit-name">
                                     <p class="error invalid-feedback" id="error-editName" style="color: red;"></p>
@@ -160,12 +157,9 @@
                                 </div>
                             </div>
                             <div class="row ms-2 me-2 pt-3 pb-3">
-                                <div class="col-md-4 label-over-border">
+                                <div class="col-md-4 label-over-border mb-4 mb-md-0">
                                     <label for="edit-store" class="form-label m-2">Almacén</label>
-                                    <select id="edit-store" class="form-select" aria-label="Default select example">
-
-                                    </select>
-                                    <p class="error invalid-feedback" id="error-editStore" style="color: red;"></p>
+                                    <input type="text" class="form-control" id="edit-store" disabled>
                                 </div>
                                 <div class="col-md-8 label-over-border">
                                     <label for="edit-description" class="form-label m-2">Descripción</label>
@@ -176,10 +170,58 @@
                         </form>
                     </div>
                 </div>
-                <div class="modal-footer me-4">
+                <div class="modal-footer mx-md-4">
+                    <button type="button" class="btn btn-secondary me-md-auto" data-bs-target="#asign-stores" data-bs-toggle="offcanvas">Almacenes</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button id="btn-edit-entry" class="btn btn-primary">Guardar cambios</button>
+                    <button id="btn-edit-entry" type="submit" form="product-edit-form" class="btn btn-primary">Guardar cambios</button>
                 </div>
+            </div>
+        </div>
+
+        <!-- Menú lateral para la asignación de almacenes -->
+        <div class="offcanvas offcanvas-end" id="asign-stores">
+            <div class="offcanvas-header border-bottom">
+                <div class="row">
+                    <div class="col d-flex align-items-center">
+                        <div class="ms-2 me-3">
+                            <i class="bi bi-shop-window icon-md" style="color:var(--primary)"></i>
+                        </div>
+                        <h5 class="offcanvas-title fw-bold" id="asign-stores-offcanvasLabel">Asignación de Almacenes</h5>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="container px-4">
+                    <p class="text-secondary">Seleccione los almacenes donde desea dar de alta el producto:</p>
+                    <form id="asign-store-form" class="mt-5">
+                       <input type="hidden" id="asign-id-product">
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+                            <label class="form-check-label" for="switchCheckDefault">PT - Nave 1, Producto terminado</label>
+                        </div>
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked" checked>
+                            <label class="form-check-label" for="switchCheckChecked">N2 - Nave 2, Descargas</label>
+                        </div>
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked" checked>
+                            <label class="form-check-label" for="switchCheckChecked">N3 - Nave 3</label>
+                        </div>
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked" checked>
+                            <label class="form-check-label" for="switchCheckChecked">R - Nave 2, Reparación</label>
+                        </div>
+                        <div class="form-check form-switch mb-2">
+                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked" checked>
+                            <label class="form-check-label" for="switchCheckChecked">MP - Nave 2, Materia Prima</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="offcanvas-footer mx-4 p-3 border-top">
+                <button id="btn-save" type="submit" form="asign-store-form" class="btn btn-primary me-1">Asignar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas">Cerrar</button>
             </div>
         </div>
     </div>
@@ -192,10 +234,7 @@
                     <div class="row">
                         <div class="col d-flex align-items-center">
                             <div class="ms-4 me-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16" style="color: var(--danger-dark)">
-                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-                                </svg>
+                                <i class="bi bi-exclamation-circle icon-md" style="color:var(--redD-dark)"></i>
                             </div>
                             <h5 class="modal-title" id="delete-modalLabel">Confirmar eliminación</h5>
                         </div>

@@ -20,3 +20,23 @@ export function validateCreateProduct(form) {
 
     return inputValidate(campos);
 }
+
+export function validateEditProduct(form) {
+    // Referencias para validación
+    const nameIn = document.getElementById('edit-name')
+    const codeIn = document.getElementById('edit-code')
+    const descriptionIn = document.getElementById('edit-description')
+    // Referencias para errores
+    const nameError = document.getElementById('error-editName')
+    const codeError = document.getElementById('error-editCode')
+    const descriptionError = document.getElementById('error-editDescription')
+
+    // Validaciones
+    textValidate(nameIn, nameError);
+    codeValidate(codeIn, codeError);
+    textValidate(descriptionIn, descriptionError);
+
+    const campos = form.querySelectorAll('input');
+
+    return inputValidate(campos);
+}

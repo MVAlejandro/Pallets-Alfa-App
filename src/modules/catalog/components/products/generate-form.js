@@ -1,7 +1,5 @@
 // Funciones backend
 import { createNewProduct } from "./products-form";
-// Utilidades
-//import { loadOptions } from "../../../shared/utils/load-select"; 
 
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById('products-form');
@@ -18,17 +16,17 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             <form id="new-product-form" autocomplete="off">
                 <div class="row ms-2 me-2 pt-3 pb-3">
-                    <div class="col-md-2 label-over-border">
+                    <div class="col-md-4 col-lg-2 label-over-border mb-4 mb-lg-0">
                         <label for="code" class="form-label m-2">Código</label>
                         <input type="text" id="code" class="form-control" placeholder="TAR1000">
                         <p class="error invalid-feedback" id="error-code" style="color: red;"></p>
                     </div>
-                    <div class="col-md-4 label-over-border">
+                    <div class="col-md-8 col-lg-4 label-over-border mb-4 mb-lg-0">
                         <label for="name" class="form-label m-2">Nombre</label>
                         <input type="text" id="name" class="form-control" placeholder="Tarima Estándar">
                         <p class="error invalid-feedback" id="error-name" style="color: red;"></p>
                     </div>
-                    <div class="col-md-6 label-over-border">
+                    <div class="col-md-12 col-lg-6 label-over-border">
                         <label for="description" class="form-label m-2">Descripción</label>
                         <input type="text" id="description" class="form-control" placeholder="Descripción del producto">
                         <p class="error invalid-feedback" id="error-description" style="color: red;"></p>
@@ -43,8 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
             </form>
         </div>`;
-
-    // loadOptions('almacen', 'inv_almacenes', 'id_almacen', 'nombre')
 
     // Función para intentar el registro de un nuevo producto
     document.querySelector('#new-product-form').addEventListener('submit', createNewProduct);

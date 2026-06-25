@@ -1,10 +1,11 @@
-import supabase from '../../supabase/supabase-client.js'
-// Servicios Supabase
-import { updateProduct, deleteProduct } from '../../../inventory/services/products-service.js'; 
-import { renderProductsTable } from './products-table.js'; 
+// Funciones del backend
+import { updateProduct, deleteProduct, getProducts } from '../../services/products-service.js'; 
+// Funciones del módulo
+import { productsFilter, productsState } from './products-filter.js';
+// Validaciones
+import { validateEditProduct } from '../../validators/product-validator.js';
 // Utilidades
-import { loadOptions } from '../../utils/load-select.js';
-import { textValidate, codeValidate, inputValidate, selectValidate } from '../../utils/form-validations.js';
+import { refreshState } from '../../../../shared/utils/state.js';
 
 // Función para cargar datos en el modal
 export async function renderProductsEditModal(producto) {
@@ -12,47 +13,46 @@ export async function renderProductsEditModal(producto) {
     document.getElementById('edit-id-product').value = producto.id_producto;
     document.getElementById('edit-code').value = producto.codigo;
     document.getElementById('edit-name').value = producto.nombre;
-    loadOptions('edit-store', 'inv_almacenes', 'id_almacen', 'nombre', producto.id_almacen)
+    document.getElementById('edit-store').value = producto.almacenes || "Sin Asignar";
     document.getElementById('edit-description').value = producto.descripcion;
+
+    // Función para intentar la actualización del producto
+    document.querySelector('#product-edit-form').addEventListener('submit', editProduct);
 }
 
 // Función para guardar cambios
-document.getElementById('btn-edit-entry').addEventListener('click', async function() {
-    const form = document.getElementById('product-edit-form');
-    // Referencias para validación
-    const nombreIn = document.getElementById('edit-name');
-    const codigoIn = document.getElementById('edit-code');
-    const id_almacenIn = document.getElementById('edit-store');
-    const descripcionIn = document.getElementById('edit-description');
+export async function editProduct(e) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    
+    // Capturar el botón que disparó el evento
+    const btn = form.querySelector('button[type="submit"]');
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = 'Actualizando...';
+    }
 
-    const nombreError = document.getElementById('error-editName');
-    const codigoError = document.getElementById('error-editCode');
-    const almacenError = document.getElementById('error-editStore');
-    const descripcionError = document.getElementById('error-editDescription');
-
-    // Validaciones
-    textValidate(nombreIn, nombreError)
-    codeValidate(codigoIn, codigoError)
-    selectValidate(id_almacenIn, almacenError)
-    textValidate(descripcionIn, descripcionError)
-
-    const campos = document.querySelectorAll('input, select')
-    if (!inputValidate(campos)) {
+    if (!validateEditProduct(form)) {
         Swal.fire({
-            title: 'Atención',
-            text: 'Corrige los errores antes de guardar.',
+            title: 'Error',
+            text: 'Datos ingresados no válidos.',
             icon: 'warning',
             confirmButtonText: 'OK'
         });
+        
+        // Restaurar estado del botón
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = `Guardar cambios`;
+        }
         return
     }
 
     const id_producto = document.getElementById('edit-id-product').value;
     const updatedData = {
-        nombre: nombreIn.value,
-        codigo: codigoIn.value,
-        id_almacen: id_almacenIn.value,
-        descripcion: descripcionIn.value
+        nombre: form.querySelector('#edit-name').value.trim(),
+        codigo: form.querySelector('#edit-code').value.trim(),
+        descripcion: form.querySelector('#edit-description').value.trim()
     };
 
     try {
@@ -71,22 +71,30 @@ document.getElementById('btn-edit-entry').addEventListener('click', async functi
         });
 
         // Recarga la tabla con los datos actualizados
-        await renderProductsTable();
-    } catch (err) {
-        console.error('Error al actualizar producto:', err);
+        await refreshState(productsState, getProducts)
+        productsFilter();
+    } catch (error) {
         Swal.fire({
-            title: 'Oops...',
-            text: 'Ocurrió un error al actualizar el producto.',
+            title: 'Error al actualizar producto:',
+            text: error.message || 'Ocurrió un error al actualizar el producto.',
             icon: 'error',
             confirmButtonText: 'OK'
         });
+
+        console.error(error);
+    } finally {
+        // Restaurar estado del botón
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = `Guardar cambios`;
+        }
     }
-});
+};
 
 // Eliminar entrada al dar click en el botón del modal
 document.getElementById('btn-delete-entry').addEventListener('click', async () => {
-    const idProduct = document.getElementById('delete-id-product').value;
-    await deleteProduct(idProduct);
+    const id_producto = document.getElementById('delete-id-product').value;
+    await deleteProduct(id_producto);
 
     // Cerrar el modal y mostrar alerta
     bootstrap.Modal.getInstance(document.getElementById('delete-modal')).hide();
@@ -97,5 +105,6 @@ document.getElementById('btn-delete-entry').addEventListener('click', async () =
     });
 
     // Recarga la tabla con los datos actualizados
-    await renderProductsTable();
+    await refreshState(productsState, getProducts)
+    productsFilter();
 });

@@ -1,44 +1,70 @@
-// Servicios Supabase
-import { getProducts } from '../../../inventory/services/products-service.js';
+// Funciones del backend
+import { getProducts } from '../../services/products-service.js'; 
+import { getStores } from '../../services/product-store-service.js';
+// Funciones del módulo
 import { renderProductsTable } from './products-table.js';
 // Utilidades
-import { loadOptions } from '../../utils/load-select.js';
+import { loadOptions } from '../../../../shared/utils/load-select.js';
+import { debounce } from '../../../../shared/utils/utils.js';
+import { createModuleState, refreshState } from '../../../../shared/utils/state.js';
 
-let allProducts = [];
+// Crear el estado de los productos para su manejo en la tabla
+export const productsState = createModuleState();
 
-// Cargar las opciones de filtrado al iniciar la página
-document.addEventListener('DOMContentLoaded', async () => {
-    loadOptions('store-filter', 'inv_almacenes', 'id_almacen', 'nombre')
-})
+// Función de filtrado y renderizado inicial
+export async function initProductsModule() {
+    loadOptions('store-filter', getStores, 'id_almacen', 'nombre')
+
+    // Obtener productos y renderizar tabla inicial
+    await refreshState(productsState, getProducts)
+
+    applyProductsFilter()
+    
+    const form = document.getElementById('filter-form');
+    const store = document.getElementById('store-filter');
+    const search = document.getElementById('search-filter');
+
+    // Declarar el botón de filtrado del formulario
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        applyProductsFilter();
+    });
+
+    // Escuchar los cambios en tiempo real de los inputs
+    store.addEventListener('change', applyProductsFilter);
+    search.addEventListener('input', debounce(applyProductsFilter, 400));
+}
+
+function applyProductsFilter() {
+    productsState.currentPage = 1;
+    productsFilter();
+}
 
 // Función de filtrado por valores seleccionados
-export async function productsFilter(event) {
-    event.preventDefault();
-
+export async function productsFilter() {
     const storeFilter = document.getElementById('store-filter').value;
     const searchText = document.getElementById('search-filter').value.trim().toLowerCase();
-
-    // Obtener productos
-    allProducts = await getProducts();
-        if (!allProducts) return;
 
     // Si no hay filtros activos, mostrar todo
     const filterClean = storeFilter === '0' && searchText === '';
 
     if (filterClean) {
-        renderProductsTable(allProducts);
+        productsState.visibleRecords = productsState.allRecords;
+        renderProductsTable();
         return;
     }
 
     // Aplicar filtros
-    const filtered = allProducts.filter(p => {
+    const filtered = productsState.allRecords.filter(p => {
         const searchOk =
             searchText === '' ||
             Object.values(p).some(valor => valor?.toString().toLowerCase().includes(searchText));
 
-        const storeOk = storeFilter === '0' || p.id_almacen == storeFilter;
+        const storeOk = storeFilter === '0' || p.almacenes_id?.split(',').includes(storeFilter);
         return storeOk && searchOk;
     });
 
-    renderProductsTable(filtered);
+    productsState.visibleRecords = filtered;
+
+    renderProductsTable();
 }
