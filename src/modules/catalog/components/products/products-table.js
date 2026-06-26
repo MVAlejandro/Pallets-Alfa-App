@@ -35,11 +35,11 @@ export async function renderProductsTable() {
             <td class="product-store p-3">${producto.almacenes || "Sin Asignar"}</td>
             <td class="product-controls text-pageEnd p-3 pe-4">
                 <div class="action-buttons">
-                    <button class="btn btn-edit" data-bs-target="#edit-modal" data-bs-toggle="modal"
+                    <button class="btn btn-edit" data-bs-target="#edit-modal" data-bs-toggle="modal" title="Editar producto"
                         product-data='${JSON.stringify(producto)}'>
                         <i class="bi bi-pencil"></i>
                     </button>
-                    <button class="btn btn-delete" data-bs-target="#delete-modal" data-bs-toggle="modal"
+                    <button class="btn btn-delete" data-bs-target="#delete-modal" data-bs-toggle="modal" title="Eliminar producto"
                         data-id='${producto.id_producto}'>
                         <i class="bi bi-trash3"></i>
                     </button>

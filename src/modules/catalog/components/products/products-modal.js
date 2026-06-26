@@ -2,6 +2,7 @@
 import { updateProduct, deleteProduct, getProducts } from '../../services/products-service.js'; 
 // Funciones del módulo
 import { productsFilter, productsState } from './products-filter.js';
+import { renderAssignStores } from './product-store.js';
 // Validaciones
 import { validateEditProduct } from '../../validators/product-validator.js';
 // Utilidades
@@ -18,6 +19,8 @@ export async function renderProductsEditModal(producto) {
 
     // Función para intentar la actualización del producto
     document.querySelector('#product-edit-form').addEventListener('submit', editProduct);
+    // Función para renderizado de la lista de almacenes en el offcanvas
+    document.getElementById('btn-asign-store').onclick = async (e) => {renderAssignStores(producto.id_producto)};
 }
 
 // Función para guardar cambios
@@ -29,13 +32,15 @@ export async function editProduct(e) {
     const btn = form.querySelector('button[type="submit"]');
     if (btn) {
         btn.disabled = true;
-        btn.innerHTML = 'Actualizando...';
+        btn.innerHTML = 
+            `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+            <p class="ps-2">Actualizando...</p>`;
     }
 
     if (!validateEditProduct(form)) {
         Swal.fire({
             title: 'Error',
-            text: 'Datos ingresados no válidos.',
+            text: 'Datos ingresados no válidos',
             icon: 'warning',
             confirmButtonText: 'OK'
         });
@@ -65,7 +70,7 @@ export async function editProduct(e) {
         // Cerrar el modal y mostrar alerta
         bootstrap.Modal.getInstance(document.getElementById('edit-modal')).hide();
         Swal.fire({
-            title: 'Producto actualizado correctamente.',
+            title: 'Producto actualizado correctamente',
             icon: 'success',
             confirmButtonText: 'OK'
         });
@@ -76,7 +81,7 @@ export async function editProduct(e) {
     } catch (error) {
         Swal.fire({
             title: 'Error al actualizar producto:',
-            text: error.message || 'Ocurrió un error al actualizar el producto.',
+            text: error.message || 'Ocurrió un error al actualizar el producto',
             icon: 'error',
             confirmButtonText: 'OK'
         });
@@ -99,7 +104,7 @@ document.getElementById('btn-delete-entry').addEventListener('click', async () =
     // Cerrar el modal y mostrar alerta
     bootstrap.Modal.getInstance(document.getElementById('delete-modal')).hide();
     Swal.fire({
-        title: 'Producto eliminado correctamente.',
+        title: 'Producto eliminado correctamente',
         icon: 'success',
         confirmButtonText: 'OK'
     });

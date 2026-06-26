@@ -171,7 +171,7 @@
                     </div>
                 </div>
                 <div class="modal-footer mx-md-4">
-                    <button type="button" class="btn btn-secondary me-md-auto" data-bs-target="#asign-stores" data-bs-toggle="offcanvas">Almacenes</button>
+                    <button id="btn-asign-store" type="button" class="btn btn-secondary me-md-auto" data-bs-target="#asign-stores" data-bs-toggle="offcanvas">Almacenes</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     <button id="btn-edit-entry" type="submit" form="product-edit-form" class="btn btn-primary">Guardar cambios</button>
                 </div>
@@ -195,32 +195,15 @@
                 <div class="container px-4">
                     <p class="text-secondary">Seleccione los almacenes donde desea dar de alta el producto:</p>
                     <form id="asign-store-form" class="mt-5">
-                       <input type="hidden" id="asign-id-product">
-                        <div class="form-check form-switch mb-2">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
-                            <label class="form-check-label" for="switchCheckDefault">PT - Nave 1, Producto terminado</label>
-                        </div>
-                        <div class="form-check form-switch mb-2">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked" checked>
-                            <label class="form-check-label" for="switchCheckChecked">N2 - Nave 2, Descargas</label>
-                        </div>
-                        <div class="form-check form-switch mb-2">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked" checked>
-                            <label class="form-check-label" for="switchCheckChecked">N3 - Nave 3</label>
-                        </div>
-                        <div class="form-check form-switch mb-2">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked" checked>
-                            <label class="form-check-label" for="switchCheckChecked">R - Nave 2, Reparación</label>
-                        </div>
-                        <div class="form-check form-switch mb-2">
-                            <input class="form-check-input" type="checkbox" role="switch" id="switchCheckChecked" checked>
-                            <label class="form-check-label" for="switchCheckChecked">MP - Nave 2, Materia Prima</label>
+                        <input type="hidden" id="asign-id-product">
+                        <div id="store-list">
+
                         </div>
                     </form>
                 </div>
             </div>
             <div class="offcanvas-footer mx-4 p-3 border-top">
-                <button id="btn-save" type="submit" form="asign-store-form" class="btn btn-primary me-1">Asignar</button>
+                <button id="btn-save" class="btn btn-primary me-1">Asignar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas">Cerrar</button>
             </div>
         </div>

@@ -23,12 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     <div class="col-md-8 col-lg-4 label-over-border mb-4 mb-lg-0">
                         <label for="name" class="form-label m-2">Nombre</label>
-                        <input type="text" id="name" class="form-control" placeholder="Tarima Estándar">
+                        <input type="text" id="name" class="form-control" placeholder="Nombre del producto">
                         <p class="error invalid-feedback" id="error-name" style="color: red;"></p>
                     </div>
                     <div class="col-md-12 col-lg-6 label-over-border">
                         <label for="description" class="form-label m-2">Descripción</label>
-                        <input type="text" id="description" class="form-control" placeholder="Descripción del producto">
+                        <input type="text" id="description" class="form-control" placeholder="Descripción detallada del producto">
                         <p class="error invalid-feedback" id="error-description" style="color: red;"></p>
                     </div>
                 </div>

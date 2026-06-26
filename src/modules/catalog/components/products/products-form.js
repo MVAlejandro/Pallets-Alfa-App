@@ -16,13 +16,15 @@ export async function createNewProduct(e) {
     const btn = form.querySelector('button[type="submit"]');
     if (btn) {
         btn.disabled = true;
-        btn.innerHTML = 'Subiendo...';
+        btn.innerHTML = 
+            `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+            <p class="ps-2">Subiendo...</p>`;
     }
 
     if (!validateCreateProduct(form)) {
         Swal.fire({
             title: 'Error',
-            text: 'Datos ingresados no válidos.',
+            text: 'Datos ingresados no válidos',
             icon: 'warning',
             confirmButtonText: 'OK'
         });
