@@ -1,5 +1,6 @@
 // Funciones backend
-//import { createExcelMovements, createNewMovement } from "./movements-form";
+import { createNewMovement } from "./movements-form";
+import { createExcelMovements } from "./movements-form-excel";
 
 document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById('movements-form');
@@ -30,8 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <select id="type" class="form-select" aria-label="Default select example">
                                     <option value="0">Seleccione...</option>
                                     <option value="ENTRADA">Entrada</option>
-                                    <option value="TRASPASO A MESAS">Traspaso a mesas</option>
                                     <option value="SALIDA POR FACTURA">Salida por factura</option>
+                                    <option value="TRASPASO A MESAS">Traspaso a mesas</option>
                                     <option value="DESARME">Desarme</option>
                                     <option value="TRASPASO A COMEP">Traspaso a Comep</option>
                                 </select>
@@ -81,8 +82,8 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>`;
 
     // Función para intentar el registro de un nuevo movimiento
-    // document.querySelector('#new-movement-form').addEventListener('submit', createNewMovement);
-    // document.querySelector('#new-excel-form').addEventListener('submit', createExcelMovements);
+    document.querySelector('#new-movement-form').addEventListener('submit', createNewMovement);
+    document.querySelector('#new-excel-form').addEventListener('submit', createExcelMovements);
 
     // Crear instancia única de Collapse
     const movementsContainer = document.getElementById('movements-form-container');

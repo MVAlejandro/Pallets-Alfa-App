@@ -28,5 +28,5 @@ export function loadDateFilter(input, useDefault = true) {
         config.defaultDate = new Date();
     }
 
-    flatpickr(input, config);
+    return flatpickr(input, config);
 }

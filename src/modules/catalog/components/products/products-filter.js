@@ -24,10 +24,10 @@ export async function initProductsModule() {
     const store = document.getElementById('store-filter');
     const search = document.getElementById('search-filter');
 
-    // Declarar el botón de filtrado del formulario
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        applyProductsFilter();
+    // Declarar el botón de limpieza de filtros
+    document.getElementById("clear-filters").addEventListener('click', () => {
+        form.reset();
+        applyProductsFilter()
     });
 
     // Escuchar los cambios en tiempo real de los inputs

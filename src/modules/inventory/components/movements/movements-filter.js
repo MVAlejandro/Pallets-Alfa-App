@@ -11,7 +11,7 @@ export const movementsState = createModuleState();
 
 // Función de filtrado y renderizado inicial
 export async function initMovementsModule() {
-    loadDateFilter("#date-filter", false);
+    const dateFilter = loadDateFilter("#date-filter", false);
 
     // Obtener productos y renderizar tabla inicial
     await refreshState(movementsState, getMovements)
@@ -22,10 +22,11 @@ export async function initMovementsModule() {
     const date = document.getElementById('date-filter');
     const type = document.getElementById('movement-filter');
 
-    // Declarar el botón de filtrado del formulario
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        applyMovementsFilter();
+    // Declarar el botón de limpieza de filtros
+    document.getElementById("clear-filters").addEventListener('click', () => {
+        dateFilter.clear();
+        form.reset();
+        applyMovementsFilter()
     });
 
     // Escuchar los cambios en tiempo real de los inputs

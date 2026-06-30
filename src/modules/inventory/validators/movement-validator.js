@@ -33,14 +33,11 @@ export function validateExcelMovements(form) {
 
 export function validateEditMovement(form) {
     // Referencias para validación
-    const quantityIn = document.getElementById('edit-type')
-    const typeIn = document.getElementById('edit-quantity')
+    const quantityIn = document.getElementById('edit-quantity')
     // Referencias para errores
-    const quantityError = document.getElementById('error-editType')
-    const typeError = document.getElementById('error-editQuantity')
+    const quantityError = document.getElementById('error-editQuantity')
 
     // Validaciones
-    selectValidate(typeIn, typeError);
     amountValidate(quantityIn, quantityError);
 
     const campos = form.querySelectorAll('input');

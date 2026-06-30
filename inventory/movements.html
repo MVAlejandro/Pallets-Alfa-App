@@ -63,16 +63,16 @@
                                     <select class="form-select" id="movement-filter">
                                         <option value="0">Todos</option>
                                         <option value="ENTRADA">Entrada</option>
-                                        <option value="TRASPASO A MESAS">Traspaso a mesas</option>
                                         <option value="SALIDA POR FACTURA">Salida por factura</option>
+                                        <option value="TRASPASO A MESAS">Traspaso a mesas</option>
                                         <option value="DESARME">Desarme</option>
                                         <option value="TRASPASO A COMEP">Traspaso a Comep</option>
                                     </select>
                                 </div>
                                 <div class="col-md d-flex align-items-center justify-content-end">
-                                    <button id="filter-btn" type="submit" class="btn btn-primary d-flex align-items-center ps-3 pe-3">
-                                        <i class="bi bi-search"></i>
-                                        <p class="ps-2">Filtrar</p>
+                                    <button id="clear-filters" type="button" class="btn btn-primary d-flex align-items-center ps-3 pe-3">
+                                        <i class="bi bi-filter-circle"></i>
+                                        <p class="ps-2">Limpiar</p>
                                     </button>
                                 </div>
                             </div>
@@ -139,38 +139,33 @@
                     <div class="row">
                         <div class="col d-flex align-items-center">
                             <div class="ms-4 me-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" style="color:var(--primary)">
-                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-                                </svg>
+                                <i class="bi bi-pencil-square icon-md" style="color:var(--primary)"></i>
                             </div>
-                            <h5 class="modal-title" id="edit-modalLabel">Editar Movimiento</h5>
+                            <h5 class="modal-title fw-bold" id="edit-modalLabel">Editar Movimiento</h5>
                         </div>
                     </div>
                     <button type="button" class="btn-close me-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container">
-                        <form id="movement-edit-form">
+                        <form id="movement-edit-form" autocomplete="off">
                             <input type="hidden" id="edit-id-movement">
                             <!-- Campos editables -->
                             <div class="row ms-2 me-2 pt-3 pb-3">
                                 <div class="col-md-4 ms-auto label-over-border">
                                     <label for="edit-date" class="form-label m-2">Fecha</label>
                                     <input type="text" class="form-control" id="edit-date" disabled>
-                                    <p class="error invalid-feedback" id="error-editDate" style="color: red;"></p>
                                 </div>
                             </div>
                             <div class="row ms-2 me-2 pt-3 pb-3">
-                                <div class="col-md-8 label-over-border">
+                                <div class="col-md-8 label-over-border mb-4 mb-md-0">
                                     <label for="edit-type" class="form-label m-2">Movimiento</label>
                                     <input type="text" class="form-control" id="edit-type" disabled>
-                                    <p class="error invalid-feedback" id="error-editType" style="color: red;"></p>
                                 </div>
                                 <div class="col-md-4 label-over-border">
-                                    <label for="edit-amount" class="form-label m-2">Cantidad</label>
-                                    <input type="number" class="form-control no-arrows" id="edit-amount">
-                                    <p class="error invalid-feedback" id="error-editAmount" style="color: red;"></p>
+                                    <label for="edit-quantity" class="form-label m-2">Cantidad</label>
+                                    <input type="number" class="form-control no-arrows" id="edit-quantity">
+                                    <p class="error invalid-feedback" id="error-editQuantity" style="color: red;"></p>
                                 </div>
                             </div>
                             <div class="row ms-2 me-2 pt-3 pb-3">
@@ -183,9 +178,9 @@
                         </form>
                     </div>
                 </div>
-                <div class="modal-footer me-4">
+                <div class="modal-footer mx-md-4">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button id="btn-edit-entry" class="btn btn-primary">Guardar cambios</button>
+                    <button id="btn-edit-entry" type="submit" form="movement-edit-form" class="btn btn-primary">Guardar cambios</button>
                 </div>
             </div>
         </div>
@@ -199,10 +194,7 @@
                     <div class="row">
                         <div class="col d-flex align-items-center">
                             <div class="ms-4 me-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-circle" viewBox="0 0 16 16" style="color: var(--danger-dark)">
-                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
-                                    <path d="M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"/>
-                                </svg>
+                                <i class="bi bi-exclamation-circle icon-md" style="color:var(--redD-dark)"></i>
                             </div>
                             <h5 class="modal-title" id="delete-modalLabel">Confirmar eliminación</h5>
                         </div>
@@ -220,11 +212,6 @@
             </div>
         </div>
     </div>
-
-    <!-- FOOTER -->
-    <footer id="site-footer">
-
-    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
