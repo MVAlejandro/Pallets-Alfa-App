@@ -3,6 +3,7 @@
 const idRegex = /^\d+$/ // Id de empleado
 const nameRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/; // Nombres y el apellidos
 const textRegex = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ0-9\s.:,()\/\#-–— +]+$/; // Texto con algunos caracteres especiales
+const excelRegex = /^.+\t.+(\n.+\t.+)*$/; // Datos pegados de Excel
 const curpRegex = /^[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9]\d$/; // CURP
 const rfcRegex = /^([A-Z&Ñ]{3,4})\d{6}[A-Z0-9]{3}$/; // RFC
 const nssRegex = /^\d{11}$/; // NSS
@@ -40,6 +41,11 @@ export function codeValidate(input, error) {
 // Función que valida que los campos sean solo letras y algunos caracteres especiales
 export function textValidate(input, error) {
     validateFunction(input, error, textRegex, 'El campo no acepta caracteres especiales');
+}
+
+// Función que valida que la información venga en formato de Excel
+export function excelValidate(input, error) {
+    validateFunction(input, error, excelRegex, 'Los datos deben ser copiados desde Excel');
 }
 
 // Función que valida que los campos sean solo letras y que haya al menos 3 caracteres

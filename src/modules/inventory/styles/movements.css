@@ -1,0 +1,31 @@
+main {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Estilos de contenedores */
+#movements-form-container, #movements-filter-container, .table-responsive, #movements-pages-container {
+    background-color: var(--background-light) !important;
+    border-radius: 0.3rem;
+    border: 1px solid var(--secondary-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    color: var(--secondary) !important;
+}
+
+@media (max-width: 430px) {
+    h2 {
+        font-size: 21px !important;
+    }
+}
+
+/* Estilos de texto para la tabla */
+.movement-week {
+    font-weight: bold;
+}
+
+.movement-date, #movements-pages-results {
+    font-size: 13px;
+    color: var(--secondary) !important;
+}

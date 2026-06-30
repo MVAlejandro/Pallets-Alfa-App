@@ -13,12 +13,12 @@ export const productsState = createModuleState();
 
 // Función de filtrado y renderizado inicial
 export async function initProductsModule() {
-    loadOptions('store-filter', getStores, 'id_almacen', 'nombre')
+    loadOptions('store-filter', getStores, 'id_almacen', 'nombre');
 
     // Obtener productos y renderizar tabla inicial
-    await refreshState(productsState, getProducts)
+    await refreshState(productsState, getProducts);
 
-    applyProductsFilter()
+    applyProductsFilter();
     
     const form = document.getElementById('filter-form');
     const store = document.getElementById('store-filter');

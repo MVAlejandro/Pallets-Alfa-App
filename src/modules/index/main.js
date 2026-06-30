@@ -1,22 +1,16 @@
 // Implementación de Bootstrap Icons
 import 'bootstrap-icons/font/bootstrap-icons.css';
-
 // Estilos y variables globales
 import '../../shared/css/variables.css';
 import '../../shared/css/style.css';
-
 // Estilos del módulo
 import './styles/index.css';
-
 // Layout base
 import { initLayout } from '../../core/layouts/init.js'
-
 // Funciones del backend
 import { validateAuth } from '../../core/auth/auth-validate.js';
-
 // Funciones del módulo
 import { AccessCard, AdviceCard } from './components/index-cards.js';
-
 // Utilidades
 import { getDateParts } from '../../shared/utils/time-functions.js';
 

@@ -1,4 +1,5 @@
-import { productsState } from "./products-filter";
+// Importar el estadoo de los registros
+import { productsState } from "./products-filter.js";
 
 const perPage = 15;
 
@@ -11,7 +12,6 @@ export async function renderProductsTable() {
     // Calcular productos de la página actual
     const pageStart = (productsState.currentPage - 1) * perPage;
     const pageEnd = pageStart + perPage;
-
     const products = productsState.visibleRecords.slice(pageStart, pageEnd);
 
     // Limpiar tabla antes de insertar

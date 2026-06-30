@@ -18,11 +18,11 @@ export function createNavbar() {
         `<div class="p-3 d-flex flex-column h-100">
             <ul id="nav-list" class="ps-0 mb-auto">
                 <li class="mb-1">
-                    <button class="btn btn-toggle d-flex align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#catalog-collapse" aria-expanded="false">
+                    <button class="btn btn-toggle d-flex align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#catalog" aria-expanded="false">
                         <i class="bi bi-journal-bookmark"></i>
                         <p class="ps-3">Catálogos</p>
                     </button>
-                    <div class="collapse" id="catalog-collapse">
+                    <div class="collapse" id="catalog">
                         <ul class="btn-toggle-nav pb-1 small">
                             <li><a href="/app/catalog/dashboard.html" class="link-dark rounded">Inicio</a></li>
                             <li><a href="#" class="link-dark rounded">Activos</a></li>
@@ -35,11 +35,11 @@ export function createNavbar() {
                     </div>
                 </li>
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#shipments-collapse" aria-expanded="false">
+                    <button class="btn btn-toggle align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#shipments" aria-expanded="false">
                         <i class="bi bi-truck"></i>
                         <p class="ps-3">Embarques</p>
                     </button>
-                    <div class="collapse" id="shipments-collapse">
+                    <div class="collapse" id="shipments">
                         <ul class="btn-toggle-nav pb-1 small">
                             <li><a href="#" class="link-dark rounded">Inicio</a></li>
                             <li><a href="#" class="link-dark rounded">Contratos</a></li>
@@ -53,25 +53,25 @@ export function createNavbar() {
                     </div>
                 </li>
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#inventory-collapse" aria-expanded="false">
+                    <button class="btn btn-toggle align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#inventory" aria-expanded="false">
                         <i class="bi bi-clipboard-check"></i>
                         <p class="ps-3">Inventario</p>
                     </button>
-                    <div class="collapse" id="inventory-collapse">
+                    <div class="collapse" id="inventory">
                         <ul class="btn-toggle-nav pb-1 small">
                             <li><a href="/app/inventory/dashboard.html" class="link-dark rounded">Inicio</a></li>
-                            <li><a href="#" class="link-dark rounded">Movimientos</a></li>
+                            <li><a href="/app/inventory/movements.html" class="link-dark rounded">Movimientos</a></li>
                             <li><a href="#" class="link-dark rounded">Conteos</a></li>
                             <li><a href="#" class="link-dark rounded">Reportes</a></li>
                         </ul>
                     </div>
                 </li>
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#maintenance-collapse" aria-expanded="false">
+                    <button class="btn btn-toggle align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#maintenance" aria-expanded="false">
                         <i class="bi bi-wrench"></i>
                         <p class="ps-3">Mantenimiento</p>
                     </button>
-                    <div class="collapse" id="maintenance-collapse">
+                    <div class="collapse" id="maintenance">
                         <ul class="btn-toggle-nav pb-1 small">
                             <li><a href="#" class="link-dark rounded">Inicio</a></li>
                             <li><a href="#" class="link-dark rounded">Tareas</a></li>
@@ -80,11 +80,11 @@ export function createNavbar() {
                     </div>
                 </li>
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#rh-collapse" aria-expanded="false">
+                    <button class="btn btn-toggle align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#rh" aria-expanded="false">
                         <i class="bi bi-people"></i>
                         <p class="ps-3">RRHH</p>
                     </button>
-                    <div class="collapse" id="rh-collapse">
+                    <div class="collapse" id="rh">
                         <ul class="btn-toggle-nav pb-1 small">
                             <li><a href="#" class="link-dark rounded">Inicio</a></li>
                             <li><a href="#" class="link-dark rounded">Horarios</a></li>
@@ -95,11 +95,11 @@ export function createNavbar() {
                     </div>
                 </li>
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#support-collapse" aria-expanded="false">
+                    <button class="btn btn-toggle align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#support" aria-expanded="false">
                         <i class="bi bi-question-circle"></i>
                         <p class="ps-3">Soporte</p>
                     </button>
-                    <div class="collapse" id="support-collapse">
+                    <div class="collapse" id="support">
                         <ul class="btn-toggle-nav pb-1 small">
                             <li><a href="#" class="link-dark rounded">Inicio</a></li>
                             <li><a href="#" class="link-dark rounded">Tickets</a></li>
@@ -108,11 +108,11 @@ export function createNavbar() {
                     </div>
                 </li>
                 <li class="mb-1">
-                    <button class="btn btn-toggle d-flex align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#sales-collapse" aria-expanded="false">
+                    <button class="btn btn-toggle d-flex align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#sales" aria-expanded="false">
                         <i class="bi bi-graph-up"></i>
                         <p class="ps-3">Ventas</p>
                     </button>
-                    <div class="collapse" id="sales-collapse">
+                    <div class="collapse" id="sales">
                         <ul class="btn-toggle-nav pb-1 small">
                             <li><a href="#" class="link-dark rounded">Inicio</a></li>
                             <li><a href="#" class="link-dark rounded">Prospectos</a></li>
@@ -127,4 +127,28 @@ export function createNavbar() {
                 
             </div>
         </div>`;
+
+        activePage()
+}
+
+// Marcar la pestaña activa en la navbar
+function activePage() {
+    const currentLocation = window.location.href;
+    const module = currentLocation.split("/app/")[1].split("/")[0];
+    const collapsedItems = document.querySelectorAll(".collapse");
+    const menuItems = document.querySelectorAll(".link-dark");
+
+    // Dejar desplegado el módulo actual
+    collapsedItems.forEach(item => {
+        if (item.id === module) {
+            item.classList.add("show");
+        }
+    });
+
+    // Marcar como activo el link de la página actual
+    menuItems.forEach(item => {
+        if (item.href === currentLocation) {
+            item.classList.add("link-active");
+        }
+    });
 }

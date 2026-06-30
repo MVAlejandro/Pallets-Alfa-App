@@ -72,12 +72,9 @@ ul {
 }
 
 .link-active {
-    color: var(--primary);
     font-weight: bold;
-}
-
-.link-active::after {
-    width: 100%;
+    color: var(--primary-light) !important;
+    background-color: var(--primary);
 }
 
 #dropdown-user {
@@ -89,8 +86,6 @@ ul {
     text-decoration: none;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
 }
-
-
 
 /* Botones tipo acordeón */
 .btn-toggle {

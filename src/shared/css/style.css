@@ -90,6 +90,10 @@ table {
 }
 
 @media (max-width: 430px) {
+    table, table p {
+        font-size: 11px !important;
+    }
+
     p {
         font-size: 14px;
     }
@@ -259,7 +263,7 @@ input::placeholder, textarea::placeholder, #default-option {
 .tab-btn {
     background-color: var(--background);
     border: 1px solid var(--secondary-light);
-    color: var(--background-dark);
+    color: var(--secondary);
     font-weight: bold;
     font-size: 0.9rem;
     border-radius: 0.3rem !important;
@@ -272,9 +276,13 @@ input::placeholder, textarea::placeholder, #default-option {
     color: var(--text-light);
 }
 
+.tab-btn.active:hover {
+    background-color: var(--primary-dark) !important;
+}
+
 .tab-btn:hover {
-    background-color: var(--primary-light);
-    color: var(--secondary);
+    background-color: var(--secondary);
+    color: var(--text-light) !important;
 }
 
 /* Estilos para botones de edición de entradas */
