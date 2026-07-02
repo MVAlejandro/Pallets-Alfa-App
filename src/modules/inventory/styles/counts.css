@@ -1,0 +1,25 @@
+main {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Estilos de contenedores */
+#counts-form-container, #counts-filter-container, .table-responsive, #counts-pages-container {
+    background-color: var(--background-light) !important;
+    border-radius: 0.3rem;
+    border: 1px solid var(--secondary-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    color: var(--secondary) !important;
+}
+
+/* Estilos de texto para la tabla */
+.count-week {
+    font-weight: bold;
+}
+
+.count-date, .count-product, #counts-pages-results {
+    font-size: 13px;
+    color: var(--secondary) !important;
+}

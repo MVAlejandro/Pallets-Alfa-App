@@ -83,28 +83,30 @@ export function cpValidate (input, error){
     validateFunction(input, error, cpRegex, 'El código postal no es válido');
 }
 
-// Función que valida que el costo sea válido
-export function amountValidate (input, error){
-    validateFunction(input, error, amountRegex, 'El dato no es válido');
-}
-
-// Función que valida que la cantidad sea menor al máximo establecido
-export function quantityValidate(input, error, maxValue) {
+// Función que valida que una cantidad sea válida con posibilidad de establecer un máximo
+export function amountValidate(input, error, maxValue = null) {
     error.textContent = "";
     input.classList.remove("is-invalid", "is-valid");
 
-    if(!amountRegex.test(input.value)){
-        error.textContent=`El dato no es válido`;
-        input.classList.add('is-invalid');
-    } else if (input.value > maxValue) {
+    // Validación base
+    if (!amountRegex.test(input.value)) {
+        error.textContent = "El dato no es válido";
+        input.classList.add("is-invalid");
+        return false;
+    }
+
+    // Validación opcional de máximo
+    if (maxValue !== null && Number(input.value) > maxValue) {
         error.textContent = `No puede exceder ${maxValue} unidades`;
         input.classList.add("is-invalid");
 
         input.value = maxValue;
-    } else {
-        error.textContent = '';
-        input.classList.add('is-valid');
+        return false;
     }
+
+    // Si todo está bien
+    input.classList.add("is-valid");
+    return true;
 }
 
 // Función que valida que el correo tenga un formato válido

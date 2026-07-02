@@ -1,6 +1,6 @@
 // Funciones del backend
 import { getProducts } from '../../services/products-service.js'; 
-import { assignProductToStore, getProductStore, getStores, unassignProductToStore } from '../../services/product-store-service.js';
+import { assignProductToStore, getProductStores, getStores, unassignProductToStore } from '../../services/product-store-service.js';
 // Funciones del módulo
 import { productsFilter, productsState } from './products-filter.js';
 // Utilidades
@@ -88,7 +88,7 @@ export async function renderAssignStores(id_producto) {
 export async function renderStoreList(id_producto) {
     // Obtener los almacenes existentes en la base
     let allStores = await getStores();
-    let productStores = await getProductStore(id_producto);
+    let productStores = await getProductStores(id_producto);
     const container = document.getElementById('store-list');
 
     // Limpiar antes de insertar

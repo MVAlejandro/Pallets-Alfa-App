@@ -3,17 +3,18 @@ import { getMovements } from '../../services/movements-service.js';
 // Funciones del módulo
 import { renderMovementsTable } from './movements-table.js';
 // Utilidades
-import { debounce, loadDateFilter } from '../../../../shared/utils/utils.js';
+import { debounce } from '../../../../shared/utils/utils.js';
+import { loadDateFilter } from '../../../../shared/utils/load-select.js';
 import { createModuleState, refreshState } from '../../../../shared/utils/state.js';
 
-// Crear el estado de los productos para su manejo en la tabla
+// Crear el estado de los movimientos para su manejo en la tabla
 export const movementsState = createModuleState();
 
 // Función de filtrado y renderizado inicial
 export async function initMovementsModule() {
     const dateFilter = loadDateFilter("#date-filter", false);
 
-    // Obtener productos y renderizar tabla inicial
+    // Obtener movimientos y renderizar tabla inicial
     await refreshState(movementsState, getMovements)
 
     applyMovementsFilter()

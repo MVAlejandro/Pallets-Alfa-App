@@ -30,6 +30,18 @@ export async function getProducts() {
     return result.productos;
 }
 
+// Función para buscar el id de un producto con su código conectando a la base de datos
+export async function findProduct(codigo) {
+    const response = await fetch(`${API_BASE}/find.php?codigo_producto=${codigo}`);
+    const result = await response.json();
+    
+    if (!response.ok) {
+        throw new Error(result.message || 'Error al obtener buscar el producto');
+    }
+    
+    return result.data;
+}
+
 // Función para actualizar un producto conectando a la base de datos
 export async function updateProduct(id_producto, updatedData) {
     const response = await fetch(`${API_BASE}/update.php`, {

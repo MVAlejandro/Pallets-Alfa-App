@@ -11,22 +11,3 @@ export function debounce(fn, delay = 300) {
         }, delay);
     };
 }
-
-// Función para cargar las fechas en el filtro con el uso de Flatpickr
-export function loadDateFilter(input, useDefault = true) {
-    const config = {
-        locale: {
-            ...flatpickr.l10ns.es,
-            firstDayOfWeek: 0
-        },
-        mode: "range",
-        dateFormat: "Y-m-d"
-    };
-
-    // Solo agregar fecha por defecto si se pide
-    if (useDefault) {
-        config.defaultDate = new Date();
-    }
-
-    return flatpickr(input, config);
-}

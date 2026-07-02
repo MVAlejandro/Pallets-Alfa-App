@@ -60,7 +60,6 @@ export async function createExcelMovements(e) {
                 continue;
             }
 
-            // Insertar en Supabase
             const movementData = {
                 tipo_movimiento,
                 cantidad,

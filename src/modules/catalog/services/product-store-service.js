@@ -2,12 +2,36 @@
 const API_BASE = '/api/modules/inventory/product-store';
 
 // Función para obtener los almacenes vinculados a productos conectando a la base de datos
-export async function getProductStore(producto_id) {
-    const response = await fetch(`${API_BASE}/get.php?producto_id=${producto_id}`);
+export async function getProductStores(producto_id) {
+    const response = await fetch(`${API_BASE}/get-stores.php?producto_id=${producto_id}`);
     const result = await response.json();
     
     if (!response.ok) {
         throw new Error(result.message || 'Error al obtener almacenes del producto');
+    }
+    
+    return result.data;
+}
+
+// Función para obtener los productos vinculados a un almacén conectando a la base de datos
+export async function getStoreProducts(almacen_id) {
+    const response = await fetch(`${API_BASE}/get-products.php?almacen_id=${almacen_id}`);
+    const result = await response.json();
+    
+    if (!response.ok) {
+        throw new Error(result.message || 'Error al obtener productos del almacén');
+    }
+    
+    return result.data;
+}
+
+// Función para buscar la relación de producto - almacen conectando a la base de datos
+export async function findProductStore(almacen_id, producto_id) {
+    const response = await fetch(`${API_BASE}/find.php?almacen_id=${almacen_id}&producto_id=${producto_id}`);
+    const result = await response.json();
+    
+    if (!response.ok) {
+        throw new Error(result.message || 'Error al obtener buscar el producto');
     }
     
     return result.data;

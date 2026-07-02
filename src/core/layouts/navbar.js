@@ -61,7 +61,7 @@ export function createNavbar() {
                         <ul class="btn-toggle-nav pb-1 small">
                             <li><a href="/app/inventory/dashboard.html" class="link-dark rounded">Inicio</a></li>
                             <li><a href="/app/inventory/movements.html" class="link-dark rounded">Movimientos</a></li>
-                            <li><a href="#" class="link-dark rounded">Conteos</a></li>
+                            <li><a href="/app/inventory/counts.html" class="link-dark rounded">Conteos</a></li>
                             <li><a href="#" class="link-dark rounded">Reportes</a></li>
                         </ul>
                     </div>

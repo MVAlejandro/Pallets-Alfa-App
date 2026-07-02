@@ -1,5 +1,5 @@
 
-// Función para cargar datos completos en los select del formulario
+// Función para cargar datos completos en un select, si se pasa un valor seleccinoado se limpia el select
 export async function loadOptions(selectId, getFunction, valueKey, textKey, selectedValue = '0') {
     const select = document.getElementById(selectId)
     if (!select) return
@@ -31,8 +31,8 @@ export async function loadOptions(selectId, getFunction, valueKey, textKey, sele
     })
 }
 
-// Función para cargar datos en relación a campos registrados
-export async function loadOptionsFilter(selectId, getFunction, displayFields, idField, defaultOption, selectedId = 0) {
+// Función para cargar datos en un select eliminando duplicados y permitiendo más de un valor a mostrar
+export async function loadOptionsFilter(selectId, getFunction, valueKey, textKey, defaultOption, selectedId = 0) {
     const select = document.getElementById(selectId);
     if (!select) return;
 
@@ -40,8 +40,13 @@ export async function loadOptionsFilter(selectId, getFunction, displayFields, id
     select.innerHTML = '';
 
     // Obtener datos externos
-    const data = await getFunction();
-    if (!data) return;
+    let data;
+    try {
+        data = await getFunction();
+    } catch (error) {
+        console.error('Error cargando opciones:', error);
+        return;
+    }
 
     // Opción por defecto
     const defaultOptionEl = document.createElement('option');
@@ -55,21 +60,21 @@ export async function loadOptionsFilter(selectId, getFunction, displayFields, id
     // Agregar opciones al select
     data.forEach(item => {
         let text;
-        if (Array.isArray(displayFields)) {
-            text = displayFields.map(f => item[f]).filter(Boolean).join(' - ');
+        if (Array.isArray(textKey)) {
+            text = textKey.map(f => item[f]).filter(Boolean).join(' - ');
         } else {
-            text = item[displayFields];
+            text = item[textKey];
         }
 
         if (!text || seenTexts.has(text)) return;
         seenTexts.add(text);
 
         const optionEl = document.createElement('option');
-        optionEl.value = item[idField];
+        optionEl.value = item[valueKey];
         optionEl.textContent = text;
 
         // Marcar como seleccionado si coincide con selectedId
-        if (item[idField] == selectedId) {
+        if (item[valueKey] == selectedId) {
             optionEl.selected = true;
         }
 
@@ -77,19 +82,21 @@ export async function loadOptionsFilter(selectId, getFunction, displayFields, id
     });
 }
 
-// Función para cargar los días de la semana en el filtro
-export function loadDaysFilter() {
-    flatpickr("#day-filter", {
+// Función para cargar las fechas en el filtro con el uso de Flatpickr en modo de rango
+export function loadDateFilter(input, useDefault = true) {
+    const config = {
         locale: {
             ...flatpickr.l10ns.es,
             firstDayOfWeek: 0
         },
-        mode: "multiple",
-        dateFormat: "Y-m-d",
-        defaultDate: new Date(),
-        disable: [
-            date => date.getDay() === 0
-        ]
-    });
-}
+        mode: "range",
+        dateFormat: "Y-m-d"
+    };
 
+    // Solo agregar fecha por defecto si se pide
+    if (useDefault) {
+        config.defaultDate = new Date();
+    }
+
+    return flatpickr(input, config);
+}
