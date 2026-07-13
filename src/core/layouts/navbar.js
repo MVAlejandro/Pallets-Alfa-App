@@ -62,7 +62,7 @@ export function createNavbar() {
                             <li><a href="/app/inventory/dashboard.html" class="link-dark rounded">Inicio</a></li>
                             <li><a href="/app/inventory/movements.html" class="link-dark rounded">Movimientos</a></li>
                             <li><a href="/app/inventory/counts.html" class="link-dark rounded">Conteos</a></li>
-                            <li><a href="#" class="link-dark rounded">Reportes</a></li>
+                            <li><a href="/app/inventory/reports.html" class="link-dark rounded">Reportes</a></li>
                         </ul>
                     </div>
                 </li>

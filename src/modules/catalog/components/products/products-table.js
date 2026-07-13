@@ -27,13 +27,13 @@ export async function renderProductsTable() {
     products.forEach(producto => {
         tbody.innerHTML += 
         `<tr>
-            <td class="product-code p-3 ps-4">${producto.codigo}</td>
-            <td class="p-3">
-                <p class="product-name">${producto.nombre}</p>
+            <td class="product-code p-2 ps-4">${producto.codigo}</td>
+            <td class="p-2">
+                <p class="product-name fw-bold">${producto.nombre}</p>
                 <p class="product-description">${producto.descripcion}</p>
             </td>
-            <td class="product-store p-3">${producto.almacenes || "Sin Asignar"}</td>
-            <td class="product-controls text-pageEnd p-3 pe-4">
+            <td class="product-store fst-italic p-2">${producto.almacenes || "Sin Asignar"}</td>
+            <td class="product-controls text-pageEnd p-2 pe-4">
                 <div class="action-buttons">
                     <button class="btn btn-edit" data-bs-target="#edit-modal" data-bs-toggle="modal" title="Editar producto"
                         product-data='${JSON.stringify(producto)}'>

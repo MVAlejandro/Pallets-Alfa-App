@@ -14,6 +14,10 @@ th {
     color: var(--secondary) !important;
 }
 
+#total-text {
+    color: var(--primary-dark);
+}
+
 @media (max-width: 430px) {
     h2 {
         font-size: 21px !important;
@@ -23,9 +27,14 @@ th {
 /* Estilos de texto para la tabla */
 .movement-week {
     font-weight: bold;
+    color: var(--primary-dark);
 }
 
 .movement-date, #movements-pages-results {
     font-size: 13px;
+    color: var(--secondary) !important;
+}
+
+.movement-quantity {
     color: var(--secondary) !important;
 }

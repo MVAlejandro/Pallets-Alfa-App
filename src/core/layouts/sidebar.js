@@ -1,3 +1,4 @@
+import { Swal } from '../../shared/utils/utils.js'
 // Funciones backend
 import { logout } from "../../modules/login/services/logout-service.js";
 

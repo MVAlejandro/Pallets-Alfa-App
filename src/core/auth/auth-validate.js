@@ -9,13 +9,13 @@ export async function validateAuth() {
 
     // Si no hay sesión redirigir al login
     if (!user && !isLoginPage) {
-        window.location.href = './login.html';
+        window.location.href = '/app/login.html';
         return null;
     }
 
     // Con sesión evitar volver a login
     if (user && isLoginPage) {
-        window.location.href = './index.html';
+        window.location.href = '/app/index.html';
         return user;
     }
 

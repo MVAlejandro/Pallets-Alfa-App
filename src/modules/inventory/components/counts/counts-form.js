@@ -1,3 +1,5 @@
+// Dependencias
+import { Swal } from '../../../../shared/utils/utils.js';
 // Funciones del backend
 import { createCount, getCounts } from '../../services/counts-service.js'; 
 import { findProductStore } from '../../../catalog/services/product-store-service.js';

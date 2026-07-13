@@ -51,6 +51,7 @@ export async function countsFilter() {
     const dateFilter = document.getElementById('date-filter');
     const storeFilter = document.getElementById('store-filter').value;
     const codeFilter = document.getElementById('code-filter').value;
+    const resultsText = document.getElementById('total-text');
 
     let startDate = null;
     let endDate = null;
@@ -67,6 +68,7 @@ export async function countsFilter() {
 
     if (filterClean) {
         countsState.visibleRecords = countsState.allRecords;
+        resultsText.textContent = `Total Registros: ${countsState.visibleRecords.length.toLocaleString('en-US')}`;
         renderCountsTable();
         return;
     }
@@ -84,8 +86,9 @@ export async function countsFilter() {
 
         return dateOk && codeOk && storeOk;
     });
-
+    
     countsState.visibleRecords = filtered;
 
+    resultsText.textContent = `Total Registros: ${countsState.visibleRecords.length.toLocaleString('en-US')}`;
     renderCountsTable();
 }

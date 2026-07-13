@@ -1,9 +1,9 @@
 
-// Función para separar el formato de tiempo en fecha y hora
-export function splitDateTime(fechaTexto) {
-    const [date, hour] = fechaTexto.trim().split(' ');
-    const [day, month, year] = date.split('/');
-    return { date: `${year}-${month}-${day}`, hour };
+// Función para separar el formato de tiempo en fecha y hora viniendo de la base de datos
+export function splitTimestamp(timestamp) {
+    const [date, time] = timestamp.split(" ");
+
+    return { date, time };
 }
 
 // Función para obtener las partes de una fecha

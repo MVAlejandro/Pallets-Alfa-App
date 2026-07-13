@@ -14,9 +14,14 @@ th {
     color: var(--secondary) !important;
 }
 
+#total-text {
+    color: var(--primary-dark);
+}
+
 /* Estilos de texto para la tabla */
 .product-code {
     font-weight: bold;
+    color: var(--primary-dark) !important;
 }
 
 .product-description, #products-pages-results {

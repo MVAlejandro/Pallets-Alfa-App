@@ -1,3 +1,5 @@
+// Dependencias
+import { Swal } from '../../../shared/utils/utils.js';
 // Funciones del backend
 import { validateLogin } from '../components/login-validate.js'; 
 import { login } from '../services/login-service.js'; 

@@ -14,37 +14,37 @@
 }
 
 /* Colores para estados varios */
-.blue {
+.state-blue {
     background-color: var(--blue-light) !important;
     color: var(--blue-dark) !important;
 }
 
-.greenL {
+.state-greenL {
     background-color: var(--greenL-light) !important;
     color: var(--greenL-dark) !important;
 }
 
-.greenD {
+.state-greenD {
     background-color: var(--greenD-light) !important;
     color: var(--greenD-dark) !important;
 }
 
-.yellow {
+.state-yellow {
     background-color: var(--yellow-light) !important;
     color: var(--yellow-dark) !important;
 }
 
-.redL {
+.state-redL {
     background-color: var(--redL-light) !important;
     color: var(--redL-dark) !important;
 }   
 
-.redD {
+.state-redD {
     background-color: var(--redD-light) !important;
     color: var(--redD-dark) !important;
 }
 
-.grey {
+.state-grey {
     background-color: var(--grey-light) !important;
     color: var(--grey-dark) !important;
 }

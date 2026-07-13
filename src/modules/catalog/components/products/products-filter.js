@@ -44,12 +44,14 @@ function applyProductsFilter() {
 export async function productsFilter() {
     const storeFilter = document.getElementById('store-filter').value;
     const searchText = document.getElementById('search-filter').value.trim().toLowerCase();
+    const resultsText = document.getElementById('total-text');
 
     // Si no hay filtros activos, mostrar todo
     const filterClean = storeFilter === '0' && searchText === '';
 
     if (filterClean) {
         productsState.visibleRecords = productsState.allRecords;
+        resultsText.textContent = `Total Registros: ${productsState.visibleRecords.length.toLocaleString('en-US')}`;
         renderProductsTable();
         return;
     }
@@ -66,5 +68,6 @@ export async function productsFilter() {
 
     productsState.visibleRecords = filtered;
 
+    resultsText.textContent = `Total Registros: ${productsState.visibleRecords.length.toLocaleString('en-US')}`;
     renderProductsTable();
 }

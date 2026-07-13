@@ -14,12 +14,21 @@ th {
     color: var(--secondary) !important;
 }
 
+#total-text {
+    color: var(--primary-dark);
+}
+
 /* Estilos de texto para la tabla */
 .count-week {
     font-weight: bold;
+    color: var(--primary-dark);
 }
 
 .count-date, .count-product, #counts-pages-results {
     font-size: 13px;
+    color: var(--secondary) !important;
+}
+
+.count-quantity {
     color: var(--secondary) !important;
 }

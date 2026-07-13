@@ -44,6 +44,7 @@ function applyMovementsFilter() {
 export async function movementsFilter() {
     const dateFilter = document.getElementById('date-filter');
     const movementFilter = document.getElementById('movement-filter').value;
+    const resultsText = document.getElementById('total-text');
 
     let startDate = null;
     let endDate = null;
@@ -60,6 +61,7 @@ export async function movementsFilter() {
 
     if (filterClean) {
         movementsState.visibleRecords = movementsState.allRecords;
+        resultsText.textContent = `Total Registros: ${movementsState.visibleRecords.length.toLocaleString('en-US')}`;
         renderMovementsTable();
         return;
     }
@@ -79,5 +81,6 @@ export async function movementsFilter() {
 
     movementsState.visibleRecords = filtered;
 
+    resultsText.textContent = `Total Registros: ${movementsState.visibleRecords.length.toLocaleString('en-US')}`;
     renderMovementsTable();
 }

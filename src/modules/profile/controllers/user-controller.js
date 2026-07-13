@@ -1,3 +1,4 @@
+import { Swal } from '../../../shared/utils/utils.js'
 // Funciones del backend
 import { validateUser } from '../components/profile/user-validate.js';
 import { updateUser } from '../services/user-service.js';

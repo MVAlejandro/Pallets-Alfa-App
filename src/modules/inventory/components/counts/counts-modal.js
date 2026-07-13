@@ -1,3 +1,5 @@
+// Dependencias
+import { Swal } from '../../../../shared/utils/utils.js';
 // Funciones del backend
 import { updateCount, deleteCount, getCounts } from '../../services/counts-service.js'; 
 // Funciones del módulo

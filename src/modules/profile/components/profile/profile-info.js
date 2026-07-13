@@ -9,7 +9,7 @@ export function ProfileHeader(user) {
     userPicture.src = user.foto || "../api/storage/employees/profile.jpg";
     userName.textContent = `${user.nombre} ${user.apellido}`;
     userRole.textContent = user.rol;
-    userId.textContent = `ID-${user.id}`;
+    userId.textContent = `ID-${user.id_usuario}`;
 };
 
 // Función de llenado para el formulario de la cuenta

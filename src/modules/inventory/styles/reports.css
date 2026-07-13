@@ -1,0 +1,73 @@
+main {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Estilos de la página y estructura */
+#general-report-filter-container, #graphic-report-container, #store-report-filter-container, .card, .table-responsive {
+    background-color: var(--background-light) !important;
+    border-radius: 0.3rem;
+    border: 1px solid var(--secondary-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    color: var(--secondary) !important;
+}
+
+#week-title {
+    font-weight: bold;
+    color: var(--primary-dark);
+}
+
+/* Estilos de cards */
+.report-card .card-body {
+    font-size: 13px;
+    padding: 0.75rem;
+}
+
+.card-text {
+    color: var(--secondary);
+}
+
+.general-report-cant {
+    font-size: 35px;
+    font-weight: bold;
+    padding-top: 0px;
+}
+
+.card {
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+    .report-card .card-body {
+        padding: 1rem;
+    }
+
+    .general-report-cant {
+        font-size: 30px;
+    }
+}
+
+/* Estilos de texto para la tabla */
+#general-report-table tbody {
+    font-size: 13px;
+}
+
+.count-week {
+    font-weight: bold;
+    color: var(--primary-dark);
+}
+
+.count-date, .count-product {
+    font-size: 13px;
+    color: var(--secondary) !important;
+}
+
+.report-quantity, .count-quantity {
+    color: var(--secondary) !important;
+}

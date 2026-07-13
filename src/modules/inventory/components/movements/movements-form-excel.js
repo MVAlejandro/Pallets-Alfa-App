@@ -1,3 +1,5 @@
+// Dependencias
+import { Swal } from '../../../../shared/utils/utils.js';
 // Funciones del backend
 import { createMovement, getMovements } from '../../services/movements-service.js'; 
 // Funciones del módulo

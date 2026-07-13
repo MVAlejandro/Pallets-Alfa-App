@@ -29,18 +29,18 @@ export async function renderCountsTable() {
     counts.forEach(conteo => {
         tbody.innerHTML += 
         `<tr>
-            <td class="p-3 ps-4">
+            <td class="p-2 ps-4">
                 <p class="count-week">Semana ${getDateParts(conteo.fecha_conteo).semana || "Sin definir"}</p>
                 <p class="count-date">${conteo.fecha_conteo.split(" ")[0]}</p>
             </td>
-            <td class="p-3">
-                <p class="count-code">${conteo.codigo_producto}</p>
+            <td class="p-2">
+                <p class="count-code fw-bold">${conteo.codigo_producto}</p>
                 <p class="count-product">${conteo.descripcion_producto}</p>
             </td>
-            <td class="count-store text-center p-3">${conteo.almacen}</td>
-            <td class="count-quantity p-3">${conteo.cantidad_conteo.toLocaleString('en-US')}</td>
-            <td class="count-observation p-3">${conteo.observaciones}</td>
-            <td class="count-controls text-end p-3 pe-4">
+            <td class="count-store text-center p-2">${conteo.almacen}</td>
+            <td class="count-quantity p-2">${conteo.cantidad_conteo.toLocaleString('en-US')}</td>
+            <td class="count-observation fst-italic p-2">${conteo.observaciones}</td>
+            <td class="count-controls text-end p-2 pe-4">
                 <div class="action-buttons">
                     <button class="btn btn-edit" data-bs-target="#edit-modal" data-bs-toggle="modal" title="Editar conteo"
                         count-data='${JSON.stringify(conteo)}'>

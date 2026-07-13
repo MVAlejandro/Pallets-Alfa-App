@@ -29,14 +29,14 @@ export async function renderMovementsTable() {
     movements.forEach(movimiento => {
         tbody.innerHTML += 
         `<tr>
-            <td class="p-3 ps-4">
+            <td class="p-2 ps-4">
                 <p class="movement-week">Semana ${getDateParts(movimiento.fecha).semana || "Sin definir"}</p>
                 <p class="movement-date">${movimiento.fecha.split(" ")[0]}</p>
             </td>
-            <td class="movement-type p-3">${movimiento.tipo_movimiento}</td>
-            <td class="movement-quantity p-3">${movimiento.cantidad.toLocaleString('en-US')}</td>
-            <td class="movement-observation p-3">${movimiento.observaciones}</td>
-            <td class="movement-controls text-end p-3 pe-4">
+            <td class="movement-type fw-bold p-2">${movimiento.tipo_movimiento}</td>
+            <td class="movement-quantity p-2">${movimiento.cantidad.toLocaleString('en-US')}</td>
+            <td class="movement-observation fst-italic p-2">${movimiento.observaciones}</td>
+            <td class="movement-controls text-end p-2 pe-4">
                 <div class="action-buttons">
                     <button class="btn btn-edit" data-bs-target="#edit-modal" data-bs-toggle="modal" title="Editar movimiento"
                         movement-data='${JSON.stringify(movimiento)}'>

@@ -1,3 +1,5 @@
+// Dependencias
+import { Swal } from '../../../../shared/utils/utils.js';
 // Funciones del backend
 import { getProducts } from '../../services/products-service.js'; 
 import { assignProductToStore, getProductStores, getStores, unassignProductToStore } from '../../services/product-store-service.js';

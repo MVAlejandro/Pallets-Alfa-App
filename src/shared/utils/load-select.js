@@ -1,3 +1,5 @@
+// Dependencias
+import { flatpickr, Spanish } from './utils.js'
 
 // Función para cargar datos completos en un select, si se pasa un valor seleccinoado se limpia el select
 export async function loadOptions(selectId, getFunction, valueKey, textKey, selectedValue = '0') {
@@ -83,19 +85,22 @@ export async function loadOptionsFilter(selectId, getFunction, valueKey, textKey
 }
 
 // Función para cargar las fechas en el filtro con el uso de Flatpickr en modo de rango
-export function loadDateFilter(input, useDefault = true) {
+export function loadDateFilter(input, defaultValue = true) {
     const config = {
         locale: {
-            ...flatpickr.l10ns.es,
+            ...Spanish,
             firstDayOfWeek: 0
         },
+        weekNumbers: true,
         mode: "range",
         dateFormat: "Y-m-d"
     };
 
-    // Solo agregar fecha por defecto si se pide
-    if (useDefault) {
-        config.defaultDate = new Date();
+    // Solo agregar fecha por defecto si se pide o usar la que se pasa
+    if (defaultValue === true) {
+        config.defaultDate = [new Date(), new Date()];
+    } else if (defaultValue) {
+        config.defaultDate = defaultValue;
     }
 
     return flatpickr(input, config);
