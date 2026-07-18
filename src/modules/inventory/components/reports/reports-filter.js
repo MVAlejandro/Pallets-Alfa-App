@@ -30,7 +30,7 @@ export async function initReportsModule() {
     let lastDate = new Date();;
 
     if (lastCount) {
-        lastDate = new Date(lastCount.fecha_conteo);
+        lastDate = lastCount.fecha_conteo;
     }
 
     // Inicializar el flatpickr con esa fecha

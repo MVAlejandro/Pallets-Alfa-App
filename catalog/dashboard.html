@@ -41,10 +41,10 @@
                                 <a href="./attendance.html" class="card resume-card mt-2 text-decoration-none">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center px-2 px-md-3">
-                                            <p class="fw-bold text-muted">ACTIVOS</p>
+                                            <p class="fw-bold card-text">ACTIVOS</p>
                                             <i class="bi bi-gear icon-md ms-auto"></i>
                                         </div>
-                                        <div class="card-text ms-3">
+                                        <div class="card-qty ms-3">
                                             <p id="actives-text" class="general-report-cant text-muted">-</p>
                                         </div>
                                     </div>
@@ -54,10 +54,10 @@
                                 <a href="./attendance.html" class="card resume-card mt-2 text-decoration-none">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center px-2 px-md-3">
-                                            <p class="fw-bold text-muted">CLIENTES</p>
+                                            <p class="fw-bold card-text">CLIENTES</p>
                                             <i class="bi bi-person icon-md ms-auto"></i>
                                         </div>
-                                        <div class="card-text ms-3">
+                                        <div class="card-qty ms-3">
                                             <p id="clients-text" class="general-report-cant text-muted">-</p>
                                         </div>
                                     </div>
@@ -67,10 +67,10 @@
                                 <a href="./attendance.html" class="card resume-card mt-2 text-decoration-none">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center px-2 px-md-3">
-                                            <p class="fw-bold text-muted">EMPLEADOS</p>
+                                            <p class="fw-bold card-text">EMPLEADOS</p>
                                             <i class="bi bi-people icon-md ms-auto"></i>
                                         </div>
-                                        <div class="card-text ms-3">
+                                        <div class="card-qty ms-3">
                                             <p id="employees-text" class="general-report-cant text-muted">-</p>
                                         </div>
                                     </div>
@@ -80,10 +80,10 @@
                                 <a href="./products.html" class="card resume-card mt-2 text-decoration-none">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center px-2 px-md-3">
-                                            <p class="fw-bold text-muted">PRODUCTOS</p>
+                                            <p class="fw-bold card-text">PRODUCTOS</p>
                                             <i class="bi bi-boxes icon-md ms-auto"></i>
                                         </div>
-                                        <div class="card-text ms-3">
+                                        <div class="card-qty ms-3">
                                             <p id="products-text" class="general-report-cant text-muted">-</p>
                                         </div>
                                     </div>
@@ -93,109 +93,94 @@
                     </div>
                 </section>
 
-                <!-- SECCIÓN DE ESTADISTICAS GENERALES -->
-                <section id="catalog-statistics">
+                <!-- SECCIÓN DE ACCESOS DIRECTOS Y ESTADISTICAS GENERALES -->
+                <section id="catalog-menu">
                     <div class="container">
-                        <div id="catalog-statistics-container" class="row">
-                            <div id="departament-report-container" class="col-lg-6">
-                                <div class="card report-card mt-3">
-                                    <div class="card-body d-flex align-items-center justify-content-center text-center">
-                                        <div class="card-text">
-                                            <p class="fw-bold">Empleados por Departamento</p>
+                        <div class="row flex-column-reverse flex-lg-row">
+                            <div id="info-container" class="col-lg-3">
+                                <div id="direct-access-container" class="p-4">
+                                    <h6 class="text-muted fw-bold ps-2">ACCESOS DIRECTOS</h6>
+                                    <div class="row row-cols-1 g-3 pt-2">
+                                        <div class="col-md-6 col-lg-12">
+                                            <a href="./actives.html" class="card access-card mt-2 text-decoration-none">
+                                                <div id="actives-access" class="card-body d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-gear icon-md"></i>
+                                                    <p class="access-text ps-3 fw-bold">Activos registrados</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6 col-lg-12">
+                                            <a href="./clients.html" class="card access-card mt-2 text-decoration-none">
+                                                <div id="clients-access" class="card-body d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-person icon-md"></i>
+                                                    <p class="access-text ps-3 fw-bold">Cartera de clientes</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6 col-lg-12">
+                                            <a href="./staff.html" class="card access-card mt-2 text-decoration-none">
+                                                <div id="staff-access" class="card-body d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-people icon-md"></i>
+                                                    <p class="access-text ps-3 fw-bold">Kardex de empleados</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6 col-lg-12">
+                                            <a href="./spares.html" class="card access-card mt-2 text-decoration-none">
+                                                <div id="spares-access" class="card-body d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-wrench icon-md"></i>
+                                                    <p class="access-text ps-3 fw-bold">Catálogo de refacciones</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6 col-lg-12">
+                                            <a href="./products.html" class="card access-card mt-2 text-decoration-none">
+                                                <div id="products-access" class="card-body d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-boxes icon-md"></i>
+                                                    <p class="access-text ps-3 fw-bold">Productos existentes</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6 col-lg-12">
+                                            <a href="./suppliers.html" class="card access-card mt-2 text-decoration-none">
+                                                <div id="suppliers-access" class="card-body d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-shop icon-md"></i>
+                                                    <p class="access-text ps-3 fw-bold">Cartera de proveedores</p>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="graphic-report-container">
-                                        <div id="graphic-departament-container" class="h-100 d-flex align-items-center justify-content-center px-4 pt-2 pb-3">
-                                            aa
-                                        </div>
+                                </div>
+                                <div id="week-container" class="p-4 mt-3">
+                                    <div class="d-flex align-items-center px-1 px-md-3">
+                                        <p class="fw-bold card-text">SEMANA</p>
+                                        <i class="bi bi-calendar2-date icon-md ms-auto"></i>
                                     </div>
-                                </div>    
+                                    <div class="card-qty ms-3">
+                                        <p id="week-text" class="general-report-cant text-muted">-</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div id="stores-report-container" class="col-lg-6">
-                                <div class="card report-card mt-3">
-                                    <div class="card-body d-flex align-items-center justify-content-center text-center">
-                                        <div class="card-text">
-                                            <p class="fw-bold">Productos por Almacén</p>
-                                        </div>
+                            <div id="graphic-container" class="col-lg-9 mb-5 mb-lg-0">
+                                <div class="row row-cols-1 h-100">
+                                    <div class="col-12">
+                                        <div id="graphic-departament-container" class="h-100 d-flex align-items-center justify-content-center p-4">
+                                            <div class="alert alert-info">
+                                                No hay información para mostrar (Empleados por Departamento)
+                                            </div>
+                                        </div>   
                                     </div>
-                                    <div class="graphic-report-container">
+                                    <div class="col-12 mt-3">
                                         <div id="graphic-stores-container" class="h-100 d-flex align-items-center justify-content-center p-4">
-                                            aa
+                                            <div class="alert alert-info">
+                                                No hay información para mostrar (Productos por Almacén)
+                                            </div>
                                         </div>
                                     </div>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                     </div> 
-                </section>
-
-                <!-- SECCIÓN DE ACCESOS DIRECTOS -->
-                <section id="direct-access" class="pb-5">
-                    <div class="container">
-                        <h4>Accesos directos</h4>
-                        <div id="direct-access-container" class="row row-cols-1 row-cols-md-2 row-cols-md-3 g-2 mt-2">
-                            <div class="col col-md-6 col-lg-4">
-                                <a href="./actives.html" class="card access-card mt-2 text-decoration-none">
-                                    <div id="client-access" class="card-body d-flex align-items-center">
-                                        <div class="icon-square me-3">
-                                            <i class="bi bi-gear icon-lg"></i>
-                                        </div>
-                                        <p class="fw-bold">Gestionar activos</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col col-md-6 col-lg-4">
-                                <a href="./clients.html" class="card access-card mt-2 text-decoration-none">
-                                    <div id="order-access" class="card-body d-flex align-items-center">
-                                        <div class="icon-square me-3">
-                                            <i class="bi bi-person icon-lg"></i>
-                                        </div>
-                                        <p class="fw-bold">Gestionar clientes</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col col-md-6 col-lg-4">
-                                <a href="./staff.html" class="card access-card mt-2 text-decoration-none">
-                                    <div id="ship-access" class="card-body d-flex align-items-center">
-                                        <div class="icon-square me-3">
-                                            <i class="bi bi-people icon-lg"></i>
-                                        </div>
-                                        <p class="fw-bold">Gestionar empleados</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col col-md-6 col-lg-4">
-                                <a href="./spares.html" class="card access-card mt-2 text-decoration-none">
-                                    <div id="ship-access" class="card-body d-flex align-items-center">
-                                        <div class="icon-square me-3">
-                                            <i class="bi bi-wrench icon-lg"></i>
-                                        </div>
-                                        <p class="fw-bold">Gestionar refacciones</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col col-md-6 col-lg-4">
-                                <a href="./products.html" class="card access-card mt-2 text-decoration-none">
-                                    <div id="ship-access" class="card-body d-flex align-items-center">
-                                        <div class="icon-square me-3">
-                                            <i class="bi bi-boxes icon-lg"></i>
-                                        </div>
-                                        <p class="fw-bold">Gestionar productos</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col col-md-6 col-lg-4">
-                                <a href="./suppliers.html" class="card access-card mt-2 text-decoration-none">
-                                    <div id="ship-access" class="card-body d-flex align-items-center">
-                                        <div class="icon-square me-3">
-                                            <i class="bi bi-shop icon-lg"></i>
-                                        </div>
-                                        <p class="fw-bold">Gestionar proveedores</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </section>
 
                 <!-- FOOTER -->

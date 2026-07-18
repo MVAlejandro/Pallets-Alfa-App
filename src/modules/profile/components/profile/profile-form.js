@@ -1,26 +1,28 @@
-import { Swal } from '../../../shared/utils/utils.js'
+// Dependencias
+import { Swal } from '../../../../shared/utils/utils.js'
 // Funciones del backend
-import { validateUser } from '../components/profile/user-validate.js';
-import { updateUser } from '../services/user-service.js';
-import { getSession } from '../../../core/auth/auth-service.js';
-
-// Componentes del módulo
-import { ProfileActivity, ProfileHeader, ProfileUserInfo } from '../components/profile/profile-info.js';
+import { updateUser } from '../../services/user-service.js';
+import { getSession } from '../../../../core/auth/auth-service.js';
+// Validaciones
+import { validateEditUser } from '../../validators/user-validator.js';
+// Funciones del módulo
+import { ProfileActivity, ProfileHeader, ProfileUserInfo } from './profile-info.js';
 
 // Función que maneja la actualización del usuario con su validación
-export async function handleUpdateUser(e) {
+export async function editUser(e) {
     e.preventDefault();
-
     const form = e.currentTarget;
 
     // Capturar el botón que disparó el evento
     const btn = form.querySelector('button[type="submit"]');
     if (btn) {
         btn.disabled = true;
-        btn.innerHTML = 'Guardando...';
+        btn.innerHTML = 
+            `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+            <p class="ps-2">Guardando...</p>`;
     }
 
-    if (!validateUser(form)) {
+    if (!validateEditUser(form)) {
         Swal.fire({
             title: 'Error',
             text: 'Datos ingresados no válidos.',
@@ -36,13 +38,16 @@ export async function handleUpdateUser(e) {
         return;
     }
 
-    try {
-        const nombre = form.querySelector('#info-fname').value;
-        const apellido = form.querySelector('#info-sname').value;
-        const email = form.querySelector('#info-email').value;
+    // Guardar valores
+    const updatedData = {
+        nombre: form.querySelector('#info-fname').value.trim(), 
+        apellido: form.querySelector('#info-sname').value.trim(),
+        email: form.querySelector('#info-email').value.trim()
+    };
 
+    try {
         // Enviar datos
-        await updateUser(nombre, apellido, email);
+        await updateUser(updatedData);
 
         // Mostrar verificación y limpiar el formulario
         Swal.fire({
@@ -77,6 +82,7 @@ export async function handleUpdateUser(e) {
             confirmButtonText: 'OK'
         });
 
+        console.error(error);
     } finally {
         // Restaurar estado del botón
         if (btn) {

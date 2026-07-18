@@ -13,10 +13,15 @@ import { refreshState } from '../../../../shared/utils/state.js';
 export async function renderMovementsEditModal(movimiento) {
     // Insertar valores en los inputs
     document.getElementById('edit-id-movement').value = movimiento.id_movimiento;
-    document.getElementById('edit-date').value = movimiento.fecha;
+    document.getElementById('edit-date').value = movimiento.fecha_movimiento;
     document.getElementById('edit-type').value = movimiento.tipo_movimiento;
     document.getElementById('edit-quantity').value = movimiento.cantidad;
     document.getElementById('edit-observations').value = movimiento.observaciones;
+    // Insertar los registros del historial
+    document.getElementById('header-status').textContent = movimiento.estado = "CONFIRMADO" ? '* CONFIRMADO' : '- CANCELADO';
+    document.getElementById('header-id-movement').textContent = `#INVM-${movimiento.id_movimiento}`;
+    document.getElementById('modal-user-created').textContent = `${movimiento.usuario_creacion || "Sin Registro"} - ${movimiento.fecha_creacion}`;
+    document.getElementById('modal-user-history').textContent = `${movimiento.usuario_modificacion || "Sin Registro"} - ${movimiento.fecha_modificacion}`;
 
     // Función para intentar la actualización del movimiento
     document.querySelector('#movement-edit-form').addEventListener('submit', editMovement);

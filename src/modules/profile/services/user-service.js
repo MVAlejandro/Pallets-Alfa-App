@@ -1,23 +1,21 @@
+// Ruta de la api
+const API_BASE = '/api/modules/users';
 
 // Función de actualización del perfil conectando a la base de datos
-export async function updateUser(nombre, apellido, email) {
-    const response = await fetch('/api/modules/users/update.php', {
+export async function updateUser(updatedData) {
+    const response = await fetch(`${API_BASE}/update.php`, {
         method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            nombre,
-            apellido,
-            email
+            ...updatedData
         })
     });
 
-    const data = await response.json();
+    const result = await response.json();
 
     if (!response.ok) {
-        throw new Error(data.message || 'Error al actualizar usuario');
+        throw new Error(result.message || 'Error al actualizar usuario');
     }
 
-    return data;
+    return result;
 }

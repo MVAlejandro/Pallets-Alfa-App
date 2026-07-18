@@ -2,13 +2,13 @@
 // Componente card de acceso directo para index
 export function AccessCard(container, ref, id, icon, text) {
     container.insertAdjacentHTML('beforeend',
-        `<div class="col-6 col-lg-2 direct-access d-flex justify-content-center">
-            <a href="${ref}" class="card access-card text-decoration-none">
-                <div id="${id}-access" class="card-body d-flex flex-column justify-content-center align-items-center">
-                    <div class="icon-square mb-3">
-                        <i class="bi ${icon} icon-lg"></i>
+        `<div class="col-md-6">
+            <a href="${ref}" class="card access-card mt-2 text-decoration-none">
+                <div id="${id}-access" class="card-body d-flex flex-column align-items-center justify-content-center">
+                    <div class="mb-1">
+                        <i class="bi ${icon} icon-md"></i>
                     </div>
-                    <p class="fw-bold">${text}</p>
+                    <p class="access-text fw-bold">${text}</p>
                 </div>
             </a>
         </div>`);

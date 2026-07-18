@@ -55,6 +55,12 @@ export function renderGralGraphic(summaries, year) {
         },
         options: {
             responsive: true,
+            layout: {
+                padding: {
+                    right: 20,
+                    left: 20
+                }
+            },
             plugins: {
                 title: {
                     display: true,

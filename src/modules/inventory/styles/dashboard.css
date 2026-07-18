@@ -8,7 +8,7 @@ main {
 }
 
 /* Estilos de la página y estructura */
-#direct-access-container, #week-container, #graphic-departament-container, #graphic-stores-container {
+#direct-access-container, #week-container, #graphic-report-container {
     background-color: var(--background-light) !important;
     border-radius: 0.3rem;
     border: 1px solid var(--secondary-light);

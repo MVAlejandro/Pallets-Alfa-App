@@ -16,21 +16,21 @@ export async function generateGralSummaries(movements, counts) {
     // Agrupar conteos por fecha
     countsFiltered.forEach(c => {
         // Separar solo la fecha del dato
-        const key = splitTimestamp(c.fecha_conteo).date;
+        const key = c.fecha_conteo;
         if (!countsMap[key]) countsMap[key] = [];
         countsMap[key].push(c);
     });
 
     // Agrupar movimientos por fecha
     movements.forEach(m => {
-        const key = splitTimestamp(m.fecha).date;
+        const key = m.fecha_movimiento;
         if (!movementsMap[key]) movementsMap[key] = [];
         movementsMap[key].push(m);
     });
 
     // Agrupar todas las fechas existentes
-    movements.forEach(m => datesSet.add(splitTimestamp(m.fecha).date));
-    countsFiltered.forEach(c => datesSet.add(splitTimestamp(c.fecha_conteo).date));
+    movements.forEach(m => datesSet.add(m.fecha_movimiento));
+    countsFiltered.forEach(c => datesSet.add(c.fecha_conteo));
 
     const datesArray = Array.from(datesSet).sort();
 

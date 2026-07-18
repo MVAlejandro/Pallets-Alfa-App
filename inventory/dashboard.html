@@ -41,10 +41,10 @@
                                 <a href="/app/catalog/products.html" class="card resume-card mt-2 text-decoration-none">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center px-1 px-md-3">
-                                            <p class="fw-bold text-muted">PRODUCTOS</p>
-                                            <i class="bi bi-clipboard-check icon-md ms-auto"></i>
+                                            <p class="fw-bold card-text">PRODUCTOS</p>
+                                            <i class="bi bi-boxes icon-md ms-auto"></i>
                                         </div>
-                                        <div class="card-text ms-3">
+                                        <div class="card-qty ms-3">
                                             <p id="products-text" class="general-report-cant text-muted">-</p>
                                         </div>
                                     </div>
@@ -54,10 +54,23 @@
                                 <a href="./counts.html" class="card resume-card mt-2 text-decoration-none">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center px-1 px-md-3">
-                                            <p class="fw-bold text-muted">DIFERENCIA</p>
+                                            <p class="fw-bold card-text">CONTEO</p>
+                                            <i class="bi bi-clipboard-check icon-md ms-auto"></i>
+                                        </div>
+                                        <div class="card-qty ms-3">
+                                            <p id="counts-text" class="general-report-cant text-muted">-</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>  
+                            <div class="col-6 col-lg-3">
+                                <a href="./reports.html" class="card resume-card mt-2 text-decoration-none">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center px-1 px-md-3">
+                                            <p class="fw-bold card-text">DIFERENCIA</p>
                                             <i class="bi bi-plus-slash-minus icon-md ms-auto"></i>
                                         </div>
-                                        <div class="card-text ms-3">
+                                        <div class="card-qty ms-3">
                                             <p id="difference-text" class="general-report-cant text-muted">-</p>
                                         </div>
                                     </div>
@@ -67,91 +80,72 @@
                                 <a href="./reports.html" class="card resume-card mt-2 text-decoration-none">
                                     <div class="card-body">
                                         <div class="d-flex align-items-center px-1 px-md-3">
-                                            <p class="fw-bold text-muted">CONFIABILIDAD</p>
+                                            <p class="fw-bold card-text">CONFIABILIDAD</p>
                                             <i class="bi bi-activity icon-md ms-auto"></i>
                                         </div>
-                                        <div class="card-text ms-3">
+                                        <div class="card-qty ms-3">
                                             <p id="reliability-text" class="general-report-cant text-muted">-</p>
                                         </div>
                                     </div>
                                 </a>
-                            </div>
-                            <div class="col-6 col-lg-3">
-                                <a href="#" class="card resume-card mt-2 text-decoration-none">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center px-1 px-md-3">
-                                            <p class="fw-bold text-muted">SEMANA</p>
-                                            <i class="bi bi-calendar2-date icon-md ms-auto"></i>
-                                        </div>
-                                        <div class="card-text ms-3">
-                                            <p id="week-text" class="general-report-cant text-muted">-</p>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>            
+                            </div>        
                         </div>
                     </div>
                 </section>
 
-                <!-- SECCIÓN DE ESTADISTICAS GENERALES -->
-                <section id="inventory-statistics">
+                <!-- SECCIÓN DE ACCESOS DIRECTOS Y ESTADISTICAS GENERALES -->
+                <section id="inventory-menu">
                     <div class="container">
-                        <div id="inventory-statistics-container" class="row">
-                            <div id="reliability-report-container" class="col">
-                                <div class="card report-card mt-3">
-                                    <div class="card-body d-flex align-items-center justify-content-center text-center">
-                                        <div class="card-text">
-                                            <p class="fw-bold">Estadísticas de inventario</p>
+                        <div class="row flex-column-reverse flex-lg-row">
+                            <div id="info-container" class="col-lg-3">
+                                <div id="direct-access-container" class="p-4">
+                                    <h6 class="text-muted fw-bold ps-2">ACCESOS DIRECTOS</h6>
+                                    <div class="row row-cols-1 g-3 pt-2">
+                                        <div class="col-md-6 col-lg-12">
+                                            <a href="./movements.html" class="card access-card mt-2 text-decoration-none">
+                                                <div id="movements-access" class="card-body d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-arrow-left-right icon-md"></i>
+                                                    <p class="access-text ps-3 fw-bold">Movimientos sistema</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6 col-lg-12">
+                                            <a href="./counts.html" class="card access-card mt-2 text-decoration-none">
+                                                <div id="counts-access" class="card-body d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-list-check icon-md"></i>
+                                                    <p class="access-text ps-3 fw-bold">Conteos físicos</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6 col-lg-12">
+                                            <a href="./reports.html" class="card access-card mt-2 text-decoration-none">
+                                                <div id="reports-access" class="card-body d-flex align-items-center justify-content-center">
+                                                    <i class="bi bi-clipboard-data icon-md"></i>
+                                                    <p class="access-text ps-3 fw-bold">Generar reportes</p>
+                                                </div>
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="graphic-report-container">
-                                        <div id="graphic-reliability-container" class="h-100 d-flex align-items-center justify-content-center px-4 pt-2 pb-3">
-                                            aa
-                                        </div>
+                                </div>
+                                <div id="week-container" class="p-4 mt-3">
+                                    <div class="d-flex align-items-center px-1 px-md-3">
+                                        <p class="fw-bold card-text">SEMANA</p>
+                                        <i class="bi bi-calendar2-date icon-md ms-auto"></i>
                                     </div>
-                                </div>    
+                                    <div class="card-qty ms-3">
+                                        <p id="week-text" class="general-report-cant text-muted">-</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="graphic-container" class="col-lg-9 mb-5 mb-lg-0">
+                                <div id="graphic-report-container" class="h-100 d-flex align-items-center justify-content-center p-4">
+                                    <div class="alert alert-info">
+                                        No hay información para mostrar
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div> 
-                </section>
-
-                <!-- SECCIÓN DE ACCESOS DIRECTOS -->
-                <section id="direct-access" class="pb-5">
-                    <div class="container">
-                        <h4>Accesos directos</h4>
-                        <div id="direct-access-container" class="row row-cols-1 row-cols-md-2 row-cols-md-3 g-2 mt-2">
-                            <div class="col col-md-6 col-lg-4">
-                                <a href="./movements.html" class="card access-card mt-2 text-decoration-none">
-                                    <div id="movements-access" class="card-body d-flex align-items-center">
-                                        <div class="icon-square me-3">
-                                            <i class="bi bi-arrow-left-right icon-lg"></i>
-                                        </div>
-                                        <p class="fw-bold">Gestionar movimientos</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col col-md-6 col-lg-4">
-                                <a href="./counts.html" class="card access-card mt-2 text-decoration-none">
-                                    <div id="counts-access" class="card-body d-flex align-items-center">
-                                        <div class="icon-square me-3">
-                                            <i class="bi bi-list-check icon-lg"></i>
-                                        </div>
-                                        <p class="fw-bold">Gestionar conteos físicos</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col col-md-6 col-lg-4">
-                                <a href="./reports.html" class="card access-card mt-2 text-decoration-none">
-                                    <div id="reports-access" class="card-body d-flex align-items-center">
-                                        <div class="icon-square me-3">
-                                            <i class="bi bi-clipboard-data icon-lg"></i>
-                                        </div>
-                                        <p class="fw-bold">Generar reportes</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                 </section>
 
                 <!-- FOOTER -->
@@ -165,6 +159,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script type="module" src="/src/modules/inventory/pages/inventory.js"></script>
+    <script type="module" src="/src/modules/inventory/pages/dashboard.js"></script>
 </body>
 </html>

@@ -2,7 +2,7 @@
 import { Swal } from '../../../../shared/utils/utils.js';
 // Funciones del backend
 import { getProducts } from '../../services/products-service.js'; 
-import { assignProductToStore, getProductStores, getStores, unassignProductToStore } from '../../services/product-store-service.js';
+import { getProductStores, getStores, toggleProductStore } from '../../services/product-store-service.js';
 // Funciones del módulo
 import { productsFilter, productsState } from './products-filter.js';
 // Utilidades
@@ -35,20 +35,20 @@ export async function renderAssignStores(id_producto) {
 
         try {
             const assignedNames = [];
-            const removedNames = [];
+            const unassignedNames = [];
 
             // Asignar nuevos
             for (const id_almacen of toAssign) {
                 const storeName = allStoresMap.get(id_almacen);
                 assignedNames.push(storeName);
-                await assignProductToStore(id_producto, id_almacen);
+                await toggleProductStore(id_producto, id_almacen);
             }
 
             // Eliminar desmarcados
             for (const id_almacen of toRemove) {
                 const storeName = assignedStores.get(id_almacen);
-                removedNames.push(storeName);
-                await unassignProductToStore(id_producto, id_almacen);
+                unassignedNames.push(storeName);
+                await toggleProductStore(id_producto, id_almacen);
             }
 
             // Construir mensaje de la alerta
@@ -56,7 +56,7 @@ export async function renderAssignStores(id_producto) {
 
             if (assignedNames.length > 0) { message += `Asignados: ${assignedNames.join(", ")} | `; }
 
-            if (removedNames.length > 0) { message += `Eliminados: ${removedNames.join(", ")}`; }
+            if (unassignedNames.length > 0) { message += `Desasignados: ${unassignedNames.join(", ")}`; }
 
             if (!message) { message = "No hubo cambios en la asignación."; }
 
@@ -124,9 +124,9 @@ export async function renderStoreList(id_producto) {
         const isAssigned = assignedStores.has(almacen.id_almacen);
 
         container.innerHTML += `
-            <div class="form-check form-switch mb-2" store-id='${almacen.id_almacen}'>
+            <div class="form-check form-switch mb-3" store-id='${almacen.id_almacen}'>
                 <input class="form-check-input" type="checkbox" role="switch" id="store-${almacen.id_almacen}" ${isAssigned ? "checked" : ""}>
-                <label class="form-check-label" for="store-${almacen.id_almacen}">${almacen.nombre} - ${almacen.descripcion}</label>
+                <label class="form-check-label fw-bold" for="store-${almacen.id_almacen}">${almacen.nombre} - <span class="store-name">${almacen.descripcion}</span></label>
             </div>`;
     });
 

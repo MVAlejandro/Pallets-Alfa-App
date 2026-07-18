@@ -18,6 +18,11 @@ export async function renderProductsEditModal(producto) {
     document.getElementById('edit-name').value = producto.nombre;
     document.getElementById('edit-store').value = producto.almacenes || "Sin Asignar";
     document.getElementById('edit-description').value = producto.descripcion;
+    // Insertar los registros del historial
+    document.getElementById('header-status').textContent = producto.activo ? '* ACTIVO' : '- INACTIVO';
+    document.getElementById('header-id-product').textContent = `#CATP-${producto.id_producto}`;
+    document.getElementById('modal-user-created').textContent = `${producto.usuario_creacion || "Sin Registro"} - ${producto.fecha_creacion}`;
+    document.getElementById('modal-user-history').textContent = `${producto.usuario_modificacion || "Sin Registro"} - ${producto.fecha_modificacion}`;
 
     // Función para intentar la actualización del producto
     document.querySelector('#product-edit-form').addEventListener('submit', editProduct);

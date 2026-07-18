@@ -1,7 +1,7 @@
 // Utilidades
-import { nameValidate, emailValidate, inputValidate } from "../../../../shared/utils/form-validations";
+import { nameValidate, emailValidate, inputValidate } from "../../../shared/utils/form-validations";
 
-export function validateUser(form) {
+export function validateEditUser(form) {
     // Referencias para validación
     const fNameIn = form.querySelector('#info-fname');
     const sNameIn = form.querySelector('#info-sname');

@@ -31,7 +31,7 @@ export async function renderCountsTable() {
         `<tr>
             <td class="p-2 ps-4">
                 <p class="count-week">Semana ${getDateParts(conteo.fecha_conteo).semana || "Sin definir"}</p>
-                <p class="count-date">${conteo.fecha_conteo.split(" ")[0]}</p>
+                <p class="count-date">${conteo.fecha_conteo}</p>
             </td>
             <td class="p-2">
                 <p class="count-code fw-bold">${conteo.codigo_producto}</p>
@@ -44,7 +44,7 @@ export async function renderCountsTable() {
                 <div class="action-buttons">
                     <button class="btn btn-edit" data-bs-target="#edit-modal" data-bs-toggle="modal" title="Editar conteo"
                         count-data='${JSON.stringify(conteo)}'>
-                        <i class="bi bi-pencil"></i>
+                        <i class="bi bi-info-circle"></i>
                     </button>
                     <button class="btn btn-delete" data-bs-target="#delete-modal" data-bs-toggle="modal" title="Eliminar conteo"
                         data-id='${conteo.id_conteo}'>

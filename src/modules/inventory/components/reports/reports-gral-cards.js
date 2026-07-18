@@ -1,6 +1,6 @@
 // Función para crear la card de diferencia
 export async function renderDifferenceCard(summaries) {
-    const element = document.getElementById("diff-text");
+    const element = document.getElementById("difference-text");
     // Limpiar elemento antes de insertar
     element.textContent = "";
 
@@ -27,7 +27,7 @@ export async function renderDifferenceCard(summaries) {
 
 // Función para crear la card de confiabilidad
 export async function renderReliabilityCard(summaries) { 
-    const element = document.getElementById("rel-text");
+    const element = document.getElementById("reliability-text");
     // Limpiar elemento antes de insertar
     element.textContent = "";
     element.className = "general-report-cant text-muted"

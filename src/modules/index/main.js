@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     headerDate.innerHTML = `El día de hoy: ${today.toLocaleDateString('en-CA')}`;
     headerWeek.innerHTML = `Semana ${getDateParts(today).semana}`;
 
-    const access_container = document.getElementById("direct-access-container");
+    const access_container = document.getElementById("access-cards");
     const advice_container = document.getElementById("advices-cards-container");
 
     const access = [

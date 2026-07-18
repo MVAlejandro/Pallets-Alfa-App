@@ -30,8 +30,8 @@ export async function renderMovementsTable() {
         tbody.innerHTML += 
         `<tr>
             <td class="p-2 ps-4">
-                <p class="movement-week">Semana ${getDateParts(movimiento.fecha).semana || "Sin definir"}</p>
-                <p class="movement-date">${movimiento.fecha.split(" ")[0]}</p>
+                <p class="movement-week">Semana ${getDateParts(movimiento.fecha_movimiento).semana || "Sin definir"}</p>
+                <p class="movement-date">${movimiento.fecha_movimiento}</p>
             </td>
             <td class="movement-type fw-bold p-2">${movimiento.tipo_movimiento}</td>
             <td class="movement-quantity p-2">${movimiento.cantidad.toLocaleString('en-US')}</td>
@@ -40,7 +40,7 @@ export async function renderMovementsTable() {
                 <div class="action-buttons">
                     <button class="btn btn-edit" data-bs-target="#edit-modal" data-bs-toggle="modal" title="Editar movimiento"
                         movement-data='${JSON.stringify(movimiento)}'>
-                        <i class="bi bi-pencil"></i>
+                        <i class="bi bi-info-circle"></i>
                     </button>
                     <button class="btn btn-delete" data-bs-target="#delete-modal" data-bs-toggle="modal" title="Eliminar movimiento"
                         data-id='${movimiento.id_movimiento}'>

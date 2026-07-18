@@ -6,17 +6,14 @@ import '../../../shared/css/variables.css';
 import '../../../shared/css/style.css';
 
 // Estilos del módulo
-import '../styles/inventory.css';
+import '../styles/dashboard.css';
 
 // Layout base
 import { initLayout } from '../../../core/layouts/init.js'
-
 // Funciones del backend
 import { validateAuth } from '../../../core/auth/auth-validate.js';
-
 // Funciones del módulo
-
-
+import { initDashboard } from '../components/dashboard/index-cards.js';
 // Utilidades
 import { getDateParts } from '../../../shared/utils/time-functions.js';
 
@@ -30,4 +27,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Generar componentes base (navbar y footer)
     initLayout(user)
+
+    // Renderizado inicial del módulo
+    initDashboard();
 });

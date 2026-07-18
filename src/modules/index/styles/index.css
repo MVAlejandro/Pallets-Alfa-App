@@ -7,14 +7,15 @@ main {
     display: none !important;
 }
 
-/* Contenedor del encabezado */
-#header-container {
+/* Estilos de la página y estructura */
+#header-container, #direct-access-container, #graphic-report-container {
     background-color: var(--background-light) !important;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-    animation: fadeInUp 1s ease-in-out;
+    border-radius: 0.3rem;
+    border: 1px solid var(--secondary-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Contenedor del encabezado */
 #header-user {
     color: var(--primary);
 }
@@ -39,22 +40,21 @@ main {
 }
 
 /* Estilos para cards de acceso directo */
-.card {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-    transition: transform 0.3s ease;
-    border-radius: 0.5rem !important;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.access-card{
+.access-card {
     width: 100%;
-    box-shadow: 3px 3px var(--primary);
+    height: 100%;
     border: 1px solid var(--secondary-light);
+    font-size: 14px;
+    color: var(--primary-dark);
 }
 
+.access-card:hover {
+    background-color: var(--primary-dark) !important;
+    color: var(--primary-light) !important;
+    border-color: var(--primary) !important;
+}
+
+/* Estilos para cards de avisos */
 #advices-container {
     animation: fadeInUp 1s ease-in-out;
 }
@@ -64,11 +64,11 @@ main {
     font-weight: bold;
 }
 
-.access-icon {
-    color: var(--secondary);
-    background: var(--background-dark);
-    border-radius: 15px;
-    width: 60px;
-    height: 60px;
-    padding: 14px;
+.advice-card {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease;
+}
+
+.advice-card:hover {
+    transform: translateY(-5px);
 }

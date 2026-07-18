@@ -2,7 +2,7 @@ main {
     animation: fadeInUp 1s ease-in-out;
 }
 
-/* Estilos de contenedores */
+/* Estilos generales de contenedores */
 #counts-form-container, #counts-filter-container, .table-responsive, #counts-pages-container {
     background-color: var(--background-light) !important;
     border-radius: 0.3rem;

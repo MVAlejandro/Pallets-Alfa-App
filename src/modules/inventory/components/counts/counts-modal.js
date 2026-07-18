@@ -18,6 +18,11 @@ export async function renderCountsEditModal(conteo) {
     document.getElementById('edit-store').value = conteo.almacen;
     document.getElementById('edit-quantity').value = conteo.cantidad_conteo;
     document.getElementById('edit-observations').value = conteo.observaciones;
+    // Insertar los registros del historial
+    document.getElementById('header-status').textContent = conteo.estado = "CONFIRMADO" ? '* CONFIRMADO' : '- CANCELADO';
+    document.getElementById('header-id-count').textContent = `#INVC-${conteo.id_conteo}`;
+    document.getElementById('modal-user-created').textContent = `${conteo.usuario_creacion || "Sin Registro"} - ${conteo.fecha_creacion}`;
+    document.getElementById('modal-user-history').textContent = `${conteo.usuario_modificacion || "Sin Registro"} - ${conteo.fecha_modificacion}`;
 
     // Función para intentar la actualización del conteo
     document.querySelector('#count-edit-form').addEventListener('submit', editCount);

@@ -141,84 +141,101 @@
     </div>
 
     <!-- Modal de edición para cada registro -->
-    <div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="edit-modalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content pt-3 pb-3">
+    <div id="edit-modal" class="modal fade" tabindex="-1" aria-labelledby="edit-modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
                 <div class="modal-header">
                     <div class="row">
                         <div class="col d-flex align-items-center">
-                            <div class="ms-4 me-3">
-                                <i class="bi bi-pencil-square icon-md" style="color:var(--primary)"></i>
+                            <div class="mx-3">
+                                <i class="bi bi-file-earmark-medical icon-md" style="color:var(--primary-dark)"></i>
                             </div>
-                            <h5 class="modal-title" id="edit-modalLabel">Editar Movimiento</h5>
+                            <h5 id="edit-modalLabel" class="modal-title fw-bold">Detalles del Movimiento</h5>
                         </div>
                     </div>
                     <button type="button" class="btn-close me-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="container">
+                <div class="modal-body p-4">
+                    <div id="modal-header-container" class="container p-3">
+                        <div class="row">
+                            <div class="col-7 col-md-8 d-flex flex-column">
+                                <p class="fw-bold modal-text">ESTADO DEL CONTEO</p>
+                                <p id="header-status" class="fw-bold">* NA</p>
+                            </div>
+                            <div class="col-5 col-md-4 d-flex flex-column align-items-end justify-content-end">
+                                <p class="fw-bold modal-text">Código interno</p>
+                                <p id="header-id-count" class="modal-color state-grey">#INVC-000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modal-main-container" class="container py-3 mt-3">
                         <form id="count-edit-form" autocomplete="off">
                             <input type="hidden" id="edit-id-count">
-                            <!-- Campos editables -->
-                            <div class="row ms-2 me-2 pt-3 pb-3">
+                            <div class="row py-3">
                                 <div class="col-md-7 col-lg-4 ms-auto label-over-border">
                                     <label for="edit-date" class="form-label m-2">Fecha</label>
-                                    <input type="text" class="form-control" id="edit-date" disabled>
+                                    <input type="text" id="edit-date" class="form-control" disabled>
                                 </div>
                             </div>
-                            <div class="row ms-2 me-2 pt-3 pb-3">
+                            <div class="row py-3">
                                 <div class="col-md-5 label-over-border mb-4 mb-md-0">
                                     <label for="edit-code" class="form-label m-2">Producto</label>
-                                    <input type="text" class="form-control" id="edit-code" disabled>
+                                    <input type="text" id="edit-code" class="form-control" disabled>
                                 </div>
                                 <div class="col-md-4 label-over-border mb-4 mb-md-0">
                                     <label for="edit-store" class="form-label m-2">Almacén</label>
-                                    <input type="text" class="form-control" id="edit-store" disabled>
+                                    <input type="text" id="edit-store" class="form-control" disabled>
                                 </div>
                                 <div class="col-md-3 label-over-border">
                                     <label for="edit-quantity" class="form-label m-2">Cantidad</label>
-                                    <input type="number" class="form-control no-arrows" id="edit-quantity">
-                                    <p class="error invalid-feedback" id="error-editQuantity" style="color: red;"></p>
+                                    <input type="number" id="edit-quantity" class="form-control no-arrows">
+                                    <p id="error-editQuantity" class="error invalid-feedback" style="color: red;"></p>
                                 </div>
                             </div>
-                            <div class="row ms-2 me-2 pt-3 pb-3">
+                            <div class="row py-3">
                                 <div class="col label-over-border">
                                     <label for="edit-observations" class="form-label m-2">Observaciones</label>
-                                    <input type="text" class="form-control" id="edit-observations">
-                                    <p class="error invalid-feedback" id="error-editObservations" style="color: red;"></p>
+                                    <textarea id="edit-observations" class="form-control" rows="3"></textarea>
+                                    <p id="error-editObservations" class="error invalid-feedback" style="color: red;"></p>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="modal-footer me-4">
+                <div class="modal-footer px-md-4">
+                    <div id="modal-footer-container" class="container px-0 pb-3">
+                        <p class="fw-bold modal-log-text">CREADO POR: <span id="modal-user-created">USUARIO - ----/--/--</span></p>
+                        <p class="fw-bold modal-log-text">ÚLTIMA MODIFICACIÓN: <span id="modal-user-history">USUARIO - ----/--/--</span></p>
+                    </div>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button id="btn-edit-entry" type="submit" form="count-edit-form" class="btn btn-primary">Guardar cambios</button>
+                    <button type="submit" id="btn-edit-entry" form="count-edit-form" class="btn btn-primary">Guardar cambios</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal de confirmación para eliminar registro -->
-    <div class="modal fade" id="delete-modal" aria-hidden="true" aria-labelledby="delete-modalLabel" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content pt-3 pb-2">
+    <div id="delete-modal" class="modal fade" aria-hidden="true" aria-labelledby="delete-modalLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
                 <div class="modal-header">
                     <div class="row">
                         <div class="col d-flex align-items-center">
-                            <div class="ms-4 me-3">
+                            <div class="mx-3">
                                 <i class="bi bi-exclamation-circle icon-md" style="color:var(--redD-dark)"></i>
                             </div>
-                            <h5 class="modal-title" id="delete-modalLabel">Confirmar eliminación</h5>
+                            <h5 id="delete-modalLabel" class="modal-title">Eliminar conteo</h5>
                         </div>
                     </div>
                     <button type="button" class="btn-close me-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body m-auto pt-4 pb-4">
-                    <input type="hidden" id="delete-id-count">
-                    <p>¿Está seguro de querer eliminar el registro seleccionado?</p>
+                <div class="modal-body p-4">
+                    <div id="modal-main-container" class="container py-3 px-0 my-3">
+                        <input type="hidden" id="delete-id-count">
+                        <p id="delete-text" class="fw-bold">¿Está seguro de querer eliminar el registro seleccionado?</p>
+                    </div>
                 </div>
-                <div class="modal-footer me-4">
+                <div class="modal-footer px-md-4">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                     <button id="btn-delete-entry" class="btn btn-primary">Sí</button>
                 </div>

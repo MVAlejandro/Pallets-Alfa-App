@@ -43,12 +43,16 @@ editModal.addEventListener('shown.bs.modal', event => {
     const productData = JSON.parse(button.getAttribute('product-data'));
     renderProductsEditModal(productData);
 });
-// Al cerrar modal
+// Al cerrar modal limpiar inputs e historial
 editModal.addEventListener('hidden.bs.modal', () => {
     editForm.reset();
     editForm.querySelectorAll('.is-valid, .is-invalid').forEach(e => {
         e.classList.remove('is-valid', 'is-invalid');
     });
+    document.getElementById('header-status').textContent = '- NA';
+    document.getElementById('header-id-product').textContent = `#CATP-000`;
+    document.getElementById('modal-user-created').textContent = `USUARIO - ----/--/--`;
+    document.getElementById('modal-user-history').textContent = `USUARIO - ----/--/--`;
 });
 
 // Acciones del modal de eliminación

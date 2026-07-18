@@ -2,7 +2,7 @@ main {
     animation: fadeInUp 1s ease-in-out;
 }
 
-/* Ocultar navbar */
+/* Ocultar perfil de navbar */
 #profile-btn {
     display: none !important;
 }
@@ -10,10 +10,9 @@ main {
 /* Estilos generales de contenedores */
 #profile-header, #user-info, #user-activity, #user-details {
     background-color: var(--background-light) !important;
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
     border: 1px solid var(--secondary-light);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-    animation: fadeInUp 1s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Contenedor del encabezado */
@@ -23,10 +22,15 @@ main {
     }
 }
 
+#picture {
+    border: 2px solid var(--primary-dark);
+}
+
 .user-color {
     padding: 1px 8px;
     border-radius: 5px;
     display: inline-block;
+    font-weight: bold;
 }
 
 /* Estilos de cards de seguridad */
@@ -35,6 +39,10 @@ main {
     border-radius: 0.25rem;
     border: 1px solid var(--secondary-light);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+}
+
+.activity-card p {
+    color: var(--primary-dark);
 }
 
 .activity-card small {

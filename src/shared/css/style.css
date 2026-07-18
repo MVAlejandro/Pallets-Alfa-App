@@ -99,6 +99,61 @@ table {
     }
 }
 
+/* Estilos para modales */
+.modal-content {
+    border-radius: 0.3rem;
+}
+
+.modal-header, .offcanvas-header {
+    border-bottom: 1px solid var(--secondary-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#modal-header-container, #offcanvas-header-container {
+    background-color: var(--background-dark) !important;
+    border-radius: 0.3rem;
+    border: 1px solid var(--secondary-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#header-status, #delete-text {
+    color: var(--primary-dark);
+}
+
+.modal-text {
+    color: var(--secondary);
+    font-size: 14px;
+}
+
+.modal-footer, .offcanvas-footer {
+    background-color: var(--background-dark);
+    border-top: 1px solid var(--secondary-light);
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.modal-log-text {
+    color: var(--secondary);
+    font-size: 10.5px;
+}
+
+#modal-user-created, #modal-user-history, #offcanvas-user-history {
+    color: var(--primary-dark);
+}
+
+.modal-color {
+    padding: 1px 8px;
+    border-radius: 5px;
+    display: inline-block;
+    width: fit-content;
+    font-weight: bold;
+}
+
+@media (max-width: 430px) {
+    .modal-text {
+        font-size: 12px;
+    }
+}
+
 /* Estilos para los íconos */
 .icon-sm {
     font-size: 16px;
@@ -151,8 +206,12 @@ table {
 .form-control:disabled, .form-select:disabled {
     border-color: var(--secondary) !important;
     background-color: transparent !important;
-    color: var(--secondary);
-    font-weight: 500;
+    color: var(--primary-dark);
+    font-weight: bold;
+}
+
+.store-name {
+    color: var(--primary-dark);
 }
 
 input::placeholder, textarea::placeholder, #default-option {
@@ -171,6 +230,7 @@ input::placeholder, textarea::placeholder, #default-option {
     top: -1.28rem;
     background-color: var(--background-light);
     color: var(--secondary);
+    font-weight: bold;
     padding: 0 0.2rem;
     font-size: 0.82rem;
     z-index: 1;
@@ -238,25 +298,6 @@ input::placeholder, textarea::placeholder, #default-option {
 .btn-secondary:focus {
     outline: none;
     box-shadow: 0 0 10px var(--primary-dark);
-}
-
-.btn-danger {
-    border: 1px solid var(--danger);
-    background-color: var(--danger);
-    border-radius: 11px;
-    transition: all 0.3s ease;
-}
-
-.btn-danger:hover {
-    background-color: var(--danger-dark);
-    border-color: var(--danger-dark);
-    color: var(--text-light);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.btn-danger:focus {
-    outline: none;
-    box-shadow: 0 0 10px var(--danger-dark);
 }
 
 /* Estilos para botones de las tabs */

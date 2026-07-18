@@ -25,5 +25,5 @@ export function ProfileUserInfo(user) {
 export function ProfileActivity(user) {
     // Insertar valores en los inputs
     document.getElementById('activity-date').textContent = `El usuario fue creado el ${user.fecha_creacion}`;
-    document.getElementById('activity-last').textContent = `La última modificación fue el ${user.fecha_actualizacion}`;
+    document.getElementById('activity-last').textContent = `La última modificación fue el ${user.fecha_modificacion}`;
 }
