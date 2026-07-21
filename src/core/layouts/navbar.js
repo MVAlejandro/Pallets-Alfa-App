@@ -31,6 +31,7 @@ export function createNavbar() {
                             <li><a href="#" class="link-dark rounded">Refacciones</a></li>
                             <li><a href="/app/catalog/products.html" class="link-dark rounded">Productos</a></li>
                             <li><a href="#" class="link-dark rounded">Proveedores</a></li>
+                            <li><a href="#" class="link-dark rounded">Reportes</a></li>
                         </ul>
                     </div>
                 </li>
@@ -42,13 +43,14 @@ export function createNavbar() {
                     <div class="collapse" id="shipments">
                         <ul class="btn-toggle-nav pb-1 small">
                             <li><a href="#" class="link-dark rounded">Inicio</a></li>
-                            <li><a href="#" class="link-dark rounded">Contratos</a></li>
                             <li><a href="#" class="link-dark rounded">Partidas</a></li>
                             <li><a href="#" class="link-dark rounded">Recolecciones</a></li>
                             <li><a href="#" class="link-dark rounded">Transportes</a></li>
                             <li><a href="#" class="link-dark rounded">Producción</a></li>
                             <li><a href="#" class="link-dark rounded">Embarques</a></li>
                             <li><a href="#" class="link-dark rounded">Facturación</a></li>
+                            <li><a href="#" class="link-dark rounded">Seguimiento</a></li>
+                            <li><a href="#" class="link-dark rounded">Reportes</a></li>
                         </ul>
                     </div>
                 </li>
@@ -76,6 +78,7 @@ export function createNavbar() {
                             <li><a href="#" class="link-dark rounded">Inicio</a></li>
                             <li><a href="#" class="link-dark rounded">Tareas</a></li>
                             <li><a href="#" class="link-dark rounded">Planeación</a></li>
+                            <li><a href="#" class="link-dark rounded">Reportes</a></li>
                         </ul>
                     </div>
                 </li>
@@ -91,6 +94,8 @@ export function createNavbar() {
                             <li><a href="#" class="link-dark rounded">Asistencia</a></li>
                             <li><a href="#" class="link-dark rounded">Uniformes</a></li>
                             <li><a href="#" class="link-dark rounded">Permisos</a></li>
+                            <li><a href="#" class="link-dark rounded">Calendario</a></li>
+                            <li><a href="#" class="link-dark rounded">Reportes</a></li>
                         </ul>
                     </div>
                 </li>
@@ -116,8 +121,10 @@ export function createNavbar() {
                         <ul class="btn-toggle-nav pb-1 small">
                             <li><a href="#" class="link-dark rounded">Inicio</a></li>
                             <li><a href="#" class="link-dark rounded">Prospectos</a></li>
-                            <li><a href="#" class="link-dark rounded">Actividades</a></li>
-                            <li><a href="#" class="link-dark rounded">Planeación</a></li>
+                            <li><a href="#" class="link-dark rounded">Contratos</a></li>
+                            <li><a href="#" class="link-dark rounded">Seguimientos</a></li>
+                            <li><a href="#" class="link-dark rounded">Cotizaciones</a></li>
+                            <li><a href="#" class="link-dark rounded">Reportes</a></li>
                         </ul>
                     </div>
                 </li>

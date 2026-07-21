@@ -1,5 +1,7 @@
 // Importar el estadoo de los registros
 import { countsState } from "./counts-filter.js";
+// Funciones del backend
+import { validatePermissions } from "../../../../core/auth/auth-validate.js";
 // Utilidades
 import { getDateParts } from "../../../../shared/utils/time-functions.js";
 
@@ -42,11 +44,11 @@ export async function renderCountsTable() {
             <td class="count-observation fst-italic p-2">${conteo.observaciones}</td>
             <td class="count-controls text-end p-2 pe-4">
                 <div class="action-buttons">
-                    <button class="btn btn-edit" data-bs-target="#edit-modal" data-bs-toggle="modal" title="Editar conteo"
+                    <button class="btn btn-edit d-none" data-permission="conteos.ver" data-bs-target="#edit-modal" data-bs-toggle="modal" title="Editar conteo"
                         count-data='${JSON.stringify(conteo)}'>
                         <i class="bi bi-info-circle"></i>
                     </button>
-                    <button class="btn btn-delete" data-bs-target="#delete-modal" data-bs-toggle="modal" title="Eliminar conteo"
+                    <button class="btn btn-delete d-none" data-permission="conteos.eliminar" data-bs-target="#delete-modal" data-bs-toggle="modal" title="Eliminar conteo"
                         data-id='${conteo.id_conteo}'>
                         <i class="bi bi-trash3"></i>
                     </button>
@@ -133,4 +135,7 @@ export async function renderCountsTable() {
             renderCountsTable();
         });
     });
+
+    // Validar permisos del usuario
+    validatePermissions()
 }

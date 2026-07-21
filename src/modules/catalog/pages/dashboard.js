@@ -14,7 +14,6 @@ import { initLayout } from '../../../core/layouts/init.js'
 import { requirePermission, validateAuth, validatePermissions } from '../../../core/auth/auth-validate.js';
 // Funciones del módulo
 import { AccessCardMd } from '../../../shared/components/index-cards.js';
-import { initDashboard } from '../components/dashboard/index-cards.js';
 // Utilidades
 import { getDateParts } from '../../../shared/utils/time-functions.js';
 
@@ -26,24 +25,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!user) { return; }
 
     // Comprobar que se tiene permiso de acceder al módulo
-    if(!requirePermission('inventario.acceder')){
+    if(!requirePermission('catalogos.acceder')){
         return;
     }
 
     // Generar componentes base (navbar y footer)
     initLayout(user)
-
-    // Renderizado inicial del módulo
-    initDashboard();
-
+    
     // Generar accesos directos
     const access_container = document.getElementById("access-cards");
     access_container.innerHTML = '';
     
     const access = [
-        {permission:'movimientos.ver', ref:'./movements.html', id: 'movements', icon: 'bi-arrow-left-right', text: 'Movimientos sistema'},
-        {permission:'conteos.ver', ref:'./counts.html', id: 'counts', icon: 'bi-list-check', text: 'Conteos físicos'},
-        {permission:'reportes.ver', ref:'./reports.html', id: 'reports', icon: 'bi-clipboard-data', text: 'Generar reportes'}
+        {permission:'productos.ver', ref:'./actives.html', id: 'actives', icon: 'bi-gear', text: 'Activos registrados'},
+        {permission:'productos.ver', ref:'./clients.html', id: 'clients', icon: 'bi-person', text: 'Cartera de clientes'},
+        {permission:'productos.ver', ref:'./staff.html', id: 'staff', icon: 'bi-people', text: 'Kardex de empleados'},
+        {permission:'productos.ver', ref:'./spares.html', id: 'spares', icon: 'bi-wrench', text: 'Catálogo de refacciones'},
+        {permission:'productos.ver', ref:'./products.html', id: 'products', icon: 'bi-boxes', text: 'Productos existentes'},
+        {permission:'productos.ver', ref:'./suppliers.html', id: 'suppliers', icon: 'bi-shop', text: 'Cartera de proveedores'}
     ]
     
     access.forEach(access => {

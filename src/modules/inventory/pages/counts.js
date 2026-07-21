@@ -7,10 +7,11 @@ import '../../../shared/css/style.css';
 
 // Estilos del módulo
 import '../styles/counts.css';
+
 // Layout base
 import { initLayout } from '../../../core/layouts/init.js'
 // Funciones del backend
-import { validateAuth } from '../../../core/auth/auth-validate.js';
+import { requirePermission, validateAuth, validatePermissions } from '../../../core/auth/auth-validate.js';
 // Funciones del módulo
 import '../components/counts/generate-form.js'
 import { initCountsModule } from '../components/counts/counts-filter.js';
@@ -20,13 +21,22 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Validar que haya sesión y obtener al usuario
     const user = await validateAuth();
     console.log(user);
+    
     if (!user) { return; }
+    
+    // Comprobar que se tiene permiso de acceder al módulo
+    if(!requirePermission('conteos.ver')){
+        return;
+    }
 
     // Generar componentes base (navbar y footer)
     initLayout(user)
 
     // Renderizado inicial del módulo
     await initCountsModule();
+
+    // Validar permisos del usuario
+    validatePermissions();
 });
 
 // Acciones del modal de edición

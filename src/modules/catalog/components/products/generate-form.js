@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
                 <div class="d-flex align-items-center justify-content-end pt-1 me-3">
                     <button id="btn-cancel" type="button" class="btn btn-secondary d-flex align-items-center ps-3 pe-3 me-2">Cancelar</button>
-                    <button id="btn-add-product" type="submit" class="btn btn-primary d-flex align-items-center ps-3 pe-3">
+                    <button id="btn-add-product" type="submit" class="btn btn-primary d-flex align-items-center ps-3 pe-3 d-none" data-permission="productos.crear">
                         <i class="bi bi-floppy pe-1"></i>
                         <p class="ps-2">Agregar</p>
                     </button>

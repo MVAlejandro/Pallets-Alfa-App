@@ -10,10 +10,8 @@ import '../styles/movements.css';
 
 // Layout base
 import { initLayout } from '../../../core/layouts/init.js'
-
 // Funciones del backend
-import { validateAuth } from '../../../core/auth/auth-validate.js';
-
+import { requirePermission, validateAuth, validatePermissions } from '../../../core/auth/auth-validate.js';
 // Funciones del módulo
 import '../components/movements/generate-form.js'
 import { initMovementsModule } from '../components/movements/movements-filter.js';
@@ -23,7 +21,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Validar que haya sesión y obtener al usuario
     const user = await validateAuth();
     console.log(user);
-    if (!user) {
+
+    if (!user) { return; }
+
+    // Comprobar que se tiene permiso de acceder al módulo
+    if(!requirePermission('movimientos.ver')){
         return;
     }
 
@@ -32,6 +34,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Renderizado inicial del módulo
     await initMovementsModule();
+
+    // Validar permisos del usuario
+    validatePermissions();
 });
 
 // Acciones del modal de edición

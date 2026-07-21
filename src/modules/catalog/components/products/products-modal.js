@@ -2,6 +2,7 @@
 import { Swal } from '../../../../shared/utils/utils.js';
 // Funciones del backend
 import { updateProduct, deleteProduct, getProducts } from '../../services/products-service.js'; 
+import { requireActionPermission, validatePermissions } from "../../../../core/auth/auth-validate.js";
 // Funciones del módulo
 import { productsFilter, productsState } from './products-filter.js';
 import { renderAssignStores } from './product-store.js';
@@ -28,11 +29,20 @@ export async function renderProductsEditModal(producto) {
     document.querySelector('#product-edit-form').addEventListener('submit', editProduct);
     // Función para renderizado de la lista de almacenes en el offcanvas
     document.getElementById('btn-asign-store').onclick = async (e) => {renderAssignStores(producto.id_producto)};
+
+    // Validar permisos del usuario
+    validatePermissions()
 }
 
 // Función para guardar cambios
 export async function editProduct(e) {
     e.preventDefault();
+
+    // Validar permisos del usuario
+    if (!requireActionPermission('productos.editar')) {
+        return;
+    }
+
     const form = e.currentTarget;
     
     // Capturar el botón que disparó el evento
@@ -105,6 +115,11 @@ export async function editProduct(e) {
 
 // Eliminar entrada al dar click en el botón del modal
 document.getElementById('btn-delete-entry').addEventListener('click', async () => {
+    // Validar permisos del usuario
+    if (!requireActionPermission('productos.eliminar')) {
+        return;
+    }
+
     const id_producto = document.getElementById('delete-id-product').value;
     await deleteProduct(id_producto);
 

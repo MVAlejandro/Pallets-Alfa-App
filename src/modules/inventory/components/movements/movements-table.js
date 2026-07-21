@@ -1,5 +1,7 @@
 // Importar el estadoo de los registros
 import { movementsState } from "./movements-filter.js";
+// Funciones del backend
+import { validatePermissions } from "../../../../core/auth/auth-validate.js";
 // Utilidades
 import { getDateParts } from "../../../../shared/utils/time-functions.js";
 
@@ -38,11 +40,11 @@ export async function renderMovementsTable() {
             <td class="movement-observation fst-italic p-2">${movimiento.observaciones}</td>
             <td class="movement-controls text-end p-2 pe-4">
                 <div class="action-buttons">
-                    <button class="btn btn-edit" data-bs-target="#edit-modal" data-bs-toggle="modal" title="Editar movimiento"
+                    <button class="btn btn-edit d-none" data-permission="movimientos.ver" data-bs-target="#edit-modal" data-bs-toggle="modal" title="Editar movimiento"
                         movement-data='${JSON.stringify(movimiento)}'>
                         <i class="bi bi-info-circle"></i>
                     </button>
-                    <button class="btn btn-delete" data-bs-target="#delete-modal" data-bs-toggle="modal" title="Eliminar movimiento"
+                    <button class="btn btn-delete d-none" data-permission="movimientos.eliminar" data-bs-target="#delete-modal" data-bs-toggle="modal" title="Eliminar movimiento"
                         data-id='${movimiento.id_movimiento}'>
                         <i class="bi bi-trash3"></i>
                     </button>
@@ -129,4 +131,7 @@ export async function renderMovementsTable() {
             renderMovementsTable();
         });
     });
+
+    // Validar permisos del usuario
+    validatePermissions()
 }

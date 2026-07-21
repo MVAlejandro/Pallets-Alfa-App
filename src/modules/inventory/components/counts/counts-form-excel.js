@@ -4,6 +4,7 @@ import { Swal } from '../../../../shared/utils/utils.js';
 import { createCount, getCounts } from '../../services/counts-service.js'; 
 import { findProduct } from '../../../catalog/services/products-service.js';
 import { findProductStore } from '../../../catalog/services/product-store-service.js';
+import { requireActionPermission } from "../../../../core/auth/auth-validate.js";
 // Funciones del módulo
 import { countsFilter, countsState } from './counts-filter.js';
 // Validaciones
@@ -23,6 +24,12 @@ const storeMap = {
 // Función que maneja la creación de movimientos desde Excel con validación
 export async function createExcelCounts(e) {
     e.preventDefault();
+
+    // Validar permisos del usuario
+    if (!requireActionPermission('conteos.crear')) {
+        return;
+    }
+
     const form = e.currentTarget;
 
     // Capturar el botón que disparó el evento

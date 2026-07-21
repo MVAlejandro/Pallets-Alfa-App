@@ -3,9 +3,9 @@ main {
 }
 
 /* Ocultar navbar */
-#nav-list {
+/* #nav-list {
     display: none !important;
-}
+} */
 
 /* Estilos de la página y estructura */
 #direct-access-container, #week-container, #graphic-report-container {

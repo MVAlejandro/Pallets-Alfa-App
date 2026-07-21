@@ -2,6 +2,7 @@
 import { Swal } from '../../../../shared/utils/utils.js';
 // Funciones del backend
 import { updateMovement, deleteMovement, getMovements } from '../../services/movements-service.js'; 
+import { requireActionPermission, validatePermissions } from "../../../../core/auth/auth-validate.js";
 // Funciones del módulo
 import { movementsFilter, movementsState } from './movements-filter.js';
 // Validaciones
@@ -25,11 +26,20 @@ export async function renderMovementsEditModal(movimiento) {
 
     // Función para intentar la actualización del movimiento
     document.querySelector('#movement-edit-form').addEventListener('submit', editMovement);
+
+    // Validar permisos del usuario
+    validatePermissions()
 }
 
 // Función para guardar cambios
 export async function editMovement(e) {
     e.preventDefault();
+
+    // Validar permisos del usuario
+    if (!requireActionPermission('movimientos.editar')) {
+        return;
+    }
+
     const form = e.currentTarget;
 
     // Capturar el botón que disparó el evento
@@ -101,6 +111,11 @@ export async function editMovement(e) {
 
 // Eliminar entrada al dar click en el botón del modal
 document.getElementById('btn-delete-entry').addEventListener('click', async () => {
+    // Validar permisos del usuario
+    if (!requireActionPermission('movimientos.eliminar')) {
+        return;
+    }
+
     const id_movimiento = document.getElementById('delete-id-movement').value;
     await deleteMovement(id_movimiento);
 

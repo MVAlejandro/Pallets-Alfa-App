@@ -1,14 +1,27 @@
 
-// Componente card de acceso directo para index
-export function AccessCard(container, ref, id, icon, text) {
+// Componente card de acceso directo para index de tamaño pequeño
+export function AccessCardSm(container, permission, ref, id, icon, text) {
     container.insertAdjacentHTML('beforeend',
-        `<div class="col-md-6">
+        `<div class="col-md-6 d-none" data-permission="${permission}">
             <a href="${ref}" class="card access-card mt-2 text-decoration-none">
                 <div id="${id}-access" class="card-body d-flex flex-column align-items-center justify-content-center">
                     <div class="mb-1">
                         <i class="bi ${icon} icon-md"></i>
                     </div>
                     <p class="access-text fw-bold">${text}</p>
+                </div>
+            </a>
+        </div>`);
+};
+
+// Componente card de acceso directo para index de tamaño mediano
+export function AccessCardMd(container, permission, ref, id, icon, text) {
+    container.insertAdjacentHTML('beforeend',
+        `<div class="col-md-6 col-lg-12 d-none" data-permission="${permission}">
+            <a href="${ref}" class="card access-card mt-2 text-decoration-none">
+                <div id="${id}-access" class="card-body d-flex align-items-center justify-content-center">
+                    <i class="bi ${icon} icon-md"></i>
+                    <p class="access-text ps-3 fw-bold">${text}</p>
                 </div>
             </a>
         </div>`);

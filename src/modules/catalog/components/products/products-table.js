@@ -1,5 +1,7 @@
 // Importar el estadoo de los registros
 import { productsState } from "./products-filter.js";
+// Funciones del backend
+import { validatePermissions } from "../../../../core/auth/auth-validate.js";
 
 const perPage = 15;
 
@@ -32,14 +34,14 @@ export async function renderProductsTable() {
                 <p class="product-name fw-bold">${producto.nombre}</p>
                 <p class="product-description">${producto.descripcion}</p>
             </td>
-            <td class="product-store fst-italic p-2">${producto.almacenes || "Sin Asignar"}</td>
+            <td class="product-store text-center fst-italic p-2">${producto.almacenes || "Sin Asignar"}</td>
             <td class="product-controls text-pageEnd p-2 pe-4">
                 <div class="action-buttons">
-                    <button class="btn btn-edit" data-bs-target="#edit-modal" data-bs-toggle="modal" title="Editar producto"
+                    <button class="btn btn-edit d-none" data-permission="productos.ver" data-bs-target="#edit-modal" data-bs-toggle="modal" title="Editar producto"
                         product-data='${JSON.stringify(producto)}'>
                         <i class="bi bi-info-circle"></i>
                     </button>
-                    <button class="btn btn-delete" data-bs-target="#delete-modal" data-bs-toggle="modal" title="Eliminar producto"
+                    <button class="btn btn-delete d-none" data-permission="productos.eliminar" data-bs-target="#delete-modal" data-bs-toggle="modal" title="Eliminar producto"
                         data-id='${producto.id_producto}'>
                         <i class="bi bi-trash3"></i>
                     </button>
@@ -126,4 +128,7 @@ export async function renderProductsTable() {
             renderProductsTable();
         });
     });
+
+    // Validar permisos del usuario
+    validatePermissions()
 }

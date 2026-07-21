@@ -33,7 +33,7 @@
                             <div class="col-8 col-md-9 col-lg-9 d-flex align-items-center">
                                 <h2 class="fw-bold">Gestión de Productos</h2>
                             </div>
-                            <div class="col-4 col-md-3 col-lg-3 d-flex align-items-center justify-content-end">
+                            <div class="col-4 col-md-3 col-lg-3 d-flex align-items-center justify-content-end d-none" data-permission="productos.crear">
                                 <button id="btn-add-product" class="btn btn-primary d-flex align-items-center">
                                     <i class="bi bi-plus-square icon-md"></i>
                                     <p class="ps-3">Añadir Producto</p>
@@ -92,7 +92,7 @@
                                 <tr class="table-secondary">
                                     <th class="p-3 ps-4">CÓDIGO</th>
                                     <th class="p-3">NOMBRE</th>
-                                    <th class="p-3">ALMACÉN</th>
+                                    <th class="text-center p-3">ALMACÉN</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -165,14 +165,14 @@
                             <div class="row py-3">
                                 <div class="col-md-4 ms-auto label-over-border">
                                     <label for="edit-code" class="form-label m-2">Código</label>
-                                    <input type="text" id="edit-code" class="form-control">
+                                    <input type="text" id="edit-code" class="form-control" disabled data-permission="productos.editar">
                                     <p id="error-editCode" class="error invalid-feedback" style="color: red;"></p>
                                 </div>
                             </div>
                             <div class="row py-3">
                                 <div class="col-md-8 label-over-border mb-4 mb-md-0">
                                     <label for="edit-name" class="form-label m-2">Nombre</label>
-                                    <input type="text" id="edit-name" class="form-control">
+                                    <input type="text" id="edit-name" class="form-control" disabled data-permission="productos.editar">
                                     <p class="error invalid-feedback" id="error-editName" style="color: red;"></p>
                                 </div>
                                 <div class="col-md-4 label-over-border">
@@ -183,7 +183,7 @@
                             <div class="row py-3">
                                 <div class="col-12 label-over-border">
                                     <label for="edit-description" class="form-label m-2">Descripción</label>
-                                    <textarea id="edit-description" class="form-control" rows="3"></textarea>
+                                    <textarea id="edit-description" class="form-control" rows="3" disabled data-permission="productos.editar"></textarea>
                                     <p id="error-editDescription" class="error invalid-feedback" style="color: red;"></p>
                                 </div>
                             </div>
@@ -197,7 +197,7 @@
                     </div>
                     <button type="button" id="btn-asign-store" class="btn btn-secondary me-auto" data-bs-target="#asign-stores" data-bs-toggle="offcanvas">Almacenes</button>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="submit" id="btn-edit-entry" form="product-edit-form" class="btn btn-primary">Guardar cambios</button>
+                    <button type="submit" id="btn-edit-entry" form="product-edit-form" class="btn btn-primary d-none" data-permission="productos.editar">Guardar cambios</button>
                 </div>
             </div>
         </div>
@@ -233,7 +233,7 @@
                 </div>
             </div>
             <div class="offcanvas-footer px-4 pt-4 pb-3">
-                <button id="btn-save" class="btn btn-primary me-1">Asignar</button>
+                <button id="btn-save" class="btn btn-primary me-1 d-none" data-permission="productos.editar">Asignar</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas">Cerrar</button>
             </div>
         </div>
@@ -262,7 +262,7 @@
                 </div>
                 <div class="modal-footer px-md-4">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                    <button id="btn-delete-entry" class="btn btn-primary">Sí</button>
+                    <button id="btn-delete-entry" class="btn btn-primary d-none" data-permission="productos.eliminar">Sí</button>
                 </div>
             </div>
         </div>

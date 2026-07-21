@@ -10,19 +10,20 @@ import '../styles/reports.css';
 
 // Layout base
 import { initLayout } from '../../../core/layouts/init.js'
-
 // Funciones del backend
-import { validateAuth } from '../../../core/auth/auth-validate.js';
-
+import { requirePermission, validateAuth, validatePermissions } from '../../../core/auth/auth-validate.js';
 // Funciones del módulo
 import { initReportsModule } from '../components/reports/reports-filter.js';
-//import { renderCountsEditModal } from '../components/reports/reports-modal.js'; 
 
 document.addEventListener('DOMContentLoaded', async () => {
     // Validar que haya sesión y obtener al usuario
     const user = await validateAuth();
     console.log(user);
-    if (!user) {
+
+    if (!user) { return; }
+
+    // Comprobar que se tiene permiso de acceder al módulo
+    if(!requirePermission('reportes.ver')){
         return;
     }
 
@@ -31,5 +32,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Renderizado inicial del módulo
     await initReportsModule();
+
+    // Validar permisos del usuario
+    validatePermissions();
 });
    

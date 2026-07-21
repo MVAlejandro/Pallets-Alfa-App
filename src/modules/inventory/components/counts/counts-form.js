@@ -3,6 +3,7 @@ import { Swal } from '../../../../shared/utils/utils.js';
 // Funciones del backend
 import { createCount, getCounts } from '../../services/counts-service.js'; 
 import { findProductStore } from '../../../catalog/services/product-store-service.js';
+import { requireActionPermission } from "../../../../core/auth/auth-validate.js";
 // Funciones del módulo
 import { countsFilter, countsState } from './counts-filter.js';
 // Validaciones
@@ -13,6 +14,12 @@ import { refreshState } from '../../../../shared/utils/state.js';
 // Función que maneja la creación de un movimiento con su validación
 export async function createNewCount(e) {
     e.preventDefault();
+
+    // Validar permisos del usuario
+    if (!requireActionPermission('conteos.crear')) {
+        return;
+    }
+
     const form = e.currentTarget;
     
     // Capturar el botón que disparó el evento

@@ -3,6 +3,7 @@ import { Swal } from '../../../../shared/utils/utils.js';
 // Funciones del backend
 import { getProducts } from '../../services/products-service.js'; 
 import { getProductStores, getStores, toggleProductStore } from '../../services/product-store-service.js';
+import { requireActionPermission } from '../../../../core/auth/auth-validate.js';
 // Funciones del módulo
 import { productsFilter, productsState } from './products-filter.js';
 // Utilidades
@@ -14,6 +15,11 @@ export async function renderAssignStores(id_producto) {
 
     document.getElementById('btn-save').onclick = async (e) => {
         e.preventDefault();
+
+        // Validar permisos del usuario
+        if (!requireActionPermission('productos.eliminar')) {
+            return;
+        }
 
         const checkboxes = document.querySelectorAll('#store-list .form-check-input');
         // Estado actual después de interacción del usuario

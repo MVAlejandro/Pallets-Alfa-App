@@ -2,6 +2,7 @@
 import { Swal } from '../../../../shared/utils/utils.js';
 // Funciones del backend
 import { createProduct, getProducts } from '../../services/products-service.js'; 
+import { requireActionPermission } from "../../../../core/auth/auth-validate.js";
 // Funciones del módulo
 import { productsFilter, productsState } from './products-filter.js';
 // Validaciones
@@ -12,6 +13,12 @@ import { refreshState } from '../../../../shared/utils/state.js';
 // Función que maneja la creación de un producto con su validación
 export async function createNewProduct(e) {
     e.preventDefault();
+
+    // Validar permisos del usuario
+    if (!requireActionPermission('productos.crear')) {
+        return;
+    }
+
     const form = e.currentTarget;
     
     // Capturar el botón que disparó el evento

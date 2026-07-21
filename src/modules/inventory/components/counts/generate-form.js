@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                         <div class="d-flex align-items-center justify-content-end pt-1 me-3">
                             <button id="btn-cancel-manual" type="button" class="btn btn-secondary d-flex align-items-center ps-3 pe-3 me-2">Cancelar</button>
-                            <button id="btn-add-manual" type="submit" class="btn btn-primary d-flex align-items-center ps-3 pe-3">
+                            <button id="btn-add-manual" type="submit" class="btn btn-primary d-flex align-items-center ps-3 pe-3 d-none" data-permission="conteos.crear">
                                 <i class="bi bi-floppy pe-1"></i>
                                 <p class="ps-2">Agregar</p>
                             </button>
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                         <div class="d-flex align-items-center justify-content-end pt-1 me-3">
                             <button id="btn-cancel-excel" type="button" class="btn btn-secondary d-flex align-items-center ps-3 pe-3 me-2">Cancelar</button>
-                            <button id="btn-add-excel" type="submit" class="btn btn-primary d-flex align-items-center ps-3 pe-3">
+                            <button id="btn-add-excel" type="submit" class="btn btn-primary d-flex align-items-center ps-3 pe-3 d-none" data-permission="conteos.crear">
                                 <i class="bi bi-floppy pe-1"></i>
                                 <p class="ps-2">Agregar</p>
                             </button>

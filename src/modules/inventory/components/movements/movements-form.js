@@ -2,6 +2,7 @@
 import { Swal } from '../../../../shared/utils/utils.js';
 // Funciones del backend
 import { createMovement, getMovements } from '../../services/movements-service.js'; 
+import { requireActionPermission } from "../../../../core/auth/auth-validate.js";
 // Funciones del módulo
 import { movementsFilter, movementsState } from './movements-filter.js';
 // Validaciones
@@ -12,6 +13,12 @@ import { refreshState } from '../../../../shared/utils/state.js';
 // Función que maneja la creación de un movimiento con su validación
 export async function createNewMovement(e) {
     e.preventDefault();
+
+    // Validar permisos del usuario
+    if (!requireActionPermission('movimientos.crear')) {
+        return;
+    }
+
     const form = e.currentTarget;
     
     // Capturar el botón que disparó el evento

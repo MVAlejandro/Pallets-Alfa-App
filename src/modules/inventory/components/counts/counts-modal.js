@@ -2,6 +2,7 @@
 import { Swal } from '../../../../shared/utils/utils.js';
 // Funciones del backend
 import { updateCount, deleteCount, getCounts } from '../../services/counts-service.js'; 
+import { requireActionPermission, validatePermissions } from "../../../../core/auth/auth-validate.js";
 // Funciones del módulo
 import { countsFilter, countsState } from './counts-filter.js';
 // Validaciones
@@ -26,11 +27,20 @@ export async function renderCountsEditModal(conteo) {
 
     // Función para intentar la actualización del conteo
     document.querySelector('#count-edit-form').addEventListener('submit', editCount);
+
+    // Validar permisos del usuario
+    validatePermissions()
 }
 
 // Función para guardar cambios
 export async function editCount(e) {
     e.preventDefault();
+
+    // Validar permisos del usuario
+    if (!requireActionPermission('conteos.editar')) {
+        return;
+    }
+
     const form = e.currentTarget;
     
     // Capturar el botón que disparó el evento
@@ -102,6 +112,11 @@ export async function editCount(e) {
 
 // Eliminar entrada al dar click en el botón del modal
 document.getElementById('btn-delete-entry').addEventListener('click', async () => {
+    // Validar permisos del usuario
+    if (!requireActionPermission('conteos.eliminar')) {
+        return;
+    }
+
     const id_conteo = document.getElementById('delete-id-count').value;
     await deleteCount(id_conteo);
 
