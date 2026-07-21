@@ -308,7 +308,6 @@ input::placeholder, textarea::placeholder, #default-option {
     font-weight: bold;
     font-size: 0.9rem;
     border-radius: 0.3rem !important;
-    margin-right: 8px;
     transition: all 0.3s ease;
 }
 
@@ -324,6 +323,12 @@ input::placeholder, textarea::placeholder, #default-option {
 .tab-btn:hover {
     background-color: var(--secondary);
     color: var(--text-light) !important;
+}
+
+@media (max-width: 430px) {
+    .tab-btn {
+        font-size: 13px;
+    }
 }
 
 /* Estilos para botones de edición de entradas */

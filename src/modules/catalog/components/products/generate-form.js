@@ -5,17 +5,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById('products-form');
 
     container.innerHTML = 
-        `<div id="products-form-container" class="container pt-4 pb-3 collapse">
-            <div class="row pb-3">
+        `<div id="products-form-container" class="container py-4 collapse">
+            <div class="row">
                 <div class="col d-flex align-items-center">
-                    <div class="ms-4 me-3">
-                        <i class="bi bi-box-seam icon-md"></i>
+                    <div class="mx-3">
+                        <i class="bi bi-box-seam icon-md" style="color:var(--primary-dark)"></i>
                     </div>
-                    <h5>Registrar Nuevo Producto</h5>
+                    <h5 class="fw-bold">Nuevo Registro de Producto</h5>
                 </div>
             </div>
-            <form id="new-product-form" autocomplete="off">
-                <div class="row ms-2 me-2 pt-3 pb-3">
+            <form id="new-product-form" autocomplete="off" class="p-3 pb-0">
+                <div class="row py-3">
                     <div class="col-md-4 col-lg-2 label-over-border mb-4 mb-lg-0">
                         <label for="code" class="form-label m-2">Código</label>
                         <input type="text" id="code" class="form-control" placeholder="TAR1000">
@@ -32,9 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p class="error invalid-feedback" id="error-description" style="color: red;"></p>
                     </div>
                 </div>
-                <div class="d-flex align-items-center justify-content-end pt-1 me-3">
-                    <button id="btn-cancel" type="button" class="btn btn-secondary d-flex align-items-center ps-3 pe-3 me-2">Cancelar</button>
-                    <button id="btn-add-product" type="submit" class="btn btn-primary d-flex align-items-center ps-3 pe-3 d-none" data-permission="productos.crear">
+                <div class="d-flex align-items-center justify-content-end pt-1">
+                    <button id="btn-cancel" type="button" class="btn btn-secondary d-flex align-items-center px-3 me-2">Cancelar</button>
+                    <button id="btn-add-product" type="submit" class="btn btn-primary d-flex align-items-center px-3 d-none" data-permission="productos.crear">
                         <i class="bi bi-floppy pe-1"></i>
                         <p class="ps-2">Agregar</p>
                     </button>

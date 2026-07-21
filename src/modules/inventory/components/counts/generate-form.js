@@ -9,17 +9,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const container = document.getElementById('counts-form');
 
     container.innerHTML = 
-        `<div id="counts-form-container" class="container pt-4 pb-3 collapse">
-            <div class="row pb-3">
+        `<div id="counts-form-container" class="container py-4 collapse">
+            <div class="row">
                 <div class="col d-flex align-items-center">
-                    <div class="ms-4 me-3">
-                        <i class="bi bi-clipboard2-plus icon-md"></i>
+                    <div class="mx-3">
+                        <i class="bi bi-clipboard2-plus icon-md" style="color:var(--primary-dark)"></i>
                     </div>
-                    <h5>Registrar Nuevo Conteo</h5>
+                    <h5 class="fw-bold">Nuevo Registro de Conteo</h5>
                 </div>
-                <div class="col d-flex justify-content-end controls btn-group me-3 mb-3">
+                <div class="col d-flex justify-content-end controls btn-group me-3 mb-3 mb-md-0">
                     <div class="nav nav-pills" id="ganttTabs" role="tablist">
-                        <button id="manual-tab" class="nav-link tab-btn active" data-bs-toggle="pill" data-bs-target="#tab-form-manual" type="button" role="tab">Manual</button>
+                        <button id="manual-tab" class="nav-link tab-btn me-2 active" data-bs-toggle="pill" data-bs-target="#tab-form-manual" type="button" role="tab">Manual</button>
                         <button id="excel-tab" class="nav-link tab-btn" data-bs-toggle="pill" data-bs-target="#tab-form-excel" type="button" role="tab">Excel</button>
                     </div>
                 </div>
@@ -27,8 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="tab-content" id="counts-tabs-content">
                 <!-- Tab de llenado manual -->
                 <div class="tab-pane fade show active" id="tab-form-manual" role="tabpanel">
-                    <form id="new-count-form" autocomplete="off">
-                        <div class="row ms-2 me-2 pt-3 pb-3">
+                    <form id="new-count-form" autocomplete="off" class="p-3 pb-0">
+                        <div class="row py-3">
                             <div class="col-md-4 col-lg-2 label-over-border mb-4 mb-lg-0">
                                 <label for="store" class="form-label m-2">Almacén</label>
                                 <select id="store" class="form-select" aria-label="Default select example">
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <p class="error invalid-feedback" id="error-observations" style="color: red;"></p>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center justify-content-end pt-1 me-3">
+                        <div class="d-flex align-items-center justify-content-end pt-1">
                             <button id="btn-cancel-manual" type="button" class="btn btn-secondary d-flex align-items-center ps-3 pe-3 me-2">Cancelar</button>
                             <button id="btn-add-manual" type="submit" class="btn btn-primary d-flex align-items-center ps-3 pe-3 d-none" data-permission="conteos.crear">
                                 <i class="bi bi-floppy pe-1"></i>
@@ -66,17 +66,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <!-- Tab de Excel -->
                 <div class="tab-pane fade" id="tab-form-excel" role="tabpanel">
-                    <form id="new-excel-form" autocomplete="off">
-                        <div class="row ms-2 me-2 pb-3">
+                    <form id="new-excel-form" autocomplete="off" class="p-3 pb-0">
+                        <div class="row py-3">
                             <div class="col label-over-border">
                                 <label for="excel-data" class="m-2">Datos del conteo</label>
                                 <textarea id="excel-data" class="form-control" rows="4" placeholder="Ingrese los datos desde Excel con formato:  'Código, Almacén, Cantidad, Observaciones'"></textarea>
                                 <p class="error invalid-feedback" id="error-excel-data" style="color: red;"></p>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center justify-content-end pt-1 me-3">
-                            <button id="btn-cancel-excel" type="button" class="btn btn-secondary d-flex align-items-center ps-3 pe-3 me-2">Cancelar</button>
-                            <button id="btn-add-excel" type="submit" class="btn btn-primary d-flex align-items-center ps-3 pe-3 d-none" data-permission="conteos.crear">
+                        <div class="d-flex align-items-center justify-content-end pt-1">
+                            <button id="btn-cancel-excel" type="button" class="btn btn-secondary d-flex align-items-center px-3 me-2">Cancelar</button>
+                            <button id="btn-add-excel" type="submit" class="btn btn-primary d-flex align-items-center px-3 d-none" data-permission="conteos.crear">
                                 <i class="bi bi-floppy pe-1"></i>
                                 <p class="ps-2">Agregar</p>
                             </button>

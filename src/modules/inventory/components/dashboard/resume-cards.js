@@ -1,3 +1,21 @@
+
+// Función para crear la card de conteos
+export async function renderCountsCard(count) {
+    const element = document.getElementById("counts-text");
+    // Limpiar elemento antes de insertar
+    element.textContent = "";
+
+    if (!count) {
+        element.textContent = `-`;
+        element.className = "general-report-cant text-muted"
+        return;
+    }
+
+    // Generar el contenido
+    element.className = "general-report-cant"
+    element.innerText = `${count.total_contado.toLocaleString('en-US')}`;
+}
+
 // Función para crear la card de diferencia
 export async function renderDifferenceCard(summaries) {
     const element = document.getElementById("difference-text");
@@ -21,8 +39,8 @@ export async function renderDifferenceCard(summaries) {
     }
 
     // Generar el contenido
-    element.textContent = `${summaries.diferencia.toLocaleString('en-US')}`;
     element.className = `general-report-cant ${differenceClass}`
+    element.textContent = `${summaries.diferencia.toLocaleString('en-US')}`;
 }
 
 // Función para crear la card de confiabilidad
@@ -48,6 +66,6 @@ export async function renderReliabilityCard(summaries) {
     }
 
     // Generar el contenido
-    element.textContent = `${summaries.confiabilidad.toLocaleString('en-US')}%`;
     element.className = `general-report-cant ${reliabilityClass}`;
+    element.textContent = `${summaries.confiabilidad.toLocaleString('en-US')}%`;
 }

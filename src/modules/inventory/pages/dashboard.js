@@ -13,7 +13,7 @@ import { initLayout } from '../../../core/layouts/init.js'
 // Funciones del backend
 import { requirePermission, validateAuth, validatePermissions } from '../../../core/auth/auth-validate.js';
 // Funciones del módulo
-import { AccessCardMd } from '../../../shared/components/index-cards.js';
+import { AccessCardMd } from '../../../shared/components/direct-access-cards.js';
 import { initDashboard } from '../components/dashboard/index-cards.js';
 // Utilidades
 import { getDateParts } from '../../../shared/utils/time-functions.js';
