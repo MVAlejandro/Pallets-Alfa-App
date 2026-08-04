@@ -36,7 +36,7 @@ export async function findProduct(codigo) {
     const result = await response.json();
     
     if (!response.ok) {
-        throw new Error(result.message || 'Error al obtener buscar el producto');
+        throw new Error(result.message || 'Error al buscar el producto');
     }
     
     return result.data;

@@ -98,15 +98,15 @@
                             <thead>
                                 <tr class="table-secondary">
                                     <th class="p-3 ps-4">SEMANA</th>
-                                    <th class="p-3">PRODUCTO</th>
-                                    <th class="text-center p-3">ALMACÉN</th>
-                                    <th class="p-3">CANTIDAD</th>
-                                    <th class="p-3">OBSERVACIONES</th>
+                                    <th class="px-2 py-3">PRODUCTO</th>
+                                    <th class="text-center px-2 py-3">ALMACÉN</th>
+                                    <th class="text-center px-2 py-3">CANTIDAD</th>
+                                    <th class="px-2 py-3">OBSERVACIONES</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                                <tr><td class="text-center" colspan="6">No hay registros para mostrar</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -189,14 +189,14 @@
                                 <div class="col-md-3 label-over-border">
                                     <label for="edit-quantity" class="form-label m-2">Cantidad</label>
                                     <input type="number" id="edit-quantity" class="form-control no-arrows" disabled data-permission="conteos.editar">
-                                    <p id="error-editQuantity" class="error invalid-feedback" style="color: red;"></p>
+                                    <p id="error-editQuantity" class="error invalid-feedback"></p>
                                 </div>
                             </div>
                             <div class="row py-3">
                                 <div class="col label-over-border">
                                     <label for="edit-observations" class="form-label m-2">Observaciones</label>
                                     <textarea id="edit-observations" class="form-control" rows="3" disabled data-permission="conteos.editar"></textarea>
-                                    <p id="error-editObservations" class="error invalid-feedback" style="color: red;"></p>
+                                    <p id="error-editObservations" class="error invalid-feedback"></p>
                                 </div>
                             </div>
                         </form>

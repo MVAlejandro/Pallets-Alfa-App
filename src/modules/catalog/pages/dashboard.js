@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const access = [
         {permission:'productos.ver', ref:'./actives.html', id: 'actives', icon: 'bi-gear', text: 'Activos registrados'},
         {permission:'productos.ver', ref:'./clients.html', id: 'clients', icon: 'bi-person', text: 'Cartera de clientes'},
-        {permission:'productos.ver', ref:'./staff.html', id: 'staff', icon: 'bi-people', text: 'Kardex de empleados'},
+        {permission:'empleados.ver', ref:'./staff.html', id: 'staff', icon: 'bi-people', text: 'Kardex de empleados'},
         {permission:'productos.ver', ref:'./spares.html', id: 'spares', icon: 'bi-wrench', text: 'Catálogo de refacciones'},
         {permission:'productos.ver', ref:'./products.html', id: 'products', icon: 'bi-boxes', text: 'Productos existentes'},
         {permission:'productos.ver', ref:'./suppliers.html', id: 'suppliers', icon: 'bi-shop', text: 'Cartera de proveedores'}

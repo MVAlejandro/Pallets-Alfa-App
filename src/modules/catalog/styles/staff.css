@@ -1,0 +1,95 @@
+main {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+/* Estilos de contenedores */
+#staff-filter-container, #staff-list-container, #staff-details-container {
+    background-color: var(--background-light) !important;
+    border-radius: 0.3rem;
+    border: 1px solid var(--secondary-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#staff-details-container {
+    animation: fadeInUp 1s ease-in-out;
+}
+
+#staff-list-container {
+    max-height: 600px;
+    /* Habilita el scroll vertical */
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#total-text {
+    color: var(--primary-dark);
+}
+
+@media (max-width: 770px) {
+    #staff-list-container {
+        max-height: 350px;
+    }
+
+    #logo-details h5 {
+        font-size: 16px;
+    }
+}
+
+/* Estilos de texto para los detalles */
+#logo-details {
+    opacity: 0.5;
+}
+
+#form-header {
+    border-bottom: 1px solid var(--secondary-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#form-header-container {
+    background-color: var(--background-dark) !important;
+    border-radius: 0.3rem;
+    border: 1px solid var(--secondary-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#form-footer {
+    background-color: var(--background-dark) !important;
+    border-radius: 0.3rem 0.3rem 0 0;
+    border-top: 1px solid var(--secondary-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.staff-title {
+    text-align: end;
+    font-size: 16px;
+    color: var(--secondary) !important;
+    border-top: 1px solid var(--secondary-light);
+    padding-right: 0.5rem;
+}
+
+.staff-number {
+    font-weight: bold;
+    font-size: 13px;
+    color: var(--primary-dark) !important;
+}
+
+.staff-position {
+    font-weight: normal;
+    font-size: 13px;
+    color: var(--secondary) !important;
+}
+
+/* Estilos para el offcanvas */
+#asign-schedules {
+    --bs-offcanvas-width: 50vh;
+}
+
+.form-check-input:checked {
+    background-color: var(--primary);
+    border-color: var(--primary);
+}
+
+.form-check-input:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 .25rem var(--primary-light);
+}

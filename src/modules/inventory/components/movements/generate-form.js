@@ -36,17 +36,17 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <option value="DESARME">Desarme</option>
                                     <option value="TRASPASO A COMEP">Traspaso a Comep</option>
                                 </select>
-                                <p class="error invalid-feedback" id="error-type" style="color: red;"></p>
+                                <p id="error-type" class="error invalid-feedback"></p>
                             </div>
                             <div class="col-md-3 col-lg-2 label-over-border mb-4 mb-lg-0">
                                 <label for="quantity" class="form-label m-2">Cantidad</label>
                                 <input type="number" id="quantity" class="form-control no-arrows" placeholder="0000">
-                                <p class="error invalid-feedback" id="error-quantity" style="color: red;"></p>
+                                <p id="error-quantity" class="error invalid-feedback"></p>
                             </div>
                             <div class="col-md-6 col-lg-7 label-over-border">
                                 <label for="observations" class="form-label m-2">Observaciones</label>
                                 <input type="text" id="observations" class="form-control" placeholder="Observaciones generales">
-                                <p class="error invalid-feedback" id="error-observations" style="color: red;"></p>
+                                <p id="error-observations" class="error invalid-feedback"></p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center justify-content-end pt-1">
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <div class="col label-over-border">
                                 <label for="excel-data" class="m-2">Datos del movimiento</label>
                                 <textarea id="excel-data" class="form-control" rows="4" placeholder="Ingrese los datos desde Excel con formato:  'Movimiento, Cantidad, Observaciones'"></textarea>
-                                <p class="error invalid-feedback" id="error-excel-data" style="color: red;"></p>
+                                <p id="error-excel-data" class="error invalid-feedback"></p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center justify-content-end pt-1">

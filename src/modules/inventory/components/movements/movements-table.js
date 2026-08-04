@@ -36,7 +36,7 @@ export async function renderMovementsTable() {
                 <p class="movement-date">${movimiento.fecha_movimiento}</p>
             </td>
             <td class="movement-type fw-bold p-2">${movimiento.tipo_movimiento}</td>
-            <td class="movement-quantity p-2">${movimiento.cantidad.toLocaleString('en-US')}</td>
+            <td class="movement-quantity text-center p-2">${movimiento.cantidad.toLocaleString('en-US')}</td>
             <td class="movement-observation fst-italic p-2">${movimiento.observaciones}</td>
             <td class="movement-controls text-end p-2 pe-4">
                 <div class="action-buttons">

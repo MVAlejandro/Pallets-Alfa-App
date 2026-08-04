@@ -19,22 +19,22 @@ document.addEventListener("DOMContentLoaded", () => {
                     <div class="col-md-4 col-lg-2 label-over-border mb-4 mb-lg-0">
                         <label for="code" class="form-label m-2">Código</label>
                         <input type="text" id="code" class="form-control" placeholder="TAR1000">
-                        <p class="error invalid-feedback" id="error-code" style="color: red;"></p>
+                        <p class="error invalid-feedback" id="error-code"></p>
                     </div>
                     <div class="col-md-8 col-lg-4 label-over-border mb-4 mb-lg-0">
                         <label for="name" class="form-label m-2">Nombre</label>
                         <input type="text" id="name" class="form-control" placeholder="Nombre del producto">
-                        <p class="error invalid-feedback" id="error-name" style="color: red;"></p>
+                        <p class="error invalid-feedback" id="error-name"></p>
                     </div>
-                    <div class="col-md-12 col-lg-6 label-over-border">
+                    <div class="col-md-12 col-lg-6 label-over-border mb-4 mb-lg-0">
                         <label for="description" class="form-label m-2">Descripción</label>
                         <input type="text" id="description" class="form-control" placeholder="Descripción detallada del producto">
-                        <p class="error invalid-feedback" id="error-description" style="color: red;"></p>
+                        <p class="error invalid-feedback" id="error-description"></p>
                     </div>
                 </div>
                 <div class="d-flex align-items-center justify-content-end pt-1">
                     <button id="btn-cancel" type="button" class="btn btn-secondary d-flex align-items-center px-3 me-2">Cancelar</button>
-                    <button id="btn-add-product" type="submit" class="btn btn-primary d-flex align-items-center px-3 d-none" data-permission="productos.crear">
+                    <button id="btn-add-entry" type="submit" class="btn btn-primary d-flex align-items-center px-3 d-none" data-permission="productos.crear">
                         <i class="bi bi-floppy pe-1"></i>
                         <p class="ps-2">Agregar</p>
                     </button>

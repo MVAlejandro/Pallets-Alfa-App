@@ -27,7 +27,7 @@ export function createNavbar() {
                             <li><a href="/app/catalog/dashboard.html" class="link-dark rounded">Inicio</a></li>
                             <li><a href="#" class="link-dark rounded">Activos</a></li>
                             <li><a href="#" class="link-dark rounded">Clientes</a></li>
-                            <li><a href="#" class="link-dark rounded">Empleados</a></li>
+                            <li><a href="/app/catalog/staff.html" class="link-dark rounded">Empleados</a></li>
                             <li><a href="#" class="link-dark rounded">Refacciones</a></li>
                             <li><a href="/app/catalog/products.html" class="link-dark rounded">Productos</a></li>
                             <li><a href="#" class="link-dark rounded">Proveedores</a></li>

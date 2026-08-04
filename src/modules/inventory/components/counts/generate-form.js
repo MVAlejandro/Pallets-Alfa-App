@@ -34,24 +34,24 @@ document.addEventListener("DOMContentLoaded", () => {
                                 <select id="store" class="form-select" aria-label="Default select example">
                                     <option value="0">Seleccione...</option>
                                 </select>
-                                <p class="error invalid-feedback" id="error-store" style="color: red;"></p>
+                                <p id="error-store" class="error invalid-feedback"></p>
                             </div>
                             <div class="col-md-4 col-lg-3 label-over-border mb-4 mb-lg-0">
                                 <label for="product" class="form-label m-2">Producto</label>
                                 <select id="product" class="form-select" aria-label="Default select example" disabled>
                                     <option value="0">Seleccione...</option>
                                 </select>
-                                <p class="error invalid-feedback" id="error-product" style="color: red;"></p>
+                                <p id="error-product" class="error invalid-feedback"></p>
                             </div>
                             <div class="col-md-4 col-lg-2 label-over-border mb-4 mb-lg-0">
                                 <label for="quantity" class="form-label m-2">Cantidad</label>
-                                <input type="number" id="quantity" class="form-control no-arrows" placeholder="0000">
-                                <p class="error invalid-feedback" id="error-quantity" style="color: red;"></p>
+                                <input id="quantity" type="number" class="form-control no-arrows" placeholder="0000">
+                                <p id="error-quantity" class="error invalid-feedback"></p>
                             </div>
                             <div class="col-md-12 col-lg-5 label-over-border mb-4 mb-lg-0">
                                 <label for="observations" class="form-label m-2">Observaciones</label>
-                                <input type="text" id="observations" class="form-control" placeholder="Observaciones generales">
-                                <p class="error invalid-feedback" id="error-observations" style="color: red;"></p>
+                                <input id="observations" type="text" class="form-control" placeholder="Observaciones generales">
+                                <p id="error-observations" class="error invalid-feedback"></p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center justify-content-end pt-1">
@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             <div class="col label-over-border">
                                 <label for="excel-data" class="m-2">Datos del conteo</label>
                                 <textarea id="excel-data" class="form-control" rows="4" placeholder="Ingrese los datos desde Excel con formato:  'Código, Almacén, Cantidad, Observaciones'"></textarea>
-                                <p class="error invalid-feedback" id="error-excel-data" style="color: red;"></p>
+                                <p id="error-excel-data" class="error invalid-feedback"></p>
                             </div>
                         </div>
                         <div class="d-flex align-items-center justify-content-end pt-1">

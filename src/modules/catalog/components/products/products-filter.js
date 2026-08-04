@@ -21,8 +21,8 @@ export async function initProductsModule() {
     applyProductsFilter();
     
     const form = document.getElementById('filter-form');
-    const store = document.getElementById('store-filter');
     const search = document.getElementById('search-filter');
+    const store = document.getElementById('store-filter');
 
     // Declarar el botón de limpieza de filtros
     document.getElementById("clear-filters").addEventListener('click', () => {
@@ -42,12 +42,12 @@ function applyProductsFilter() {
 
 // Función de filtrado por valores seleccionados
 export async function productsFilter() {
-    const storeFilter = document.getElementById('store-filter').value;
     const searchText = document.getElementById('search-filter').value.trim().toLowerCase();
+    const storeFilter = document.getElementById('store-filter').value;
     const resultsText = document.getElementById('total-text');
 
     // Si no hay filtros activos, mostrar todo
-    const filterClean = storeFilter === '0' && searchText === '';
+    const filterClean = searchText === '' && storeFilter === '0';
 
     if (filterClean) {
         productsState.visibleRecords = productsState.allRecords;
@@ -63,6 +63,7 @@ export async function productsFilter() {
             Object.values(p).some(valor => valor?.toString().toLowerCase().includes(searchText));
 
         const storeOk = storeFilter === '0' || p.almacenes_id?.split(',').includes(storeFilter);
+
         return storeOk && searchOk;
     });
 

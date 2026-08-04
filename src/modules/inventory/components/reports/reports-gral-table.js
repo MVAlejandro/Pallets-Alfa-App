@@ -1,5 +1,5 @@
 // Funciones del módulo
-import { renderDifferenceCard, renderReliabilityCard } from "./reports-gral-cards.js";
+import { renderDifferenceCard, renderReliabilityCard } from "../dashboard/resume-cards.js";
 // Utilidades
 import { getDateParts } from "../../../../shared/utils/time-functions.js";
 import { getGeneralTotals } from "../../services/reports-service.js";

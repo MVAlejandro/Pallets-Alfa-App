@@ -40,7 +40,7 @@ export async function renderCountsTable() {
                 <p class="count-product">${conteo.descripcion_producto}</p>
             </td>
             <td class="count-store text-center p-2">${conteo.almacen}</td>
-            <td class="count-quantity p-2">${conteo.cantidad_conteo.toLocaleString('en-US')}</td>
+            <td class="count-quantity text-center p-2">${conteo.cantidad_conteo.toLocaleString('en-US')}</td>
             <td class="count-observation fst-italic p-2">${conteo.observaciones}</td>
             <td class="count-controls text-end p-2 pe-4">
                 <div class="action-buttons">
