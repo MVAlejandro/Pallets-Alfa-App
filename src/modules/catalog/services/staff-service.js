@@ -77,7 +77,7 @@ export async function updateStaff(id_empleado, updatedData) {
 // Función para eliminar un empleado de la base de datos
 export async function deleteStaff(id_empleado) {
     const response = await fetch(`${API_BASE}/delete.php`, {
-        method: 'DELETE',
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id_empleado })
     });

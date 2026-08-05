@@ -1,8 +1,8 @@
 // Ruta de la api
-const API_BASE = '/api/modules/inventory/counts';
+const API_BASE = '/api/modules/rrhh/remove-staff';
 
-// Función de creación de un conteo conectando a la base de datos
-export async function createCount(data) {
+// Función de creación de un empleado conectando a la base de datos
+export async function createRemove(data) {
     const response = await fetch(`${API_BASE}/create.php`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -12,31 +12,31 @@ export async function createCount(data) {
     const result = await response.json();
 
     if (!response.ok) {
-        throw new Error(result.message || 'Error al crear conteo');
+        throw new Error(result.message || 'Error al crear baja');
     }
 
     return result;
 }
 
-// Función para obtener todos los conteos conectando a la base de datos
-export async function getCounts() {
+// Función para obtener todos los empleados conectando a la base de datos
+export async function getRemoves() {
     const response = await fetch(`${API_BASE}/get.php`);
     const result = await response.json();
     
     if (!response.ok) {
-        throw new Error(result.message || 'Error al obtener conteos');
+        throw new Error(result.message || 'Error al obtener bajas');
     }
     
-    return result.conteos;
+    return result.empleados;
 }
 
-// Función para actualizar un conteo conectando a la base de datos
-export async function updateCount(id_conteo, updatedData) {
+// Función para actualizar un empleado conectando a la base de datos
+export async function updateRemove(id_baja, updatedData) {
     const response = await fetch(`${API_BASE}/update.php`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-            id_conteo,
+            id_baja,
             ...updatedData
         })
     });
@@ -44,25 +44,25 @@ export async function updateCount(id_conteo, updatedData) {
     const result = await response.json();
 
     if (!response.ok) {
-        throw new Error(result.message || 'Error al actualizar conteo');
+        throw new Error(result.message || 'Error al actualizar baja');
     }
 
     return result;
 }
 
-// Función para eliminar un movimiento de la base
-export async function deleteCount(id_conteo) {
+// Función para eliminar un empleado de la base de datos
+export async function deleteRemove(id_baja) {
     const response = await fetch(`${API_BASE}/delete.php`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id_conteo })
+        body: JSON.stringify({ id_baja })
     });
 
     const result = await response.json();
 
     if (!response.ok) {
-        throw new Error(result.message || 'Error al eliminar conteo');
+        throw new Error(result.message || 'Error al eliminar baja');
     }
 
     return result;
-};
+}

@@ -53,7 +53,7 @@ export async function updateMovement(id_movimiento, updatedData) {
 // Función para eliminar un movimiento de la base
 export async function deleteMovement(id_movimiento) {
     const response = await fetch(`${API_BASE}/delete.php`, {
-        method: 'DELETE',
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id_movimiento })
     });

@@ -65,7 +65,7 @@ export async function updateProduct(id_producto, updatedData) {
 // Función para eliminar un producto de la base de datos
 export async function deleteProduct(id_producto) {
     const response = await fetch(`${API_BASE}/delete.php`, {
-        method: 'DELETE',
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id_producto })
     });

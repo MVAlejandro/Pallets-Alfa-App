@@ -1,7 +1,7 @@
 // Utilidades
 import { dateValidate, nameValidate, textValidate, idValidate, inputValidate, selectValidate } from "../../../shared/utils/form-validations"
 
-export function validateCreateStaff(form) {
+export function validateStaffForm(form) {
     // Referencias para validación
     const eNumberIn = document.getElementById("emp-number");
     const nameIn = document.getElementById("name");
@@ -21,6 +21,29 @@ export function validateCreateStaff(form) {
     selectValidate(departamentIn, departamentError)
     textValidate(positionIn, positionError)
     dateValidate(birthdayIn, birthdayError)
+
+    const campos = form.querySelectorAll('input, select');
+
+    return inputValidate(campos);
+}
+
+export function validateStaffRemove(form) {
+    // Referencias para validación
+    const motiveIn = document.getElementById("remove-motive");
+    const descriptionIn = document.getElementById("remove-description");
+    const rehiringIn = document.getElementById("remove-rehiring");
+    const reasonIn = document.getElementById("remove-reason");
+    // Referencias para errores
+    const motiveError = document.getElementById("error-remove-motive");
+    const descriptionError = document.getElementById("error-remove-description");
+    const rehiringError = document.getElementById("error-remove-rehiring");
+    const reasonError = document.getElementById("error-remove-reason");
+    
+    // Validaciones
+    selectValidate(motiveIn, motiveError)
+    textValidate(descriptionIn, descriptionError)
+    selectValidate(rehiringIn, rehiringError)
+    textValidate(reasonIn, reasonError)
 
     const campos = form.querySelectorAll('input, select');
 

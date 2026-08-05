@@ -1,73 +1,110 @@
 // Dependencias
 import { Swal } from '../../../../shared/utils/utils.js';
 // Funciones del backend
-import { updateStaff, deleteStaff, getStaffs, findStaff } from '../../services/staff-service.js'; 
+import { updateStaff, getStaffs, findStaff } from '../../services/staff-service.js'; 
 import { requireActionPermission, validatePermissions } from "../../../../core/auth/auth-validate.js";
 // Funciones del módulo
 import { staffFilter, staffState } from './staff-filter.js';
+import { renderStaffEditForm } from './staff-view.js';
 // Validaciones
-//import { validateEditStaff } from '../../validators/staff-validator.js';
+import { validateStaffForm } from '../../validators/staff-validator.js';
 // Utilidades
 import { refreshState } from '../../../../shared/utils/state.js';
 
-// Función para cargar datos en el formulario
-export async function renderStaffEditForm(empleado) {
-    // Insertar valores en los inputs
-    document.getElementById("hidden-id-staff").value = empleado.id_empleado;
-    document.getElementById("emp-number").value = empleado.numero_empleado;
-    document.getElementById("name").value = empleado.nombre;
-    document.getElementById("departament").value = empleado.id_departamento;
-    document.getElementById("position").value = empleado.puesto;
-    document.getElementById("birthday").value = empleado.fecha_nacimiento;
-    document.getElementById("nss").value = empleado.nss;
-    document.getElementById("rfc").value = empleado.rfc;
-    document.getElementById("curp").value = empleado.curp;
-    document.getElementById("phone").value = empleado.telefono;
-    document.getElementById("direction").value = empleado.direccion;
-    document.getElementById("emergency-name").value = empleado.nombre_emergencia;
-    document.getElementById("emergency-relation").value = empleado.parentesco_emergencia;
-    document.getElementById("emergency-phone").value = empleado.telefono_emergencia;
-    document.getElementById("blood-type").value = empleado.tipo_sangre;
-    document.getElementById("illness").value = empleado.enfermedad;
-    document.getElementById("medicament").value = empleado.medicamento;
-    document.getElementById("allergy").value = empleado.alergia;
-    document.getElementById("boots").value = empleado.calzado;
-    document.getElementById("tshirt").value = empleado.playera;
-    document.getElementById("pants").value = empleado.pantalon;
-
-    if(empleado.estado !== "PENDIENTE") {
-        document.getElementById("emp-number").disabled = false;
-    }
-
-    const container = document.getElementById('form-footer');
-
-    // A partir del estatus del empleado generar los botones correspondientes
-    if(empleado.estado == "PENDIENTE") {
-        container.innerHTML =
-            `<button id="btn-cancel" type="button" class="btn btn-secondary d-flex align-items-center px-3 me-2">Cancelar</button>
-            <button id="btn-authorize-entry" class="btn btn-primary m-1 d-none" data-dir-only>Autorizar Alta</button>`;
-        validatePermissions()
-    } else if(empleado.estado == "ACTIVO") {
-        container.innerHTML =
-            `<button id="btn-cancel" type="button" class="btn btn-secondary d-flex align-items-center px-3 me-2">Cancelar</button>
-            <button class="btn btn-danger px-3 me-2 d-none" data-permission="empleados.eliminar" data-bs-target="#remove-modal" data-bs-toggle="modal">Solicitar Baja</button>
-            <button id="btn-update-entry" type="submit" form="staff-form" class="btn btn-primary px-3 d-none" data-permission="empleados.editar">Actualizar Empleado</button>`;
-        validatePermissions()
-    } else {
-        container.innerHTML =
-            `<button id="btn-cancel" type="button" class="btn btn-secondary d-flex align-items-center px-3 me-2">Cancelar</button>`;
-        validatePermissions()
-    }
-
-    // Insertar los registros del historial
-    document.getElementById('staff-status').textContent = empleado.estado;
-    document.getElementById('entry-date').textContent = empleado.fecha_ingreso;
-    //document.getElementById('modal-user-created').textContent = `${producto.usuario_creacion || "Sin Registro"} - ${producto.fecha_creacion}`;
-    //document.getElementById('modal-user-history').textContent = `${producto.usuario_modificacion || "Sin Registro"} - ${producto.fecha_modificacion}`;
-
-    // Función para intentar la actualización del empleado
-    //document.querySelector('#staff-form').addEventListener('submit', editStaff);
+// Función para guardar cambios
+export async function editStaff(e) {
+    e.preventDefault();
 
     // Validar permisos del usuario
-    validatePermissions()
-}
+    if (!requireActionPermission('empleados.editar')) {
+        return;
+    }
+
+    const form = e.currentTarget;
+    
+    // Capturar el botón que disparó el evento
+    const btn = form.querySelector('button[type="submit"]');
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = 
+            `<span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+            <p class="ps-2">Actualizando...</p>`;
+    }
+
+    if (!validateStaffForm(form)) {
+        Swal.fire({
+            title: 'Error',
+            text: 'Datos ingresados no válidos',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+        
+        // Restaurar estado del botón
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = `Actualizar`;
+        }
+        return
+    }
+
+    const id_empleado = document.getElementById('hidden-id-staff').value;
+    const updatedData = {
+        numero_empleado: form.querySelector('#emp-number').value.trim(),
+        nombre: form.querySelector('#name').value.trim(),
+        departamento_id: form.querySelector('#departament').value,
+        puesto: form.querySelector('#position').value.trim(),
+        fecha_nacimiento: form.querySelector('#birthday').value,
+        rfc: form.querySelector('#rfc').value.trim(),
+        curp: form.querySelector('#curp').value.trim(),
+        nss: form.querySelector('#nss').value.trim(),
+        telefono: form.querySelector('#phone').value.trim(),
+        direccion: form.querySelector('#direction').value.trim(),
+        nombre_emergencia: form.querySelector('#emergency-name').value.trim(),
+        parentesco_emergencia: form.querySelector('#emergency-relation').value.trim(),
+        telefono_emergencia: form.querySelector('#emergency-phone').value.trim(),
+        tipo_sangre: form.querySelector('#blood-type').value.trim(),
+        enfermedad: form.querySelector('#illness').value.trim(),
+        medicamento: form.querySelector('#medicament').value.trim(),
+        alergia: form.querySelector('#allergy').value.trim(),
+        calzado: form.querySelector('#boots').value.trim(),
+        playera: form.querySelector('#tshirt').value.trim(),
+        pantalon: form.querySelector('#pants').value.trim()
+    };
+
+    try {
+        await updateStaff(id_empleado, updatedData);
+
+        form.querySelectorAll('.is-valid, .is-invalid').forEach(e => {
+            e.classList.remove('is-valid', 'is-invalid');
+        });
+
+        // Mostrar alerta
+        Swal.fire({
+            title: 'Empleado actualizado correctamente',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+
+        // Recarga el formulario con los datos actualizados
+        const updatedStaffData = await findStaff(id_empleado)
+        await refreshState(staffState, getStaffs)
+
+        staffFilter();
+        await renderStaffEditForm(updatedStaffData);
+    } catch (error) {
+        Swal.fire({
+            title: 'Error al actualizar empleado:',
+            text: error.message || 'Ocurrió un error al actualizar el empleado',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+
+        console.error(error);
+    } finally {
+        // Restaurar estado del botón
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = `Guardar cambios`;
+        }
+    }
+};

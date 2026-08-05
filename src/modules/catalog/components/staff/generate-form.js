@@ -2,6 +2,7 @@
 import { getDepartaments } from "../../services/staff-service";
 import { validatePermissions } from "../../../../core/auth/auth-validate";
 import { createNewStaff } from "./staff-form";
+import { editStaff } from "./staff-edit";
 // Utilidades
 import { loadOptions } from "../../../../shared/utils/load-select";
 
@@ -35,12 +36,12 @@ export async function generateForm() {
                 <input type="hidden" id="hidden-id-staff">
                 <p class="staff-title fst-italic py-2">Datos generales</p>
                 <div class="row py-3">
-                    <div class="col-md-3 label-over-border">
+                    <div class="col-md-3 label-over-border mb-4 mb-md-0">
                         <label for="emp-number" class="form-label fw-semibold m-2">No Empleado</label>
                         <input id="emp-number" type="number" class="form-control no-arrows" placeholder="000">
                         <p id="error-emp-number" class="error invalid-feedback"></p>
                     </div>
-                    <div class="col-md-9 label-over-border mb-4 mb-md-0">
+                    <div class="col-md-9 label-over-border">
                         <label for="name" class="form-label fw-semibold m-2">Nombre</label>
                         <input id="name" type="text" class="form-control" placeholder="Nombre y Apellidos">
                         <p id="error-name" class="error invalid-feedback"></p>
@@ -68,19 +69,19 @@ export async function generateForm() {
                 </div>
                 <div class="row py-3">
                     <div class="col-md-3 label-over-border mb-4 mb-md-0">
-                        <label for="nss" class="form-label fw-semibold m-2">NSS</label>
-                        <input id="nss" type="number" class="form-control no-arrows" placeholder="01234567891">
-                        <p id="error-nss" class="error invalid-feedback"></p>
-                    </div>
-                    <div class="col-md-3 label-over-border mb-4 mb-md-0">
                         <label for="rfc" class="form-label fw-semibold m-2">RFC</label>
                         <input id="rfc" type="text" class="form-control" placeholder="RFCX000000YY">
                         <p id="error-rfc" class="error invalid-feedback"></p>
                     </div>
-                    <div class="col-md-6 label-over-border">
+                    <div class="col-md-6 label-over-border mb-4 mb-md-0">
                         <label for="curp" class="form-label fw-semibold m-2">CURP</label>
                         <input id="curp" type="text" class="form-control" placeholder="CURP000000AABBCC00">
                         <p id="error-curp" class="error invalid-feedback"></p>
+                    </div>
+                    <div class="col-md-3 label-over-border">
+                        <label for="nss" class="form-label fw-semibold m-2">NSS</label>
+                        <input id="nss" type="number" class="form-control no-arrows" placeholder="01234567891">
+                        <p id="error-nss" class="error invalid-feedback"></p>
                     </div>
                 </div>
                 <div class="row py-3">
@@ -146,7 +147,7 @@ export async function generateForm() {
                     <div class="col-md-4 label-over-border mb-4 mb-md-0">
                         <label for="tshirt" class="form-label fw-semibold m-2">Camisa*</label>
                         <select id="tshirt" class="form-select" aria-label="Default select example">
-                            <option value="0">Seleccione...</option>
+                            <option value="">Seleccione...</option>
                             <option value="CH">CH</option>
                             <option value="M">M</option>
                             <option value="G">G</option>
@@ -162,7 +163,7 @@ export async function generateForm() {
                 </div>
             </form>
             </div>
-            <div id="form-footer" class="d-flex align-items-center justify-content-end py-3 px-4">
+            <div id="form-footer" class="d-flex align-items-center justify-content-end py-3 px-3 px-md-4">
                 <button id="btn-cancel" type="button" class="btn btn-secondary d-flex align-items-center px-3 me-2">Cancelar</button>
                 <button id="btn-add-entry" type="submit" form="staff-form" class="btn btn-primary d-flex align-items-center px-3 d-none" data-permission="empleados.crear">
                     <i class="bi bi-upload pe-1"></i>
@@ -171,16 +172,21 @@ export async function generateForm() {
             </div>
         </div>`;
 
-    loadOptions('departament', getDepartaments, 'id_departamento', 'nombre');
+    await loadOptions('departament', getDepartaments, 'id_departamento', 'nombre');
 
     // Función para intentar el registro de un nuevo empleado
-    document.querySelector('#staff-form').addEventListener('submit', createNewStaff);
+    document.querySelector('#staff-form').addEventListener('submit', handleStaffSubmit);
 
     // Validar permisos del usuario
     validatePermissions()
 };
 
 export async function restoreForm() {
+    // Quitar la clase active de todos los elementos
+    document.getElementById('staff-list').querySelectorAll('.active').forEach(item => {
+        item.classList.remove('active');
+    });
+
     const container = document.getElementById('staff-details');
 
     container.innerHTML =
@@ -190,4 +196,15 @@ export async function restoreForm() {
                 <img src="/app/assets/images/logo-letras-420x187.png" alt="Logo Pallets Alfa" class="w-75 img-fluid">
             </div>
         </div>`;
+}
+
+// Función para determinar la acción al mandar el formulario
+function handleStaffSubmit(e) {
+    const id = document.getElementById("hidden-id-staff").value;
+
+    if (id !== "") {
+        return editStaff(e);
+    }
+
+    return createNewStaff(e);
 }

@@ -4,11 +4,11 @@ import { Swal } from '../../../../shared/utils/utils.js';
 import { createStaff, getStaffs } from '../../services/staff-service.js'; 
 import { requireActionPermission } from "../../../../core/auth/auth-validate.js";
 // Funciones del módulo
-//import { staffFilter, staffState } from './staff-filter.js';
+import { staffFilter, staffState } from './staff-filter.js';
 // Validaciones
-import { validateCreateStaff } from '../../validators/staff-validator.js';
+import { validateStaffForm } from '../../validators/staff-validator.js';
 // Utilidades
-//import { refreshState } from '../../../../shared/utils/state.js';
+import { refreshState } from '../../../../shared/utils/state.js';
 
 // Función que maneja la creación de un producto con su validación
 export async function createNewStaff(e) {
@@ -30,7 +30,7 @@ export async function createNewStaff(e) {
             <p class="ps-2">Subiendo...</p>`;
     }
 
-    if (!validateCreateStaff(form)) {
+    if (!validateStaffForm(form)) {
         Swal.fire({
             title: 'Error',
             text: 'Datos ingresados no válidos',
@@ -54,12 +54,27 @@ export async function createNewStaff(e) {
         nombre: form.querySelector('#name').value.trim(),
         departamento_id: form.querySelector('#departament').value,
         puesto: form.querySelector('#position').value.trim(),
-        fecha_nacimiento: form.querySelector('#birthday').value
+        fecha_ingreso: new Date().toLocaleDateString('en-CA'),
+        fecha_nacimiento: form.querySelector('#birthday').value,
+        rfc: form.querySelector('#rfc').value.trim(),
+        curp: form.querySelector('#curp').value.trim(),
+        nss: form.querySelector('#nss').value.trim(),
+        telefono: form.querySelector('#phone').value.trim(),
+        direccion: form.querySelector('#direction').value.trim(),
+        nombre_emergencia: form.querySelector('#emergency-name').value.trim(),
+        parentesco_emergencia: form.querySelector('#emergency-relation').value.trim(),
+        telefono_emergencia: form.querySelector('#emergency-phone').value.trim(),
+        tipo_sangre: form.querySelector('#blood-type').value.trim(),
+        enfermedad: form.querySelector('#illness').value.trim(),
+        medicamento: form.querySelector('#medicament').value.trim(),
+        alergia: form.querySelector('#allergy').value.trim(),
+        calzado: form.querySelector('#boots').value.trim(),
+        playera: form.querySelector('#tshirt').value.trim(),
+        pantalon: form.querySelector('#pants').value.trim()
     };
     
     try {
-        console.log(staffData)
-        //await createStaff(staffData);
+        await createStaff(staffData);
 
         // Mostrar verificación y limpiar el formulario
         Swal.fire({
@@ -74,8 +89,8 @@ export async function createNewStaff(e) {
         });
 
         // Recarga la lista con los datos actualizados
-        // await refreshState(staffState, getStaffs)
-        // staffFilter();
+        await refreshState(staffState, getStaffs)
+        staffFilter();
     } catch (error) {
         Swal.fire({
             title: 'Error',

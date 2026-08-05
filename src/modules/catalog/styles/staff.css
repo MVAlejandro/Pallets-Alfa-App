@@ -35,6 +35,18 @@ main {
     }
 }
 
+/* Estilos para la lista de personal */
+.list-group-item.active, .list-group-item:focus {
+    background-color: var(--primary-light) !important;
+    border-color: var(--primary-dark);
+}
+
+@media (max-width: 770px) {
+    #staff-list {
+        font-size: 13px !important;
+    }
+}
+
 /* Estilos de texto para los detalles */
 #logo-details {
     opacity: 0.5;
@@ -57,6 +69,7 @@ main {
     border-radius: 0.3rem 0.3rem 0 0;
     border-top: 1px solid var(--secondary-light);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap;
 }
 
 .staff-title {
@@ -80,16 +93,6 @@ main {
 }
 
 /* Estilos para el offcanvas */
-#asign-schedules {
-    --bs-offcanvas-width: 50vh;
-}
-
-.form-check-input:checked {
-    background-color: var(--primary);
-    border-color: var(--primary);
-}
-
-.form-check-input:focus {
-    border-color: var(--primary-light);
-    box-shadow: 0 0 0 .25rem var(--primary-light);
+#header-name {
+    color: var(--primary-dark);
 }
