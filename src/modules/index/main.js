@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         {permission:'embarques.acceder', ref:'#', id: 'shipments', icon: 'bi-truck', text: 'Embarques'},
         {permission:'inventario.acceder', ref:'./inventory/dashboard.html', id: 'inventory', icon: 'bi-clipboard-check', text: 'Inventario'},
         {permission:'mantenimiento.acceder', ref:'#', id: 'maintenance', icon: 'bi-wrench', text: 'Mantenimiento'},
-        {permission:'rrhh.acceder', ref:'#', id: 'rh', icon: 'bi-people', text: 'RRHH'},
+        {permission:'rrhh.acceder', ref:'./rrhh/dashboard.html', id: 'rh', icon: 'bi-people', text: 'RRHH'},
         {permission:'soporte.acceder', ref:'#', id: 'support', icon: 'bi-question-circle', text: 'Soporte'},
         {permission:'ventas.acceder', ref:'#', id: 'sales', icon: 'bi-graph-up', text: 'Ventas'}
     ]

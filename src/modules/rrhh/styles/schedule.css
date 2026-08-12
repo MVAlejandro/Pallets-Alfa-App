@@ -3,34 +3,38 @@ main {
 }
 
 /* Estilos de contenedores */
-#staff-info-container, #staff-details-container {
+#schedule-info-container, #schedule-details-container, #extra-pages-container {
     background-color: var(--background-light) !important;
     border-radius: 0.3rem;
     border: 1px solid var(--secondary-light);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-#staff-details-container {
+th {
+    color: var(--secondary) !important;
+}
+
+#schedule-details-container {
     animation: fadeInUp 1s ease-in-out;
 }
 
-#staff-filter {
+#schedule-filter {
     border-bottom: 1px solid var(--secondary-light);
 }
 
-#staff-list-container {
+#schedule-list-container {
     max-height: 440px;
     /* Habilita el scroll vertical */
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-#total-text {
+#total-text, #time-text {
     color: var(--primary-dark);
 }
 
 @media (max-width: 770px) {
-    #staff-list-container {
+    #schedule-list-container {
         max-height: 350px;
     }
 
@@ -47,7 +51,7 @@ main {
 }
 
 @media (max-width: 770px) {
-    #staff-list {
+    #schedule-list {
         font-size: 13px !important;
     }
 }
@@ -57,9 +61,8 @@ main {
     opacity: 0.5;
 }
 
-#form-header {
+#schedule-header, #extra-pending-header, #extra-revised-header {
     border-bottom: 1px solid var(--secondary-light);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 #form-header-container {
@@ -95,4 +98,39 @@ main {
     font-weight: normal;
     font-size: 13px;
     color: var(--secondary) !important;
+}
+
+/* Estilos para los horarios */
+#schedule-table, #schedule-table td {
+    background-color: var(--background-dark) !important;
+    color: var(--secondary);
+}
+
+#schedule-table tr, #extra-pending-table tr, #extra-revised-table tr {
+    border: 1px solid var(--secondary-light);
+}
+
+#schedule-body, #extra-pending, #extra-revised {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para tiempo extra */
+#extra-pending-table, #extra-pending-table td {
+    font-size: 12px;
+}
+
+.extra-date{
+    color: var(--primary-dark) !important;
+    font-weight: bold;
+}
+
+.extra-time, #extra-pages-results {
+    font-size: 13px;
+    color: var(--secondary) !important;
+}
+
+@media (max-width: 770px) {
+    #extra-pages .pagination .page-link {
+        font-size: 13px !important;
+    }
 }

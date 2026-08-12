@@ -83,17 +83,17 @@ export function createNavbar() {
                     </div>
                 </li>
                 <li class="mb-1">
-                    <button class="btn btn-toggle align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#rh" aria-expanded="false">
+                    <button class="btn btn-toggle align-items-center collapsed" data-bs-toggle="collapse" data-bs-target="#rrhh" aria-expanded="false">
                         <i class="bi bi-people"></i>
                         <p class="ps-3">RRHH</p>
                     </button>
-                    <div class="collapse" id="rh">
+                    <div class="collapse" id="rrhh">
                         <ul class="btn-toggle-nav pb-1 small">
-                            <li><a href="#" class="link-dark rounded">Inicio</a></li>
-                            <li><a href="#" class="link-dark rounded">Horarios</a></li>
-                            <li><a href="#" class="link-dark rounded">Asistencia</a></li>
-                            <li><a href="#" class="link-dark rounded">Uniformes</a></li>
-                            <li><a href="#" class="link-dark rounded">Permisos</a></li>
+                            <li><a href="/app/rrhh/dashboard.html" class="link-dark rounded">Inicio</a></li>
+                            <li><a href="/app/rrhh/schedule.html" class="link-dark rounded">Horarios</a></li>
+                            <li><a href="/app/rrhh/attendance.html" class="link-dark rounded">Asistencia</a></li>
+                            <li><a href="/app/rrhh/uniforms.html" class="link-dark rounded">Uniformes</a></li>
+                            <li><a href="/app/rrhh/permissions.html" class="link-dark rounded">Permisos</a></li>
                             <li><a href="#" class="link-dark rounded">Calendario</a></li>
                             <li><a href="#" class="link-dark rounded">Reportes</a></li>
                         </ul>

@@ -1,7 +1,7 @@
 // Dependencias
 import { Swal } from '../../../../shared/utils/utils.js';
 // Funciones del backend
-import { createRemove } from '../../services/removed-staff-service.js';
+import { createRemove } from '../../../rrhh/services/removed-staff-service.js'; 
 import { deleteStaff, getStaffs, findStaff } from '../../services/staff-service.js'; 
 import { requireActionPermission, validatePermissions } from "../../../../core/auth/auth-validate.js";
 // Funciones del módulo

@@ -43,58 +43,60 @@
                     </div>
                 </section>
 
-                <!-- SECCIÓN DE FILTROS -->
-                <section id="staff-filter">
-                    <div id="staff-filter-container" class="container pt-4 pb-3">
-                        <form id="filter-form" autocomplete="off">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-4 d-flex align-items-center label-over-border filter-sm">
-                                    <label for="search-filter" class="form-label m-2">Buscar por Empleado</label>
-                                    <input id="search-filter" class="form-control" type="search" placeholder="Buscar..." aria-label="Search"/>
-                                </div>
-                                <div class="col-lg-3 col-md-4 d-flex align-items-center label-over-border filter-sm">
-                                    <label for="departament-filter" class="form-label m-2">Filtrar por Depto</label>
-                                    <select class="form-select" id="departament-filter">
-                                        <option value="0">Todos</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-3 col-md-4 d-flex align-items-center label-over-border filter-sm">
-                                    <label for="status-filter" class="form-label m-2">Filtrar por Estado</label>
-                                    <select class="form-select" id="status-filter">
-                                        <option value="0">Todos</option>
-                                        <option value="ACTIVO" selected>Activos</option>
-                                        <option value="INACTIVO">Inactivos</option>
-                                    </select>
-                                </div>
-                                <div class="col-md d-flex align-items-center justify-content-end filter-md">
-                                    <button id="clear-filters" type="button" class="btn btn-primary d-flex align-items-center ps-3 pe-3">
-                                        <i class="bi bi-filter-circle"></i>
-                                        <p class="ps-2">Limpiar</p>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </section>
-
                 <!-- SECCIÓN DE REGISTROS -->
-                <section id="staff-register" class="mt-1">
-                    <div class="container pb-3">
-                        <div class="row">
-                            <div class="col-8 col-md-6 d-flex align-items-center">
-                                <h5>Listado de Empleados</h5>
-                            </div>
-                            <div class="col-4 col-md-6 d-flex align-items-center justify-content-end">
-                                <p id="total-text" class="fw-bold">Total Registros: -</p>
-                            </div>
-                        </div>
-                    </div>
+                <section id="staff-register">
                     <div class="container">
                         <div class="row">
                             <div id="staff-info" class="col-lg-4 pb-3 ps-lg-0">
-                                <div id="staff-list-container" class="container p-4">
-                                    <div id="staff-list" class="list-group">
-                                        <p>No hay registros que mostrar</p>
+                                <div id="staff-info-container">
+                                    <!-- SECCIÓN DE FILTROS -->
+                                    <div id="staff-filter" class="container p-4">
+                                        <div class="d-flex align-items-center">
+                                            <h5>Listado de Empleados</h5>
+                                        </div>
+                                        <div id="staff-filter-container" class="pt-4">
+                                            <form id="filter-form" autocomplete="off">
+                                                <div class="row">
+                                                    <div class="col-12 d-flex align-items-center label-over-border mb-4">
+                                                        <label for="search-filter" class="form-label m-2">Buscar por Empleado</label>
+                                                        <input id="search-filter" class="form-control" type="search" placeholder="Buscar..." aria-label="Search"/>
+                                                    </div>
+                                                    <div class="col-12 d-flex align-items-center label-over-border mb-4">
+                                                        <label for="departament-filter" class="form-label m-2">Filtrar por Depto</label>
+                                                        <select class="form-select" id="departament-filter">
+                                                            <option value="0">Todos</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-12 d-flex align-items-center label-over-border mb-4">
+                                                        <label for="status-filter" class="form-label m-2">Filtrar por Estado</label>
+                                                        <select class="form-select" id="status-filter">
+                                                            <option value="0">Todos</option>
+                                                            <option value="ACTIVO" selected>Activos</option>
+                                                            <option value="INACTIVO">Inactivos</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col d-flex align-items-center justify-content-end">
+                                                        <button id="clear-filters" type="button" class="btn btn-primary d-flex align-items-center ps-3 pe-3">
+                                                            <i class="bi bi-filter-circle"></i>
+                                                            <p class="ps-2">Limpiar</p>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <!-- LISTA DE EMPLEADOS -->
+                                    <div class="container py-3">
+                                        <div class="row pe-2">
+                                            <div class="col d-flex align-items-center justify-content-end">
+                                                <p id="total-text" class="fw-bold">Total Registros: -</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="staff-list-container" class="container px-4 pb-4">
+                                        <div id="staff-list" class="list-group">
+                                            <p>No hay registros que mostrar</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
