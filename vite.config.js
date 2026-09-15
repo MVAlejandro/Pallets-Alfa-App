@@ -15,8 +15,9 @@ export default defineConfig({
         outDir: 'dist',
         rollupOptions: {
             input: {
-                index: resolve(__dirname, 'index.html'),
-                login: resolve(__dirname, 'login.html')
+                index: resolve(import.meta.dirname, 'index.html'),
+                login: resolve(import.meta.dirname, 'login.html'),
+                profile: resolve(import.meta.dirname, 'profile.html'),
             }
         },
     },

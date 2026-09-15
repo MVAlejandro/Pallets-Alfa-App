@@ -29,7 +29,7 @@ th {
     overflow-x: hidden;
 }
 
-#total-text, #time-text {
+#total-text, #time-text, #header-name {
     color: var(--primary-dark);
 }
 
@@ -65,11 +65,20 @@ th {
     border-bottom: 1px solid var(--secondary-light);
 }
 
+#form-header {
+    border-bottom: 1px solid var(--secondary-light);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
 #form-header-container {
     background-color: var(--background-dark) !important;
     border-radius: 0.3rem;
     border: 1px solid var(--secondary-light);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#form-body {
+    border-top: 1px solid var(--secondary-light);
 }
 
 #form-footer {
@@ -100,6 +109,18 @@ th {
     color: var(--secondary) !important;
 }
 
+.schedule-total {
+    background-color: var(--background-dark) !important;
+    border-radius: 0.3rem;
+    border: 1px solid var(--secondary-light);
+}
+
+@media (max-width: 430px) {
+    .schedule-total {
+        font-size: 10px !important;
+    }
+}
+
 /* Estilos para los horarios */
 #schedule-table, #schedule-table td {
     background-color: var(--background-dark) !important;
@@ -124,7 +145,7 @@ th {
     font-weight: bold;
 }
 
-.extra-time, #extra-pages-results {
+.schedule-total, .extra-time, #extra-pages-results {
     font-size: 13px;
     color: var(--secondary) !important;
 }

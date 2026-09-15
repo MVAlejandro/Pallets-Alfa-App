@@ -18,9 +18,9 @@ export async function renderScheduleList() {
 
     allStaff.forEach(staff => {
         container.innerHTML += 
-        `<button type="button" class="list-group-item list-group-item-action" staff-id='${staff.id_empleado}'>
+        `<button type="button" class="list-group-item list-group-item-action" staff-id='${staff.id_empleado}' style="${staff.tiempo_extra === true ? "background-color: var(--yellow-light)" : ""}">
             <div class="staff-item">
-                <p class="staff-name fw-bold">${staff.nombre}</p>
+                <p class="staff-name fw-bold">${staff.nombre} ${staff.tiempo_extra === true ? "*" : ""}</p>
                 <p class="staff-number">No ${staff.numero_empleado} - <span class="staff-position">${staff.puesto}</span></p>
             </div>
         </button>`;

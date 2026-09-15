@@ -1,5 +1,5 @@
 // Importar el estadoo de los registros
-import { extraState } from "../schedule/schedule-module.js"; 
+import { extraState } from "../schedule/schedule-view.js"; 
 // Funciones del backend
 import { validatePermissions } from "../../../../core/auth/auth-validate.js";
 
@@ -85,13 +85,13 @@ export async function renderExtraTimeTable() {
     let totalMinutes = 0;
 
     filteredRecords.forEach(extraT => {
-        const [hours, minutes] = extraT.tiempo.split(':').map(Number);
-        totalMinutes += (hours * 60) + minutes;
+        totalMinutes += timeToMinutes(extraT.tiempo);
     });
 
     // Convertir minutos totales a HH:mm
     const totalHours = Math.floor(totalMinutes / 60);
     const remainingMinutes = totalMinutes % 60;
+
     const totalTime = `${String(totalHours).padStart(2, '0')}:${String(remainingMinutes).padStart(2, '0')}`;
 
     // Agregar total de horas

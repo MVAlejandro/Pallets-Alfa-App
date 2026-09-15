@@ -93,112 +93,12 @@
                                 </div>
                             </div>
                             <div id="schedule-details" class="col-lg-8 pb-3 pe-lg-0">
-                                <div id="schedule-details-container">
-                                    <div class="row">
-                                        <div class="col-md-6 pe-md-0">
-                                            <div id="schedule-container" class="ps-4 pe-3 pt-3">
-                                                <div id="schedule-header" class="p-2 mb-3">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="mx-3">
-                                                            <i class="bi bi-calendar2-week icon-md" style="color:var(--primary-dark)"></i>
-                                                        </div>
-                                                        <h5 class="fw-bold">Horario semanal</h5>
-                                                    </div>
-                                                </div>
-                                                <div id="schedule-body" class="table-responsive">
-                                                    <table id="schedule-table" class="table table-hover align-middle mb-0">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="text-center" colspan="2">No hay horarios registrados</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 ps-md-0">
-                                            <div id="extra-pending-container" class="ps-3 pe-4 pt-3">
-                                                <div id="extra-pending-header" class="p-2 mb-3">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="mx-3">
-                                                            <i class="bi bi-clock-history icon-md" style="color:var(--primary-dark)"></i>
-                                                        </div>
-                                                        <h5 class="fw-bold">Horas extra pendientes</h5>
-                                                    </div>
-                                                </div>
-                                                <div id="extra-pending" class="table-responsive mb-3">
-                                                    <table id="extra-pending-table" class="table table-hover align-middle mb-0">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="text-center" colspan="2">Sin horas extra pendientes</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <div id="extra-revised-container" class="p-4 pt-3">
-                                                <div id="extra-revised-header" class="p-2 mb-3">
-                                                    <div class="d-flex align-items-center">
-                                                        <div class="mx-3">
-                                                            <i class="bi bi-clock icon-md" style="color:var(--primary-dark)"></i>
-                                                        </div>
-                                                        <h5 class="fw-bold">Horas extra revisadas</h5>
-                                                    </div>
-                                                </div>
-                                                <div class="container pb-3">
-                                                    <div class="row">
-                                                        <div class="col d-flex align-items-center justify-content-end">
-                                                            <p id="time-text" class="fw-bold">Tiempo Total: --:--</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div id="extra-revised" class="table-responsive">
-                                                    <table id="extra-revised-table" class="table table-hover align-middle mb-0">
-                                                        <thead>
-                                                            <tr class="table-secondary">
-                                                                <th class="">FECHA</th>
-                                                                <th class="">OBSERVACIONES</th>
-                                                                <th class="">ESTADO</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td class="text-center" colspan="3">Sin horas extra registradas</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                                <!-- SECCIÓN DE PAGINACIÓN -->
-                                                <div id="extra-pages" class="mt-3">
-                                                    <div id="extra-pages-container" class="container py-3">
-                                                        <div class="row align-items-center ms-2 me-1">
-                                                            <div class="col-12 col-lg-9 mb-2">
-                                                                <p id="extra-pages-results"></p>
-                                                            </div>
-                                                            <div class="col-12 col-lg-3 d-flex justify-content-end">
-                                                                <nav aria-label="Page navigation example">
-                                                                    <ul class="pagination mb-0">
-                                        
-                                                                    </ul>
-                                                                </nav>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- <div id="schedule-details-container" class="container d-flex justify-content-center align-items-center p-5">
+                                <div id="schedule-details-container" class="container d-flex justify-content-center align-items-center p-5">
                                     <div id="logo-details" class="text-center">
                                         <h5 class="fw-light mb-4">Seleccione un empleado para visualizar su información.</h5>
                                         <img src="/assets/images/logo-letras-420x187.png" alt="Logo Pallets Alfa" class="w-75 img-fluid">
                                     </div>
-                                </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -216,45 +116,48 @@
 
     <!-- Modal de edición para los horarios del empleado -->
     <div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="edit-modalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content pt-3 pb-3">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
                 <div class="modal-header">
                     <div class="row">
                         <div class="col d-flex align-items-center">
-                            <div class="ms-4 me-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16" style="color:var(--primary)">
-                                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
-                                </svg>
+                            <div class="mx-3">
+                                <i class="bi bi-calendar2-plus icon-md" style="color:var(--primary-dark)"></i>
                             </div>
-                            <h5 class="modal-title" id="edit-modalLabel">Editar horario</h5>
+                            <h5 id="remove-modalLabel" class="modal-title fw-bold">Detalle de Horarios</h5>
                         </div>
                     </div>
                     <button type="button" class="btn-close me-3" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="container">
-                        <form id="schedule-edit-form">
-                            <input type="hidden" id="edit-id-staff">
-                            <div class="row ms-2 me-2 mt-3">
-                                <div class="col-md-4 col-lg-3 ms-auto label-over-border">
-                                    <label for="edit-id" class="form-label m-2">Num Empleado</label>
-                                    <input type="text" class="form-control" id="edit-id" disabled>
-                                </div>
-                                <div class="col-md-8 col-lg-9 label-over-border">
-                                    <label for="edit-staff" class="form-label m-2">Empleado</label>
-                                    <input type="text" class="form-control" id="edit-staff" disabled>
-                                </div>
+                <div class="modal-body p-4">
+                    <div id="modal-header-container" class="container p-3">
+                        <div class="row">
+                            <div class="col-7 col-md-8 d-flex flex-column">
+                                <p class="fw-bold modal-text">EMPLEADO SELECCIONADO</p>
+                                <p id="header-name" class="fw-bold">-</p>
                             </div>
-                            <div id="schedule-days-container" class="row ms-2 me-2 pt-5">
+                            <div class="col-5 col-md-4 d-flex flex-column align-items-end justify-content-end">
+                                <p class="fw-bold modal-text">No de Empleado</p>
+                                <p id="header-num-staff" class="modal-color state-grey">#CATE-000</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modal-main-container" class="container py-3 mt-3">
+                        <form id="schedule-edit-form" autocomplete="off">
+                            <input type="hidden" id="edit-id-staff">
+                            <div id="schedule-days-container">
 
                             </div>
                         </form>
                     </div>
                 </div>
-                <div class="modal-footer me-4">
+                <div class="modal-footer px-md-4">
+                    <div id="modal-footer-container" class="container px-0 pb-3">
+                        <p class="fw-bold modal-log-text">CREADO POR: <span id="modal-user-created">USUARIO - ----/--/--</span></p>
+                        <p class="fw-bold modal-log-text">ÚLTIMA MODIFICACIÓN: <span id="modal-user-history">USUARIO - ----/--/--</span></p>
+                    </div>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button id="btn-edit-entry" class="btn btn-primary">Guardar cambios</button>
+                    <button type="submit" id="btn-edit-entry" form="schedule-edit-form" class="btn btn-primary d-none" data-permission="horarios.editar">Guardar cambios</button>
                 </div>
             </div>
         </div>
